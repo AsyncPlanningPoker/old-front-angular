@@ -1,0 +1,13 @@
+<form [formGroup]="form">
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Senha</mat-label>
+        <input matInput placeholder="Senha" formControlName="password">
+    </mat-form-field>
+    <mat-card-actions>
+        <button mat-raised-button>Entrar</button>
+    </mat-card-actions>
+</form>
