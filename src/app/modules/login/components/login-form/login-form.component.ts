@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BaseService } from 'src/app/core/services/base.service';
 import { LoginService } from 'src/app/core/services/login/login.service';
 
@@ -15,7 +16,8 @@ export class LoginFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router
   ) {
     this.storage = window.localStorage;
   }
@@ -34,6 +36,8 @@ export class LoginFormComponent implements OnInit {
       const { token } = res
 
       this.storage.setItem('planning-poker-token', token)
+      this.router.navigate(['home']);
+
     });
   }
 }
