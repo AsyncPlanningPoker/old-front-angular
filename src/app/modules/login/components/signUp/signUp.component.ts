@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/core/services/login/login.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class SignUpComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router
   ) { }
 
   hide = true;
@@ -31,6 +33,9 @@ export class SignUpComponent implements OnInit {
     this.loginService.post(this.form.value).subscribe(
       res => {
         console.log(res)
+
+        this.router.navigate(['login']);
+
       }
     )
   }

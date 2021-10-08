@@ -6,6 +6,7 @@ import { LoginRoutingModule } from './login.routing.module';
 import { SignUpComponent } from './components/signUp/signUp.component';
 import { LoginComponent } from './login.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     CoreModule,
     SharedModule,
     CommonModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+
+    RouterModule
   ],
   exports: []
 })
