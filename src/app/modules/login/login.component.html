@@ -1,15 +1,27 @@
-<div class="content">
-  <mat-grid-list cols="3" rowHeight="100%">
-    <mat-grid-tile rowspan="1" colspan="2">
-      <img id="img-hello" src="/assets/Hello.svg" alt="image" />
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="1" rowspan="1">
-      <div class="container">
-        <router-outlet></router-outlet>
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
+<div class="content">   
+  <main>
+    <div class="container">
+      <h1>Planning Poker</h1>
+      <p>{{messageDisplay}}</p>
+      <mat-tab-group (selectedIndexChange)="changeOption($event)" mat-align-tabs="start">
+        <mat-tab label="Log In">
+          <ng-template mat-tab-label>
+            <strong>Log In</strong>
+          </ng-template>
+            <app-login-form></app-login-form>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <strong>Sign Up</strong>
+          </ng-template>
+          <app-signUp></app-signUp>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </main>
+  <aside>
+    <img id="img-hello" src="/assets/ScrumBoard.svg" alt="image" />
+  </aside>
 </div>
 
 

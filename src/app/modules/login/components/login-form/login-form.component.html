@@ -2,18 +2,20 @@
   <form [formGroup]="form">
     <mat-grid-list cols="1" rowHeight="100px">
       <mat-grid-tile>
-        <h1 class="mat-headline" style="color: #0e53a7">Log in</h1>
-      </mat-grid-tile>
-
-      <mat-grid-tile>
-        <mat-form-field style="width: 80%">
-          <mat-label>Nome</mat-label>
-          <input matInput placeholder="Nome" formControlName="username" />
+        <mat-form-field class="input-field">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" formControlName="email" />
+          <mat-error *ngIf="form.get('email')?.getError('email')">
+              Email inválido
+          </mat-error>
+          <mat-error *ngIf="form.controls.email.errors?.required">
+              Email é <strong>obrigatório</strong>
+          </mat-error>
         </mat-form-field>
       </mat-grid-tile>
 
       <mat-grid-tile>
-        <mat-form-field style="width: 80%">
+        <mat-form-field class="input-field">
           <mat-label>Senha</mat-label>
           <input
             matInput
@@ -30,14 +32,11 @@
           >
             <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
           </button>
+          <mat-error *ngIf="form.controls.password.errors?.required">
+            Senha é <strong>obrigatória</strong>
+          </mat-error>
         </mat-form-field>
       </mat-grid-tile>
-
-
-      <mat-grid-tile>
-        <a  routerLink="signUp">Cadastrar-se</a>
-      </mat-grid-tile>
-
       <mat-grid-tile>
         <button
           class="button-submit"

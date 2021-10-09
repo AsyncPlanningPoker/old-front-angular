@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { LoginService } from 'src/app/core/services/login/login.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { LoginService } from 'src/app/core/services/login/login.service';
 })
 export class SignUpComponent implements OnInit {
 
-  form!: FormGroup
+  form!: FormGroup;
+  sub!: Subscription;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -22,21 +24,23 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      email: [, [Validators.required, Validators.email]],
-      username: [, [Validators.required, Validators.min(3)]],
-      password: [, [Validators.required, Validators.min(1)]]
+      email: [null, [Validators.required, Validators.email]],
+      username: [null, [Validators.required, Validators.minLength(3)]],
+      password: [null, [Validators.required, Validators.minLength(3)]]
     })
   }
 
+  ngOnDestroy(){
+      this.sub.unsubscribe();
+  }
+
   submitForm() {
-
-    this.loginService.post(this.form.value).subscribe(
-      res => {
-        console.log(res)
-
-        this.router.navigate(['login']);
-
-      }
-    )
+    if(this.form.valid && this.form.dirty){
+      this.sub =this.loginService.post(this.form.value).subscribe(
+        res => {
+          console.log(res)
+          this.router.navigate(['login']);
+        });
+    }
   }
 }
