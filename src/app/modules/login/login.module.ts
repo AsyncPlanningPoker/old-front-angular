@@ -5,8 +5,6 @@ import { CoreModule } from 'src/app/core/core.module';
 import { SignUpComponent } from './components/signUp/signUp.component';
 import { LoginComponent } from './login.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
-import { RouterModule } from '@angular/router';
-import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -17,9 +15,7 @@ import { MatTabsModule } from '@angular/material/tabs';
   imports: [
     CoreModule,
     SharedModule,
-    CommonModule,
-    MatTabsModule,
-    RouterModule
+    CommonModule
   ],
   exports: []
 })

@@ -1,5 +1,6 @@
 
 import { NgModule } from '@angular/core';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule} from '@angular/material/button';
@@ -31,6 +32,7 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ],
   exports: [
+		MatTabsModule,
 		MatToolbarModule,
 		MatButtonModule,
 		MatFormFieldModule,

@@ -16,12 +16,15 @@ export class AuthService {
 
   auth() {
     const token = this.storage.getItem('planning-poker-token');
-
-    // const decodedToken = this.jwtHelper.decodeToken(token || "");
     const isExpired = this.jwtHelper.isTokenExpired(token || "");
 
     if(isExpired) return false;
 
     return true;
+  }
+
+  decoderToken(){
+    const token = this.storage.getItem('planning-poker-token');
+    return this.jwtHelper.decodeToken(token || "");
   }
 }

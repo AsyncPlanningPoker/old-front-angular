@@ -28,17 +28,32 @@ export class AuthGuard implements CanActivate {
     | boolean
     | UrlTree {
 
-    console.log('AuthGuard');
-
-    return this.verifyAuth();
+    return this.verifyAuth(route.routeConfig?.path);
   }
 
-  private verifyAuth(){
+  private verifyAuth(path: string | undefined){
     if(this.authService.auth()){
+      if(this.isLogin(path)){
+        console.log(this.authService.decoderToken());
+        this.router.navigate(['home']);
+        return false;
+      }
       return true
     }
 
+    if(this.isLogin(path)){
+      return true;
+    }
     this.router.navigate(['login']);
     return false;
   }
+
+  private isLogin(path: string | undefined){
+    if(path == "login"){
+      return true;
+    }
+    return false;
+  }
+
+
 }

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { BaseService } from 'src/app/core/services/base.service';
 import { LoginService } from 'src/app/core/services/login/login.service';
 
 @Component({
@@ -12,7 +10,6 @@ import { LoginService } from 'src/app/core/services/login/login.service';
 })
 export class LoginFormComponent implements OnInit {
   form!: FormGroup;
-  sub!: Subscription;
 
   private storage: Storage;
 
@@ -33,15 +30,13 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
-  ngOnDestroy(){
-    this.sub.unsubscribe();
-  }
 
   submitForm() {
     if(this.form.valid && this.form.dirty){
-      this.sub = this.loginService.login(this.form.value).subscribe((res) => {
+      this.loginService.login(this.form.value).subscribe((res) => {
         const { token } = res
-        this.storage.setItem('planning-poker-token', token)
+        this.storage.setItem('planning-poker-token', token);
+        this.loginService.setHeader(token);
         this.router.navigate(['home']);
       });
     }

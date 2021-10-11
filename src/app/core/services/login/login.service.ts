@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Login } from '../../interfaces/login/login';
 import { BaseService } from '../base.service';
@@ -23,8 +23,9 @@ export class LoginService extends BaseService<Login> {
     super(
       "/api/users",
       httpClient
-    )
+    );
   }
+
 
   login(payload: ILogin){
 
@@ -32,8 +33,13 @@ export class LoginService extends BaseService<Login> {
     console.log("password: ", payload.password);
     console.log(this);
 
-    return this.httpClient.post<any>(`${this.baseUrl}/auth`, payload, this.httpOptions)
+    return this.httpClient.post<any>(`${this.baseUrl}/auth`, payload, this.httpOptions);
+  }
 
+  setHeader(token :HttpHeaders){
+    super.httpOptions = {
+      header: token
+    }
   }
 
 }
