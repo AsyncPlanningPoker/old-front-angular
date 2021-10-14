@@ -10,7 +10,7 @@ const lofinRoutes: Routes = [
     path: '',
     component: LoginComponent,
     children: [
-      { path: '', component: LoginFormComponent },
+      { path: 'login', component: LoginFormComponent },
       { path: 'signUp', component: SignUpComponent },
     ],
   },

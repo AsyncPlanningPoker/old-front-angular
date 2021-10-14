@@ -26,18 +26,36 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      username: [, [Validators.required, Validators.min(3)]],
-      password: [, [Validators.required, Validators.min(1)]],
+      username: [, [Validators.required, Validators.minLength(3)]],
+      password: [, [Validators.required, Validators.minLength(8)]],
     });
   }
 
   submitForm() {
-    this.loginService.login(this.form.value).subscribe((res) => {
-      const { token } = res
+    if (this.form.valid && this.form.dirty) {
+      this.loginService.login(this.form.value).subscribe((res) => {
+        const { token } = res;
 
-      this.storage.setItem('planning-poker-token', token)
-      this.router.navigate(['home']);
+        this.storage.setItem('planning-poker-token', token);
+        this.router.navigate(['home']);
+      });
+    }
+  }
 
-    });
+  getErrorMessage(field: string) {
+    const keys = Object.keys(this.form.get(field)?.errors || {});
+
+    const key = keys[0];
+
+    if(!key) return ''
+
+    switch (key) {
+      case 'required':
+        return 'É obrigatório';
+      case 'minlength':
+        return `Não contém a quantidade minima de caracteres`;
+      default:
+        return 'Houve um erro';
+    }
   }
 }

@@ -9,6 +9,9 @@
         <mat-form-field style="width: 80%">
           <mat-label>Nome</mat-label>
           <input matInput placeholder="Nome" formControlName="username" />
+          <mat-error>
+            {{getErrorMessage("username")}}
+          </mat-error>
         </mat-form-field>
       </mat-grid-tile>
 
@@ -30,12 +33,15 @@
           >
             <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
           </button>
+          <mat-error>
+            {{getErrorMessage("password")}}
+          </mat-error>
         </mat-form-field>
       </mat-grid-tile>
 
 
       <mat-grid-tile>
-        <a  routerLink="signUp">Cadastrar-se</a>
+        <a  routerLink="/poker/signUp">Cadastrar-se</a>
       </mat-grid-tile>
 
       <mat-grid-tile>
