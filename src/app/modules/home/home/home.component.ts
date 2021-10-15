@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PokerService } from 'src/app/core/services/Poker/poker.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private pokerService: PokerService,
+  ) { }
 
   ngOnInit(): void {
+    this.pokerService.post({}).subscribe((res) => {
+      console.log(res);
+
+    });
   }
 
 }
