@@ -2,15 +2,15 @@
   <form [formGroup]="form">
     <mat-grid-list cols="1" rowHeight="100px">
       <mat-grid-tile>
-        <h1 class="mat-headline" style="color: #0e53a7">Log in</h1>
+        <h1 class="mat-headline font-poker" style="color: #0e53a7">Log in</h1>
       </mat-grid-tile>
 
       <mat-grid-tile>
         <mat-form-field style="width: 80%">
-          <mat-label>Nome</mat-label>
-          <input matInput placeholder="Nome" formControlName="username" />
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" formControlName="email" />
           <mat-error>
-            {{getErrorMessage("username")}}
+            {{getErrorMessage("email")}}
           </mat-error>
         </mat-form-field>
       </mat-grid-tile>
@@ -41,7 +41,7 @@
 
 
       <mat-grid-tile>
-        <a  routerLink="/poker/signUp">Cadastrar-se</a>
+        <a routerLink="/poker/signUp">Cadastrar-se</a>
       </mat-grid-tile>
 
       <mat-grid-tile>
