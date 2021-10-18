@@ -1,0 +1,31 @@
+header{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+h1{
+    color: #fa852b;
+    margin: 0;
+}
+
+form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 50px;
+}
+
+.input-field{
+    width: 400px;
+    margin-bottom: 30px;
+}
+
+.button-submit{
+    width: 50%;
+    background: linear-gradient(87.66deg, #ec3bb6 -1.87%, #fa852b 100%);
+    color: #fff;
+    border-radius: 5px;
+}

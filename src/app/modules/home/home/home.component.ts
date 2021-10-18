@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokerService } from 'src/app/core/services/Poker/poker.service';
+import { MatDialog} from '@angular/material/dialog';
+import { CreatePokerComponent } from './create-poker/create-poker.component';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +12,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private pokerService: PokerService,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -20,6 +23,7 @@ export class HomeComponent implements OnInit {
   }
 
   createPoker(){
+    const dialogRef = this.dialog.open(CreatePokerComponent);
     
   }
 
