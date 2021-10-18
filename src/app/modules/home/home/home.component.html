@@ -1,1 +1,34 @@
-<p>home works!</p>
+<app-navbar></app-navbar>
+<div id="container">
+    <header>
+        <h4>Meus Pokers</h4>
+        <button
+            id="button-create-poker"
+            mat-stroked-button
+            color="primary"
+            (click)="createPoker()"
+        >
+            Criar Pokers
+        </button>
+    </header>
+
+    <div id="content">
+
+        <div class="poker">
+            <p>Poker Placeholder</p>
+            <p>Autor</p>
+            <p class="state finished">Estado</p>
+            <button
+            class="button-poker"
+            mat-button color="primary"
+            color="primary"
+            (click)="createPoker()"
+            >
+                Abrir
+            <mat-icon>chevron_right</mat-icon>
+            </button>
+
+        </div>
+
+    </div>
+</div>
