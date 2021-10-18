@@ -9,7 +9,7 @@ interface ILogin {
 }
 
 interface IUser extends ILogin {
-  username: string;
+  name: string;
 }
 
 @Injectable({
@@ -27,10 +27,6 @@ export class LoginService extends BaseService<Login> {
   }
 
   login(payload: ILogin){
-
-    console.log("Email: ", payload.email);
-    console.log("password: ", payload.password);
-    console.log(this);
 
     return this.httpClient.post<any>(`${this.baseUrl}/auth`, payload, this.httpOptions)
 

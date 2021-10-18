@@ -26,7 +26,7 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      username: [, [Validators.required, Validators.minLength(3)]],
+      email: [, [Validators.required, Validators.email]],
       password: [, [Validators.required, Validators.minLength(8)]],
     });
   }
@@ -47,11 +47,13 @@ export class LoginFormComponent implements OnInit {
 
     const key = keys[0];
 
-    if(!key) return ''
+    if (!key) return '';
 
     switch (key) {
       case 'required':
         return 'É obrigatório';
+      case 'email':
+        return `E-mail inválido`;
       case 'minlength':
         return `Não contém a quantidade minima de caracteres`;
       default:
