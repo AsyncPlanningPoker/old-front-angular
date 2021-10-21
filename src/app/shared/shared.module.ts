@@ -10,7 +10,7 @@ import { NavbarModule } from './components/navbar/navbar.module';
   declarations: [
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [
     ReactiveFormsModule,

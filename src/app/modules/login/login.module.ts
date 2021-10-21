@@ -8,6 +8,8 @@ import { LoginComponent } from './login.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RouterModule } from '@angular/router';
 
+
+
 @NgModule({
   declarations: [
     LoginFormComponent,
@@ -19,8 +21,7 @@ import { RouterModule } from '@angular/router';
     SharedModule,
     CommonModule,
     LoginRoutingModule,
-
-    RouterModule
+    RouterModule,
   ],
   exports: []
 })

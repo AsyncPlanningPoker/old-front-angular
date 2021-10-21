@@ -8,6 +8,7 @@ import { LoginModule } from './modules/login/login.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './modules/home/home.module';
 import { NavbarModule } from './shared/components/navbar/navbar.module';
+import { NotifierModule} from 'angular-notifier';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NavbarModule } from './shared/components/navbar/navbar.module';
     BrowserAnimationsModule,
     LoginModule,
     HomeModule,
-    NavbarModule
+    NavbarModule,
+    NotifierModule
   ],
   providers: [],
   bootstrap: [AppComponent]
