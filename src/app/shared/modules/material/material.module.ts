@@ -23,6 +23,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatMenuModule } from '@angular/material/menu';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
@@ -53,7 +54,8 @@ import { CommonModule } from '@angular/common';
 		MatChipsModule,
 		MatCheckboxModule,
 		MatDatepickerModule,
-		MatNativeDateModule
+		MatNativeDateModule,
+		MatMenuModule
   ]
 })
 export class MaterialModule { }

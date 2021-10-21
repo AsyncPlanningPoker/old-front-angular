@@ -1,0 +1,20 @@
+<div id="container">
+    <nav>
+        <div id="logo">
+            <img src="/assets/Vector.png" alt="logo" />
+            <div id="title">Async Planning Poker</div>
+        </div>
+        <div id="userControl">
+            {{username}}
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>expand_more</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click) ="logOut()">
+                <mat-icon>logout</mat-icon>
+                <span>Log Out</span>
+              </button>
+            </mat-menu>
+        </div>
+    </nav>
+</div>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BaseService } from 'src/app/core/services/base.service';
 import { LoginService } from 'src/app/core/services/login/login.service';
 
 @Component({
@@ -17,7 +16,7 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private loginService: LoginService,
-    private router: Router
+    private router: Router,
   ) {
     this.storage = window.localStorage;
   }
@@ -40,6 +39,7 @@ export class LoginFormComponent implements OnInit {
         this.router.navigate(['home']);
       });
     }
+
   }
 
   getErrorMessage(field: string) {

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from "@auth0/angular-jwt";
-import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -16,12 +15,15 @@ export class AuthService {
 
   auth() {
     const token = this.storage.getItem('planning-poker-token');
-
-    // const decodedToken = this.jwtHelper.decodeToken(token || "");
     const isExpired = this.jwtHelper.isTokenExpired(token || "");
 
     if(isExpired) return false;
 
     return true;
+  }
+
+  decode(){
+    const token = this.storage.getItem('planning-poker-token');
+    return this.jwtHelper.decodeToken(token || "");
   }
 }
