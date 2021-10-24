@@ -24,6 +24,7 @@ export class AuthService {
 
   decode(){
     const token = this.storage.getItem('planning-poker-token');
-    return this.jwtHelper.decodeToken(token || "");
+    const decodeToken = this.jwtHelper.decodeToken(token || "")
+    return decodeToken ? decodeToken : "";
   }
 }

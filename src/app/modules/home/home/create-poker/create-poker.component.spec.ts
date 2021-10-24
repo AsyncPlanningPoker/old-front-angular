@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
+import { HomeModule } from '../../home.module';
 
 import { CreatePokerComponent } from './create-poker.component';
 
@@ -8,7 +10,8 @@ describe('CreatePokerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreatePokerComponent ]
+      declarations: [ CreatePokerComponent ],
+      providers: [ FormBuilder ]
     })
     .compileComponents();
   });

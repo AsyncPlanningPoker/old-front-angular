@@ -27,9 +27,12 @@ export class LoginService extends BaseService<Login> {
   }
 
   login(payload: ILogin){
-
+    if(payload.email)
+      throw new Error("Email não pode ser vazio")
+    if(payload.password)
+      throw new Error("Senha não pode ser vazio")
+    
     return this.httpClient.post<any>(`${this.baseUrl}/auth`, payload, this.httpOptions)
-
   }
 
 }
