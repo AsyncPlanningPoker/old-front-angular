@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PokerService } from 'src/app/core/services/Poker/poker.service';
 import { MatDialog} from '@angular/material/dialog';
+import { PokerService } from 'src/app/core/services/Poker/poker.service';
 import { CreatePokerComponent } from './create-poker/create-poker.component';
 
 @Component({

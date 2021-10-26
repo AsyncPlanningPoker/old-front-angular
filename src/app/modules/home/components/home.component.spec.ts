@@ -1,10 +1,7 @@
-import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CoreModule } from 'src/app/core/core.module';
-import { PokerService } from 'src/app/core/services/Poker/poker.service';
 import { HomeModule } from '../home.module';
 
 import { HomeComponent } from './home.component';

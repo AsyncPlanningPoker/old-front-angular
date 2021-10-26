@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home/home.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { CreatePokerComponent } from './home/create-poker/create-poker.component';
+import { HomeComponent } from './components/home.component';
+import { CreatePokerComponent } from './components/create-poker/create-poker.component';
 
 
 
