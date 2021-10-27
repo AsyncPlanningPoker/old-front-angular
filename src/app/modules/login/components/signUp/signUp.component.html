@@ -2,11 +2,11 @@
   <form [formGroup]="form">
     <mat-grid-list cols="1" rowHeight="100px">
       <mat-grid-tile>
-        <h1 class="mat-headline" style="color: #0e53a7">Sign Up</h1>
+        <h1 class="mat-headline" color="primary">Sign Up</h1>
       </mat-grid-tile>
 
       <mat-grid-tile>
-        <mat-form-field style="width: 80%">
+        <mat-form-field class="width-form-field"appearance="outline">
           <mat-label>Nome</mat-label>
           <input matInput placeholder="Nome" formControlName="name" />
           <mat-error>
@@ -16,7 +16,7 @@
       </mat-grid-tile>
 
       <mat-grid-tile>
-        <mat-form-field style="width: 80%">
+        <mat-form-field class="width-form-field" appearance="outline">
           <mat-label>Email</mat-label>
           <input matInput placeholder="Email" formControlName="email" />
           <mat-error>
@@ -26,7 +26,7 @@
       </mat-grid-tile>
 
       <mat-grid-tile>
-        <mat-form-field style="width: 80%">
+        <mat-form-field class="width-form-field" appearance="outline">
           <mat-label>Senha</mat-label>
           <input
             matInput
@@ -51,7 +51,7 @@
 
       <mat-grid-tile>
         <button
-          class="button-submit"
+          class="width-form-field"
           mat-raised-button
           color="primary"
           (click)="submitForm()"

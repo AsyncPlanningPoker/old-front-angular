@@ -1,10 +1,42 @@
-.content {
+.content{
   width: 100%;
   height: 100vh;
-  padding: 50px;
+  background-color: #1A237E; /*$indigo-palette 900*/
 }
 
-#img-hello {
-  width: 90%;
-  max-width: 700px;
+#logo{
+  width: 100%;
+  height: 100%;
+  background-size: 120px 120px;
+  background-image:
+    linear-gradient(to right, #1A237E, transparent),
+                        /*$indigo-palette 900*/
+    repeating-conic-gradient(from 0deg, #1A237E 0deg 90deg, #3F51B5 90deg 180deg)
+                                  /*$indigo-palette 900*/ /*$indigo-palette 500*/
+  ;
+  box-shadow: inset 0px 0px 10em 14em #1A237E; /*$indigo-palette 900*/
+  color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#img-hello{
+  width: 40%;
+}
+
+span{
+  font-size: 4em;
+  font-weight: bolder;
+}
+
+p{
+  display: inline;
+  font-size: 0.5em;
+}
+
+.container{
+  min-width: 450px;
+  max-width: 450px;
 }

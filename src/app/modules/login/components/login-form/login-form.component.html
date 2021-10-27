@@ -2,13 +2,13 @@
   <form [formGroup]="form">
     <mat-grid-list cols="1" rowHeight="100px">
       <mat-grid-tile>
-        <h1 class="mat-headline font-poker" style="color: #0e53a7">Log in</h1>
+        <h1 class="mat-headline" color="primary">Log in</h1>
       </mat-grid-tile>
 
       <mat-grid-tile>
-        <mat-form-field style="width: 80%">
+        <mat-form-field class="width-form-field" appearance="outline">
           <mat-label>Email</mat-label>
-          <input matInput placeholder="Email" formControlName="email" />
+          <input matInput placeholder="email@email.com" formControlName="email" />
           <mat-error>
             {{getErrorMessage("email")}}
           </mat-error>
@@ -16,7 +16,7 @@
       </mat-grid-tile>
 
       <mat-grid-tile>
-        <mat-form-field style="width: 80%">
+        <mat-form-field class="width-form-field" appearance="outline">
           <mat-label>Senha</mat-label>
           <input
             matInput
@@ -39,21 +39,34 @@
         </mat-form-field>
       </mat-grid-tile>
 
-
-      <mat-grid-tile>
-        <a routerLink="/poker/signUp">Cadastrar-se</a>
-      </mat-grid-tile>
-
       <mat-grid-tile>
         <button
-          class="button-submit"
+          class="width-form-field"
           mat-raised-button
           color="primary"
           (click)="submitForm()"
         >
           Entrar
         </button>
+        
       </mat-grid-tile>
+
     </mat-grid-list>
+
   </form>
+
+  <mat-grid-list cols="1" rowHeight="100px">
+    <mat-grid-tile>
+      <p>
+        Não possui conta?
+        <button 
+          mat-button
+          color="primary"
+          routerLink="/poker/signUp">
+            Cadastre-se
+        </button>
+      </p>
+    </mat-grid-tile>
+  </mat-grid-list>
+
 </div>

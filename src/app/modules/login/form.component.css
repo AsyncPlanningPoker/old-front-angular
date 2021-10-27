@@ -1,0 +1,15 @@
+.wrapper-form {
+  width: 100%;
+  background-color: #fafafa; /*$grey-palette 50*/
+  border-radius: 10px;
+}
+  
+form {
+  width: 100%;
+}
+  
+.width-form-field{
+  width: 80%;
+}
+
+  

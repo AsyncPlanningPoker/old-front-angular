@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { LoginService } from './services/login/login.service';
+import { UserService } from './services/user/user.service';
 import { PokerService } from './services/Poker/poker.service';
 import { HeaderInterceptor } from './interceptors/header.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
@@ -13,7 +13,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     HttpClientModule
   ],
   providers: [
-    LoginService,
+    UserService,
     PokerService,
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }

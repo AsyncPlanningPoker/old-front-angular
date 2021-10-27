@@ -10,6 +10,7 @@ import { CreatePokerComponent } from './create-poker/create-poker.component';
 })
 export class HomeComponent implements OnInit {
 
+
   constructor(
     private pokerService: PokerService,
     public dialog: MatDialog,
@@ -24,7 +25,7 @@ export class HomeComponent implements OnInit {
 
   createPoker(){
     const dialogRef = this.dialog.open(CreatePokerComponent);
-    
+
   }
 
 }

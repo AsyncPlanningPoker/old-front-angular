@@ -12,17 +12,14 @@ import { NotifierService } from 'angular-notifier';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  private readonly notifier!: NotifierService;
 
-  constructor(private notifierService: NotifierService) {
-    this.notifier = notifierService;
+  constructor(private readonly notifierService: NotifierService) {
   }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe( catchError( (error: HttpErrorResponse) => {
       const errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
-      console.log(error);
-      this.notifier.notify('error', error.error.message);
+      this.notifierService.notify('error', error.error.message);
       return throwError(errorMsg);
     }));
   }
