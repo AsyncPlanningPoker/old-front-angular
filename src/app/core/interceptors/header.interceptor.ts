@@ -17,7 +17,7 @@ export class HeaderInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-    const token = this.storage.getItem('planning-poker-token');
+    const token = this.storage.getItem('@planningPoker:token');
     const Authorization = `Bearer ${token}`
 
     return next.handle(request.clone({ setHeaders: { Authorization } }));

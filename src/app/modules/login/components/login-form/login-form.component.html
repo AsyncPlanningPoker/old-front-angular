@@ -8,9 +8,13 @@
       <mat-grid-tile>
         <mat-form-field class="width-form-field" appearance="outline">
           <mat-label>Email</mat-label>
-          <input matInput placeholder="email@email.com" formControlName="email" />
+          <input
+            matInput
+            placeholder="email@email.com"
+            formControlName="email"
+          />
           <mat-error>
-            {{getErrorMessage("email")}}
+            {{ getErrorMessage("email") }}
           </mat-error>
         </mat-form-field>
       </mat-grid-tile>
@@ -24,17 +28,11 @@
             formControlName="password"
             [type]="hide ? 'password' : 'text'"
           />
-          <button
-            mat-icon-button
-            matSuffix
-            (click)="hide = !hide"
-            [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide"
-          >
-            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-          </button>
+          <mat-icon style="cursor: pointer" matSuffix (click)="hide = !hide">{{
+            hide ? "visibility_off" : "visibility"
+          }}</mat-icon>
           <mat-error>
-            {{getErrorMessage("password")}}
+            {{ getErrorMessage("password") }}
           </mat-error>
         </mat-form-field>
       </mat-grid-tile>
@@ -48,25 +46,18 @@
         >
           Entrar
         </button>
-        
       </mat-grid-tile>
-
     </mat-grid-list>
-
   </form>
 
   <mat-grid-list cols="1" rowHeight="100px">
     <mat-grid-tile>
       <p>
         Não possui conta?
-        <button 
-          mat-button
-          color="primary"
-          routerLink="/poker/signUp">
-            Cadastre-se
+        <button mat-button color="primary" routerLink="/poker/signUp">
+          Cadastre-se
         </button>
       </p>
     </mat-grid-tile>
   </mat-grid-list>
-
 </div>
