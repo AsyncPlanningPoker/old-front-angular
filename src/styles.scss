@@ -4,21 +4,18 @@
 @include mat.core();
 
 
-$myApp-primary: mat.define-palette(mat.$orange-palette);
-$myApp-accent: mat.define-palette(mat.$indigo-palette);
-$myApp-warn: mat.define-palette(mat.$pink-palette);
+$myApp-primary: mat.define-palette(mat.$indigo-palette, 900);
+$myApp-accent: mat.define-palette(mat.$pink-palette);
 
 
 $myApp-theme: mat.define-light-theme((
   color: (
     primary: $myApp-primary,
-    accent: $myApp-accent,
-    warn: $myApp-warn,
+    accent: $myApp-accent
   )
 ));
 
 @include mat.all-component-themes($myApp-theme);
-
 
 @font-face {
   font-family: 'Poker In October';

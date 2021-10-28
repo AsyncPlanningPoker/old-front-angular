@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { validatorError } from 'src/app/shared/functions/validatorError';
 
 @Component({
   selector: 'app-create-poker',
@@ -22,20 +23,7 @@ export class CreatePokerComponent implements OnInit {
   }
 
   getErrorMessage(field: string) {
-    const keys = Object.keys(this.formCreatePoker.get(field)?.errors || {});
-
-    const key = keys[0];
-
-    if(!key) return ''
-
-    switch (key) {
-      case 'required':
-        return 'É obrigatório';
-      case 'minlength':
-        return `Não contém a quantidade minima de caracteres`;
-      default:
-        return 'Houve um erro';
-    }
+    return validatorError(field, this.formCreatePoker);
   }
 
 }

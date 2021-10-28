@@ -6,13 +6,13 @@ import { BaseService } from '../base.service';
 @Injectable({
   providedIn: 'root'
 })
-export class PokerService  extends BaseService<any>  {
+export class PokerService extends BaseService<any>  {
 
   constructor(
     protected httpClient: HttpClient
   ) {
     super(
-      "/api/story",
+      "/api/poker/teste",
       httpClient
     )
   }

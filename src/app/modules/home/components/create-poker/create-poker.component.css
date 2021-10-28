@@ -6,7 +6,7 @@ header{
 }
 
 h1{
-    color: #fa852b;
+    color: #1A237E; /*$indigo-palette 900*/
     margin: 0;
 }
 
@@ -25,7 +25,4 @@ form{
 
 .button-submit{
     width: 50%;
-    background: linear-gradient(87.66deg, #ec3bb6 -1.87%, #fa852b 100%);
-    color: #fff;
-    border-radius: 5px;
 }
