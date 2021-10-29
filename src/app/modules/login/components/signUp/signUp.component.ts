@@ -21,6 +21,7 @@ export class SignUpComponent implements OnInit {
   ) {}
 
   hide = true;
+  isLoading = false;
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -32,9 +33,10 @@ export class SignUpComponent implements OnInit {
 
   submitForm() {
     if (this.form.valid && this.form.dirty) {
+      this.isLoading = true;
       this.userService.post(this.form.value).subscribe((res) => {
-        console.log(res);
         this.notifierService.notify('success', "Conta criada com sucesso. Logue-se para começar a jogar!");
+        this.isLoading = false;
         this.router.navigate(['login']);
       });
     }
