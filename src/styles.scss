@@ -1,21 +1,60 @@
 @use '~@angular/material' as mat;
+@use 'sass:map';
+@use "sass:meta";
+
 @import "~angular-notifier/styles";
 
 @include mat.core();
 
+@mixin color($theme, $contrast) {
+  // Get the color config from the theme.
+  $color-config: mat.get-color-config($theme);
 
-$myApp-primary: mat.define-palette(mat.$indigo-palette, 900);
-$myApp-accent: mat.define-palette(mat.$pink-palette);
+  // @debug meta.inspect($color-config);
+
+  // Get the primary color palette from the color-config.
+  $primary-palette: map.get($color-config, 'primary');
 
 
-$myApp-theme: mat.define-light-theme((
+  .ppa-title {
+    color: mat.get-color-from-palette($primary-palette, $contrast);
+  }
+}
+
+// .light-theme{
+//   @include mat.all-component-colors($light-theme);
+// }
+
+
+$light-primary: mat.define-palette(mat.$indigo-palette, 900);
+$light-accent: mat.define-palette(mat.$pink-palette);
+
+
+$light-theme: mat.define-light-theme((
   color: (
-    primary: $myApp-primary,
-    accent: $myApp-accent
+    primary: $light-primary,
+    accent: $light-accent
   )
 ));
 
-@include mat.all-component-themes($myApp-theme);
+@include mat.all-component-themes($light-theme);
+@include color($light-theme, 500);
+
+
+$dark-primary: mat.define-palette(mat.$indigo-palette);
+$dark-accent:  mat.define-palette(mat.$yellow-palette, 900);
+
+$dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $dark-primary,
+    accent: $dark-accent
+  )
+));
+
+.dark-theme {
+  @include  mat.all-component-colors($dark-theme);
+  @include color($dark-theme, 50);
+}
 
 @font-face {
   font-family: 'Poker In October';

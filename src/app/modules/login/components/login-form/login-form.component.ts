@@ -36,7 +36,7 @@ export class LoginFormComponent implements OnInit {
       this.userService.login(this.form.value).subscribe((res) => {
         const { token } = res;
 
-        this.storage.setItem('planning-poker-token', token);
+        this.storage.setItem('@planningPoker:token', token);
         this.router.navigate(['home']);
       });
     }

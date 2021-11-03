@@ -1,7 +1,12 @@
-<app-navbar></app-navbar>
-<div id="container">
+<div
+  id="wrapper-container"
+  [ngClass]="{'dark-theme': isDarkTheme}"
+  class="mat-app-background">
+  <app-navbar [(isDarkTheme)]="isDarkTheme"></app-navbar>
+  <div id="container">
+
     <header>
-        <h4>Meus Pokers</h4>
+        <h4 class="ppa-title" >Meus Pokers</h4>
         <button
             id="button-create-poker"
             mat-raised-button
@@ -11,7 +16,7 @@
             Criar Pokers
         </button>
     </header>
-    
+
     <div id="content">
         <mat-accordion class="example-headers-align" multi>
             <mat-expansion-panel>
@@ -31,12 +36,12 @@
                       </div>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
-          
+
                 <mat-form-field appearance="fill">
                     <mat-label>First name</mat-label>
                     <input matInput>
                 </mat-form-field>
-          
+
                 <mat-form-field appearance="fill">
                     <mat-label>Age</mat-label>
                     <input matInput type="number" min="1">

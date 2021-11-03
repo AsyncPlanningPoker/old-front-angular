@@ -5,8 +5,6 @@ import { HomeComponent } from './components/home.component';
 import { CreatePokerComponent } from './components/create-poker/create-poker.component';
 
 
-
-
 @NgModule({
   declarations: [
     HomeComponent,

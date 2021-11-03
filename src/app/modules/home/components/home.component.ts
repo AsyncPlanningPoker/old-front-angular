@@ -6,26 +6,28 @@ import { CreatePokerComponent } from './create-poker/create-poker.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  private storage: Storage;
 
+  isDarkTheme: boolean = false;
 
-  constructor(
-    private pokerService: PokerService,
-    public dialog: MatDialog,
-  ) { }
+  constructor(private pokerService: PokerService, public dialog: MatDialog) {
+    this.storage = window.localStorage;
+  }
 
   ngOnInit(): void {
     this.pokerService.post({}).subscribe((res) => {
       console.log(res);
-
     });
+
+    const theme = this.storage.getItem('@planningPoker:theme');
+
+    if (theme === 'dark') this.isDarkTheme = true;
   }
 
-  createPoker(){
+  createPoker() {
     const dialogRef = this.dialog.open(CreatePokerComponent);
-
   }
-
 }
