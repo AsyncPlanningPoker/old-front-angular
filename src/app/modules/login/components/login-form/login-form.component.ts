@@ -23,6 +23,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   hide = true;
+  isLoading = false;
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -33,10 +34,12 @@ export class LoginFormComponent implements OnInit {
 
   submitForm() {
     if (this.form.valid && this.form.dirty) {
+      this.isLoading = true;
       this.userService.login(this.form.value).subscribe((res) => {
         const { token } = res;
 
         this.storage.setItem('@planningPoker:token', token);
+        this.isLoading = false;
         this.router.navigate(['home']);
       });
     }

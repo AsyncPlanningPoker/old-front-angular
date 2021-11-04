@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { UserService } from './services/user/user.service';
-import { PokerService } from './services/Poker/poker.service';
-import { HeaderInterceptor } from './interceptors/header.interceptor';
-import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { HttpClientModule} from '@angular/common/http';
+
 
 @NgModule({
   declarations: [],
@@ -12,11 +9,6 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     CommonModule,
     HttpClientModule
   ],
-  providers: [
-    UserService,
-    PokerService,
-    { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
-  ]
+  providers: []
 })
 export class CoreModule { }
