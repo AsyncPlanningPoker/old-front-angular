@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
   private storage: Storage;
@@ -22,9 +22,9 @@ export class AuthService {
     return true;
   }
 
-  decode(){
+  decode() {
     const token = this.storage.getItem('@planningPoker:token');
-    const decodeToken = this.jwtHelper.decodeToken(token || "")
-    return decodeToken ? decodeToken : "";
+    const decodeToken = this.jwtHelper.decodeToken(token || '');
+    return decodeToken ? decodeToken : '';
   }
 }

@@ -1,7 +1,7 @@
 <div class="wrapper-form">
-  <mat-progress-bar 
-    color="accent" 
-    value=100 
+  <mat-progress-bar
+    color="accent"
+    value="100"
     [mode]="isLoading ? 'indeterminate' : 'determinate'"
   >
   </mat-progress-bar>
@@ -20,7 +20,7 @@
             formControlName="email"
           />
           <mat-error>
-            {{ getErrorMessage("email") }}
+            {{ getErrorMessage('email') }}
           </mat-error>
         </mat-form-field>
       </mat-grid-tile>
@@ -35,10 +35,10 @@
             [type]="hide ? 'password' : 'text'"
           />
           <mat-icon style="cursor: pointer" matSuffix (click)="hide = !hide">{{
-            hide ? "visibility_off" : "visibility"
+            hide ? 'visibility_off' : 'visibility'
           }}</mat-icon>
           <mat-error>
-            {{ getErrorMessage("password") }}
+            {{ getErrorMessage('password') }}
           </mat-error>
         </mat-form-field>
       </mat-grid-tile>

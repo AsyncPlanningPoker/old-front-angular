@@ -8,11 +8,9 @@ import { ErrorInterceptor } from './error.interceptor';
 describe('ErrorInterceptor', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ CoreModule, NotifierModule ],
-      providers: [
-        ErrorInterceptor
-      ]
-    })
+      imports: [CoreModule, NotifierModule],
+      providers: [ErrorInterceptor]
+    });
   });
 
   it('should be created', () => {

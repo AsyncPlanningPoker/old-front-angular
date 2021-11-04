@@ -11,13 +11,13 @@ const lofinRoutes: Routes = [
     component: LoginComponent,
     children: [
       { path: 'login', component: LoginFormComponent },
-      { path: 'signUp', component: SignUpComponent },
-    ],
-  },
+      { path: 'signUp', component: SignUpComponent }
+    ]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(lofinRoutes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class LoginRoutingModule {}

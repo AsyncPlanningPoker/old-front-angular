@@ -10,17 +10,16 @@ describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
 
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HomeModule, CoreModule, RouterTestingModule, MatIconModule]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HomeComponent)
+    fixture = TestBed.createComponent(HomeComponent);
   });
 
   it('should create', () => {
-    const instance = fixture.componentInstance
+    const instance = fixture.componentInstance;
     expect(instance).toBeTruthy();
   });
 });

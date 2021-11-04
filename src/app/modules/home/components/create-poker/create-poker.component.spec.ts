@@ -11,11 +11,10 @@ describe('CreatePokerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreatePokerComponent ],
-      imports: [ MatIconModule, MatDialogModule ],
-      providers: [ FormBuilder ]
-    })
-    .compileComponents();
+      declarations: [CreatePokerComponent],
+      imports: [MatIconModule, MatDialogModule],
+      providers: [FormBuilder]
+    }).compileComponents();
   });
 
   beforeEach(() => {

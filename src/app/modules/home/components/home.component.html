@@ -1,95 +1,94 @@
 <div
   id="wrapper-container"
-  [ngClass]="{'dark-theme': isDarkTheme}"
-  class="mat-app-background">
+  [ngClass]="{ 'dark-theme': isDarkTheme }"
+  class="mat-app-background"
+>
   <app-navbar [(isDarkTheme)]="isDarkTheme"></app-navbar>
   <div id="container">
-
     <header>
-        <h4 class="ppa-title" >Meus Pokers</h4>
-        <button
-            id="button-create-poker"
-            mat-raised-button
-            color="primary"
-            (click)="createPoker()"
-        >
-            Criar Pokers
-        </button>
+      <h4 class="ppa-title">Meus Pokers</h4>
+      <button
+        id="button-create-poker"
+        mat-raised-button
+        color="primary"
+        (click)="createPoker()"
+      >
+        Criar Pokers
+      </button>
     </header>
 
     <div id="content">
-        <mat-accordion class="example-headers-align" multi>
-            <mat-expansion-panel>
-                <mat-expansion-panel-header collapsedHeight="100px" expandedHeight="100px">
-                    <mat-panel-title>
-                        <div class="title">
-                          Poker Placeholder
-                        </div>
-                    </mat-panel-title>
-                    <mat-panel-description>
-                      <div class="description">
-                        <div class="author">
-                          <mat-icon>person</mat-icon>
-                          <p>Author</p>
-                        </div>
-                        <p class="state finished">Fechado</p>
-                      </div>
-                    </mat-panel-description>
-                </mat-expansion-panel-header>
+      <mat-accordion class="example-headers-align" multi>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header
+            collapsedHeight="100px"
+            expandedHeight="100px"
+          >
+            <mat-panel-title>
+              <div class="title">Poker Placeholder</div>
+            </mat-panel-title>
+            <mat-panel-description>
+              <div class="description">
+                <div class="author">
+                  <mat-icon>person</mat-icon>
+                  <p>Author</p>
+                </div>
+                <p class="state finished">Fechado</p>
+              </div>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
 
-                <mat-form-field appearance="fill">
-                    <mat-label>First name</mat-label>
-                    <input matInput>
-                </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>First name</mat-label>
+            <input matInput />
+          </mat-form-field>
 
-                <mat-form-field appearance="fill">
-                    <mat-label>Age</mat-label>
-                    <input matInput type="number" min="1">
-                </mat-form-field>
-
-            </mat-expansion-panel>
-
-
-
-            <mat-expansion-panel>
-              <mat-expansion-panel-header collapsedHeight="100px" expandedHeight="100px">
-                  <mat-panel-title>
-                      <div class="title">
-                        Poker Placeholder2
-                      </div>
-                  </mat-panel-title>
-                  <mat-panel-description>
-                    <div class="description">
-                      <div class="author">
-                        <mat-icon>person</mat-icon>
-                        <p>Author2</p>
-                      </div>
-                      <p class="state finished">Fechado</p>
-                    </div>
-                  </mat-panel-description>
-              </mat-expansion-panel-header>
-          </mat-expansion-panel>
-
-          <mat-expansion-panel>
-            <mat-expansion-panel-header collapsedHeight="100px" expandedHeight="100px">
-                <mat-panel-title>
-                    <div class="title">
-                      Poker Placeholder3
-                    </div>
-                </mat-panel-title>
-                <mat-panel-description>
-                  <div class="description">
-                    <div class="author">
-                      <mat-icon>person</mat-icon>
-                      <p>Author3</p>
-                    </div>
-                    <p class="state open">Aberto</p>
-                  </div>
-                </mat-panel-description>
-            </mat-expansion-panel-header>
+          <mat-form-field appearance="fill">
+            <mat-label>Age</mat-label>
+            <input matInput type="number" min="1" />
+          </mat-form-field>
         </mat-expansion-panel>
 
+        <mat-expansion-panel>
+          <mat-expansion-panel-header
+            collapsedHeight="100px"
+            expandedHeight="100px"
+          >
+            <mat-panel-title>
+              <div class="title">Poker Placeholder2</div>
+            </mat-panel-title>
+            <mat-panel-description>
+              <div class="description">
+                <div class="author">
+                  <mat-icon>person</mat-icon>
+                  <p>Author2</p>
+                </div>
+                <p class="state finished">Fechado</p>
+              </div>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
 
-          </mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header
+            collapsedHeight="100px"
+            expandedHeight="100px"
+          >
+            <mat-panel-title>
+              <div class="title">Poker Placeholder3</div>
+            </mat-panel-title>
+            <mat-panel-description>
+              <div class="description">
+                <div class="author">
+                  <mat-icon>person</mat-icon>
+                  <p>Author3</p>
+                </div>
+                <p class="state open">Aberto</p>
+              </div>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+      </mat-accordion>
     </div>
+  </div>
 </div>

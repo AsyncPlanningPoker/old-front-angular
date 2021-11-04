@@ -10,12 +10,7 @@ import { UserService } from 'src/app/core/services/user/user.service';
 
 @NgModule({
   declarations: [LoginFormComponent, LoginComponent, SignUpComponent],
-  imports: [
-    CommonModule,
-    SharedModule,
-    LoginRoutingModule,
-    RouterModule,
-  ],
+  imports: [CommonModule, SharedModule, LoginRoutingModule, RouterModule],
   exports: [],
   providers: [UserService]
 })

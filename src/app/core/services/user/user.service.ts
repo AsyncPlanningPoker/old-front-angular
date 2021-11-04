@@ -7,20 +7,15 @@ import { BaseService } from '../base.service';
   providedIn: 'root'
 })
 export class UserService extends BaseService<SignUp> {
-
-  constructor(
-    protected httpClient: HttpClient
-  ) {
-    super(
-      "/api/users",
-      httpClient
-    )
+  constructor(protected httpClient: HttpClient) {
+    super('/api/users', httpClient);
   }
 
-  login(payload: Login){
-
-    return this.httpClient.post<any>(`${this.baseUrl}/auth`, payload, this.httpOptions)
-
+  login(payload: Login) {
+    return this.httpClient.post<any>(
+      `${this.baseUrl}/auth`,
+      payload,
+      this.httpOptions
+    );
   }
-
 }

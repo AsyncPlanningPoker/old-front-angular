@@ -1,23 +1,23 @@
 <div class="wrapper-form">
-  <mat-progress-bar 
-    color="accent" 
-    value=100 
+  <mat-progress-bar
+    color="accent"
+    value="100"
     [mode]="isLoading ? 'indeterminate' : 'determinate'"
   >
   </mat-progress-bar>
- 
+
   <form [formGroup]="form">
     <mat-grid-list cols="1" rowHeight="100px">
       <mat-grid-tile>
-        <h1 class="mat-headline" >Sign Up</h1>
+        <h1 class="mat-headline">Sign Up</h1>
       </mat-grid-tile>
 
       <mat-grid-tile>
-        <mat-form-field class="width-form-field"appearance="outline">
+        <mat-form-field class="width-form-field" appearance="outline">
           <mat-label>Nome</mat-label>
           <input matInput placeholder="Nome" formControlName="name" />
           <mat-error>
-            {{getErrorMessage("name")}}
+            {{ getErrorMessage('name') }}
           </mat-error>
         </mat-form-field>
       </mat-grid-tile>
@@ -27,7 +27,7 @@
           <mat-label>Email</mat-label>
           <input matInput placeholder="Email" formControlName="email" />
           <mat-error>
-            {{getErrorMessage("email")}}
+            {{ getErrorMessage('email') }}
           </mat-error>
         </mat-form-field>
       </mat-grid-tile>
@@ -48,10 +48,10 @@
             [attr.aria-label]="'Hide password'"
             [attr.aria-pressed]="hide"
           >
-            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
           </button>
           <mat-error>
-            {{getErrorMessage("password")}}
+            {{ getErrorMessage('password') }}
           </mat-error>
         </mat-form-field>
       </mat-grid-tile>
@@ -67,5 +67,5 @@
         </button>
       </mat-grid-tile>
     </mat-grid-list>
-  </form>  
+  </form>
 </div>

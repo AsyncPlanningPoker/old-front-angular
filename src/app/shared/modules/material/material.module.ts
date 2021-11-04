@@ -57,7 +57,7 @@ import { CommonModule } from '@angular/common';
     MatNativeDateModule,
     MatMenuModule,
     MatExpansionModule,
-    MatSlideToggleModule,
-  ],
+    MatSlideToggleModule
+  ]
 })
 export class MaterialModule {}

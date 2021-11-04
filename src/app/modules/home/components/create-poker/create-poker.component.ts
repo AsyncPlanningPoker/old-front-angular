@@ -8,9 +8,8 @@ import { validatorError } from 'src/app/shared/functions/validatorError';
   styleUrls: ['./create-poker.component.css']
 })
 export class CreatePokerComponent implements OnInit {
-
-  formCreatePoker!: FormGroup
-  constructor(private formBuilder: FormBuilder) { }
+  formCreatePoker!: FormGroup;
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.formCreatePoker = this.formBuilder.group({
@@ -18,12 +17,11 @@ export class CreatePokerComponent implements OnInit {
     });
   }
 
-  createPoker(){
-
+  createPoker() {
+    console.log('create poker');
   }
 
   getErrorMessage(field: string) {
     return validatorError(field, this.formCreatePoker);
   }
-
 }

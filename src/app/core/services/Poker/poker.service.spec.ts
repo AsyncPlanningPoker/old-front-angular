@@ -4,11 +4,11 @@ import { PokerService } from './poker.service';
 
 describe('PokerService', () => {
   let service: PokerService;
-  let httpClient: HttpClient
+  let httpClient: HttpClient;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = new PokerService(httpClient)
+    service = new PokerService(httpClient);
   });
 
   it('should be created', () => {

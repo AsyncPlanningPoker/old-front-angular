@@ -6,15 +6,15 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
+  styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
   @Input()
-  isDarkTheme: boolean = false;
+  isDarkTheme = false;
 
   @Output() isDarkThemeChange = new EventEmitter<boolean>();
 
-  username: string = '';
+  username = '';
   constructor(
     private authService: AuthService,
     private _overlayContainer: OverlayContainer,
