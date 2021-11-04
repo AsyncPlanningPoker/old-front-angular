@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core"
 import { MatDialog } from "@angular/material/dialog"
+import { NotifierService } from "angular-notifier"
 import { PokerService } from "src/app/core/services/Poker/poker.service"
 import { CreatePokerComponent } from "./create-poker/create-poker.component"
 
@@ -13,7 +14,10 @@ export class HomeComponent implements OnInit {
 
 	isDarkTheme = false
 
-	constructor(private pokerService: PokerService, public dialog: MatDialog) {
+	constructor(
+		private pokerService: PokerService,
+		public dialog: MatDialog,
+		private readonly notifierService: NotifierService) {
 		this.storage = window.localStorage
 	}
 
@@ -29,5 +33,14 @@ export class HomeComponent implements OnInit {
 
 	createPoker() {
 		const dialogRef = this.dialog.open(CreatePokerComponent)
+		dialogRef.afterClosed()
+			.subscribe(res =>{
+				if(res != undefined){
+					this.notifierService.notify(
+						"success",
+						"Poker criado com sucesso"
+					)
+				}
+			})
 	}
 }

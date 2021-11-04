@@ -6,14 +6,21 @@
 </header>
 
 <mat-dialog-content class="mat-typography">
+	<div *ngIf="isLoading" class="showSpinner">
+		<mat-spinner color="accent"></mat-spinner>
+	</div>
 	<div class="wrapper-form">
 		<form [formGroup]="formCreatePoker">
-			<mat-form-field class="input-field" appearance="fill">
+			<mat-form-field class="input-field" appearance="outline">
 				<mat-label>Nome</mat-label>
 				<input matInput placeholder="Nome" formControlName="pokerName" />
 				<mat-error>
 					{{ getErrorMessage("pokerName") }}
 				</mat-error>
+			</mat-form-field>
+			<mat-form-field class="input-field" appearance="outline">
+				<mat-label>Deck</mat-label>
+				<input matInput value="0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ?" disabled />
 			</mat-form-field>
 			<button
 				class="button-submit"

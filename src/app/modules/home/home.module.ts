@@ -6,10 +6,11 @@ import { SharedModule } from "src/app/shared/shared.module"
 import { PokerService } from "src/app/core/services/Poker/poker.service"
 import { HomeComponent } from "./components/home.component"
 import { CreatePokerComponent } from "./components/create-poker/create-poker.component"
+import { AuthService } from "src/app/core/services/auth/auth.service" // retirar quando mudarem o banco
 
 @NgModule({
 	declarations: [HomeComponent, CreatePokerComponent],
 	imports: [CommonModule, SharedModule],
-	providers: [PokerService]
+	providers: [PokerService, AuthService]
 })
 export class HomeModule {}
