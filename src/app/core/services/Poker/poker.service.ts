@@ -12,7 +12,7 @@ export class PokerService extends BaseService<any>  {
     protected httpClient: HttpClient
   ) {
     super(
-      "/api/poker/teste",
+      "/api/poker",
       httpClient
     )
   }

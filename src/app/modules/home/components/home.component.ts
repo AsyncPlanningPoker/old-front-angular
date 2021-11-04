@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pokerService.post({}).subscribe((res) => {
+    this.pokerService.get().subscribe((res) => {
       console.log(res);
     });
 
