@@ -1,21 +1,21 @@
-import { TestBed } from '@angular/core/testing';
-import { Router } from '@angular/router';
-import { AuthService } from '../services/auth/auth.service';
+import { TestBed } from "@angular/core/testing"
+import { Router } from "@angular/router"
+import { AuthService } from "../services/auth/auth.service"
 
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from "./auth.guard"
 
-describe('AuthGuard', () => {
-  let guard: AuthGuard
-  let authService: AuthService
-  let router: Router
+describe("AuthGuard", () => {
+	let guard: AuthGuard
+	let authService: AuthService
+	let router: Router
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({})
+	beforeEach(async () => {
+		await TestBed.configureTestingModule({})
 
-    guard = new AuthGuard(authService, router)
-  });
+		guard = new AuthGuard(authService, router)
+	})
 
-  it('should be created', () => {
-    expect(guard).toBeTruthy();
-  });
-});
+	it("should be created", () => {
+		expect(guard).toBeTruthy()
+	})
+})
