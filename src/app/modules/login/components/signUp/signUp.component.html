@@ -1,71 +1,71 @@
 <div class="wrapper-form">
-  <mat-progress-bar
-    color="accent"
-    value="100"
-    [mode]="isLoading ? 'indeterminate' : 'determinate'"
-  >
-  </mat-progress-bar>
+	<mat-progress-bar
+		color="accent"
+		value="100"
+		[mode]="isLoading ? 'indeterminate' : 'determinate'"
+	>
+	</mat-progress-bar>
 
-  <form [formGroup]="form">
-    <mat-grid-list cols="1" rowHeight="100px">
-      <mat-grid-tile>
-        <h1 class="mat-headline">Sign Up</h1>
-      </mat-grid-tile>
+	<form [formGroup]="form">
+		<mat-grid-list cols="1" rowHeight="100px">
+			<mat-grid-tile>
+				<h1 class="mat-headline">Sign Up</h1>
+			</mat-grid-tile>
 
-      <mat-grid-tile>
-        <mat-form-field class="width-form-field" appearance="outline">
-          <mat-label>Nome</mat-label>
-          <input matInput placeholder="Nome" formControlName="name" />
-          <mat-error>
-            {{ getErrorMessage('name') }}
-          </mat-error>
-        </mat-form-field>
-      </mat-grid-tile>
+			<mat-grid-tile>
+				<mat-form-field class="width-form-field" appearance="outline">
+					<mat-label>Nome</mat-label>
+					<input matInput placeholder="Nome" formControlName="name" />
+					<mat-error>
+						{{ getErrorMessage("name") }}
+					</mat-error>
+				</mat-form-field>
+			</mat-grid-tile>
 
-      <mat-grid-tile>
-        <mat-form-field class="width-form-field" appearance="outline">
-          <mat-label>Email</mat-label>
-          <input matInput placeholder="Email" formControlName="email" />
-          <mat-error>
-            {{ getErrorMessage('email') }}
-          </mat-error>
-        </mat-form-field>
-      </mat-grid-tile>
+			<mat-grid-tile>
+				<mat-form-field class="width-form-field" appearance="outline">
+					<mat-label>Email</mat-label>
+					<input matInput placeholder="Email" formControlName="email" />
+					<mat-error>
+						{{ getErrorMessage("email") }}
+					</mat-error>
+				</mat-form-field>
+			</mat-grid-tile>
 
-      <mat-grid-tile>
-        <mat-form-field class="width-form-field" appearance="outline">
-          <mat-label>Senha</mat-label>
-          <input
-            matInput
-            placeholder="Senha"
-            formControlName="password"
-            [type]="hide ? 'password' : 'text'"
-          />
-          <button
-            mat-icon-button
-            matSuffix
-            (click)="hide = !hide"
-            [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide"
-          >
-            <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
-          </button>
-          <mat-error>
-            {{ getErrorMessage('password') }}
-          </mat-error>
-        </mat-form-field>
-      </mat-grid-tile>
+			<mat-grid-tile>
+				<mat-form-field class="width-form-field" appearance="outline">
+					<mat-label>Senha</mat-label>
+					<input
+						matInput
+						placeholder="Senha"
+						formControlName="password"
+						[type]="hide ? 'password' : 'text'"
+					/>
+					<button
+						mat-icon-button
+						matSuffix
+						(click)="hide = !hide"
+						[attr.aria-label]="'Hide password'"
+						[attr.aria-pressed]="hide"
+					>
+						<mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+					</button>
+					<mat-error>
+						{{ getErrorMessage("password") }}
+					</mat-error>
+				</mat-form-field>
+			</mat-grid-tile>
 
-      <mat-grid-tile>
-        <button
-          class="width-form-field"
-          mat-raised-button
-          color="primary"
-          (click)="submitForm()"
-        >
-          Entrar
-        </button>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </form>
+			<mat-grid-tile>
+				<button
+					class="width-form-field"
+					mat-raised-button
+					color="primary"
+					(click)="submitForm()"
+				>
+					Entrar
+				</button>
+			</mat-grid-tile>
+		</mat-grid-list>
+	</form>
 </div>

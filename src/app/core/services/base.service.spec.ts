@@ -1,19 +1,19 @@
-import { HttpClient } from '@angular/common/http';
-import { TestBed } from '@angular/core/testing';
+import { HttpClient } from "@angular/common/http"
+import { TestBed } from "@angular/core/testing"
 
-import { BaseService } from './base.service';
+import { BaseService } from "./base.service"
 
-describe('BaseService', () => {
-  let service: BaseService<any>;
-  let httpClient: HttpClient;
+describe("BaseService", () => {
+	let service: BaseService<any>
+	let httpClient: HttpClient
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
+	beforeEach(() => {
+		TestBed.configureTestingModule({})
 
-    service = new BaseService('test', httpClient);
-  });
+		service = new BaseService("test", httpClient)
+	})
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+	it("should be created", () => {
+		expect(service).toBeTruthy()
+	})
+})
