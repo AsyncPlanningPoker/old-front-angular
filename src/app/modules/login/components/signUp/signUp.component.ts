@@ -6,7 +6,7 @@ import { UserService } from 'src/app/core/services/user/user.service';
 import { validatorError } from 'src/app/shared/functions/validatorError';
 
 @Component({
-  selector: 'app-signUp',
+  selector: 'app-sign-up',
   templateUrl: './signUp.component.html',
   styleUrls: ['../../form.component.css'],
 })
