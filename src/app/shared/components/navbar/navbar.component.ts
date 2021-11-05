@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
     if (token != null) {
       window.localStorage.removeItem('@planningPoker:token');
     }
-    this.router.navigate(['poker', 'login']);
+    this.router.navigate(['login']);
   }
 
   toggleTheme() {

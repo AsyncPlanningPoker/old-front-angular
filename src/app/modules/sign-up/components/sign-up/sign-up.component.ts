@@ -7,11 +7,13 @@ import { validatorError } from 'src/app/shared/functions/validatorError';
 
 @Component({
   selector: 'app-sign-up',
-  templateUrl: './signUp.component.html',
-  styleUrls: ['../../form.component.css'],
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
   form!: FormGroup;
+  hide = true;
+  isLoading = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -19,9 +21,6 @@ export class SignUpComponent implements OnInit {
     private router: Router,
     private readonly notifierService : NotifierService
   ) {}
-
-  hide = true;
-  isLoading = false;
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({

@@ -1,0 +1,28 @@
+<header>
+    <h1 class="ppa-title" mat-dialog-title>New Poker</h1>
+    <button mat-icon-button mat-dialog-close cdkFocusInitial>
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+  
+  <mat-dialog-content class="mat-typography">
+    <div class="wrapper-form">
+      <form [formGroup]="formCreatePoker">
+        <mat-form-field class="input-field" appearance="fill">
+          <mat-label>Nome</mat-label>
+          <input matInput placeholder="Nome" formControlName="name" />
+          <mat-error>
+            {{ getErrorMessage("pokerName") }}
+          </mat-error>
+        </mat-form-field>
+        <button
+          class="button-submit"
+          mat-raised-button
+          color="primary"
+          (click)="createPoker()"
+        >
+          Criar
+        </button>
+      </form>
+    </div>
+</mat-dialog-content>

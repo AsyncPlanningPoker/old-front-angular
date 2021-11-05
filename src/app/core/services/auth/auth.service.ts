@@ -13,6 +13,12 @@ export class AuthService {
     this.jwtHelper = new JwtHelperService();
   }
 
+  removeJwtFromLocalStorage() {
+    localStorage.removeItem("@planningPoker:token")
+    localStorage.removeItem("username")
+    localStorage.removeItem("userId")
+  }
+
   auth() {
     const token = this.storage.getItem('@planningPoker:token');
     const isExpired = this.jwtHelper.isTokenExpired(token || '');

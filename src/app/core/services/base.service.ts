@@ -21,11 +21,11 @@ export class BaseService<T> {
     this.baseUrl = environment.baseUrl + endPoint
   }
 
-  get(): Observable<any> {
+  get(): Observable<T> {
     return this.httpClient.get<any>(this.baseUrl, this.httpOptions)
   }
 
   post(element: T): Observable<any> {
-    return this.httpClient.post<any>(this.baseUrl, element, this.httpOptions)
+    return this.httpClient.post<T>(this.baseUrl, element, this.httpOptions)
   }
 }

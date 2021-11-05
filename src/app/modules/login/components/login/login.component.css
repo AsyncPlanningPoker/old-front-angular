@@ -1,0 +1,64 @@
+/* .content {
+    width: 100%;
+    height: 100vh;
+    background-color: #1a237e; 
+  }
+  
+  #logo {
+    width: 100%;
+    height: 100%;
+    background-size: 120px 120px;
+    background-image: linear-gradient(to right, #1a237e, transparent),
+      
+        repeating-conic-gradient(
+          from 0deg,
+          #1a237e 0deg 90deg,
+          #3f51b5 90deg 180deg
+        )
+
+    box-shadow: inset 0px 0px 10em 14em #1a237e; 
+    color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #logo span p {
+    font-family: "Poker In October", Roboto, sans-serif;
+  }
+  
+  #img-hello {
+    width: 40%;
+  }
+  
+  span {
+    font-size: 4em;
+    font-weight: bolder;
+  }
+  
+  p {
+    display: inline;
+    font-size: 0.5em;
+  }
+  
+  .container {
+    min-width: 450px;
+    max-width: 450px;
+  } */
+
+.wrapper-form {
+  width: 100%;
+  background-color: #fafafa; /*$grey-palette 50*/
+  border-radius: 0px 0px 10px 10px;
+}
+  
+form {
+  width: 100%;
+}
+  
+.width-form-field{
+  width: 80%;
+}
+
+  

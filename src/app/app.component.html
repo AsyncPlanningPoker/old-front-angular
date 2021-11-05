@@ -1,3 +1,8 @@
-<router-outlet></router-outlet>
+<div
+  id="wrapper-container"
+  [ngClass]="{'dark-theme': isDarkTheme}"
+  class="mat-app-background">
 
-<notifier-container></notifier-container>
+  <app-navbar [(isDarkTheme)]="isDarkTheme"></app-navbar>
+  <router-outlet></router-outlet>
+</div>

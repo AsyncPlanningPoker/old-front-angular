@@ -5,13 +5,12 @@ import { UserService } from 'src/app/core/services/user/user.service';
 import { validatorError } from 'src/app/shared/functions/validatorError';
 
 @Component({
-  selector: 'app-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.css'],
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class LoginFormComponent implements OnInit {
+export class LoginComponent implements OnInit {
   form!: FormGroup;
-
   private storage: Storage;
 
   constructor(
@@ -48,5 +47,4 @@ export class LoginFormComponent implements OnInit {
   getErrorMessage(field: string){
     return validatorError(field, this.form);
   }
-
 }
