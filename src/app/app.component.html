@@ -1,8 +1,8 @@
 <div
-  id="wrapper-container"
   [ngClass]="{'dark-theme': isDarkTheme}"
-  class="mat-app-background">
+  class="wrapper-container">
 
-  <app-navbar [(isDarkTheme)]="isDarkTheme"></app-navbar>
+  <app-navbar *ngIf="isLoggedIn()"></app-navbar>
   <router-outlet></router-outlet>
+  <notifier-container></notifier-container>
 </div>

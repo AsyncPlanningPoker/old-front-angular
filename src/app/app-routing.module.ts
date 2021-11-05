@@ -10,34 +10,13 @@ const routes: Routes = [
   },
   {
     path: "login",
+    // loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule)
     component: LoginComponent
   },
   {
     path: "sign-up",
     component: SignUpComponent
   },
-  // {
-  //   path: "",
-  //   loadChildren: () => import('./modules/poker/poker.module').then(m => m.PokerModule),
-  //   canActivate: [AuthGuard],
-  // },
-  // {
-  //   path: "",
-  //   component: PokerTableComponent,
-  //   canActivate: [AuthGuard],
-  // },
-  // {
-  //   path: "login",
-  //   loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule),
-  //   canActivate: [AuthGuard],
-  // },
-  // {
-  //   path: "poker",
-  //   loadChildren: () => import('./modules/poker/poker.module').then(m => m.PokerModule),
-  //   canActivate: [AuthGuard],
-  // },
-  // { path: 'login', component: LoginFormComponent, canActivate: [AuthGuard] },
-  // { path: 'signUp', component: SignUpComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' },
 ];
 

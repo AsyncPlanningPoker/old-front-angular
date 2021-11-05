@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.username = this.authService.decode().email;
+    this.username = this.authService.getTokenInfo().email;
     this.loadingClass();
   }
 

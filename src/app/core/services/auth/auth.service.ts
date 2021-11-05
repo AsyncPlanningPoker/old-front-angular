@@ -18,7 +18,7 @@ export class AuthService {
 
 	getTokenInfo(): Token {
 		const token = localStorage.getItem("token")
-		return this.jwtHelper.decodeToken(token as string)
+		return this.decodeJWT(token as string)
 	}
 
 	setJwtToLocalStorage(token: string) {
@@ -29,6 +29,10 @@ export class AuthService {
 		localStorage.removeItem("token")
 	}
 
+	isLoggedIn(): boolean {
+		return !!localStorage.getItem("token")
+	}
+
   	auth() {
 		const token = this.storage.getItem('token');
 		const isExpired = this.jwtHelper.isTokenExpired(token || '');
@@ -37,8 +41,7 @@ export class AuthService {
 		return true
 	}
 
-	decode() {
-		const token = this.storage.getItem("token")
+	decodeJWT(token: string) {
 		const decodeToken = this.jwtHelper.decodeToken(token || "")
 		return decodeToken ? decodeToken : ""
 	}
