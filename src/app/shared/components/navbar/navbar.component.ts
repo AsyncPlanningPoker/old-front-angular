@@ -27,9 +27,9 @@ export class NavbarComponent implements OnInit {
   }
 
   logOut() {
-    const token = window.localStorage.getItem('@planningPoker:token');
+    const token = window.localStorage.getItem('token');
     if (token != null) {
-      window.localStorage.removeItem('@planningPoker:token');
+      window.localStorage.removeItem('token');
     }
     this.router.navigate(['login']);
   }
