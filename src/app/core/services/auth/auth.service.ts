@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core"
 import { JwtHelperService } from "@auth0/angular-jwt"
+import * as jwt_decode from "jwt-decode";
+
 
 @Injectable({
 	providedIn: "root"
@@ -13,18 +15,27 @@ export class AuthService {
 		this.jwtHelper = new JwtHelperService()
 	}
 
-  removeJwtFromLocalStorage() {
-    localStorage.removeItem("@planningPoker:token")
-    localStorage.removeItem("username")
-    localStorage.removeItem("userId")
-  }
+	setJwtToLocalStorage(token: string) {
+		const data = this.jwtHelper.decodeToken(token)
+		localStorage.setItem("@planningPoker:token", token)
+		localStorage.setItem("email", data.email)
+		localStorage.setItem("exp", data.exp)
+		localStorage.setItem("iat", data.iat)
+		localStorage.setItem("name", data.name)
+		localStorage.setItem("userId", data.userId)
+	}
 
-  auth() {
-    const token = this.storage.getItem('@planningPoker:token');
-    const isExpired = this.jwtHelper.isTokenExpired(token || '');
+	removeJwtFromLocalStorage() {
+		localStorage.removeItem("@planningPoker:token")
+		localStorage.removeItem("username")
+		localStorage.removeItem("userId")
+	}
+
+  	auth() {
+		const token = this.storage.getItem('@planningPoker:token');
+		const isExpired = this.jwtHelper.isTokenExpired(token || '');
 
 		if (isExpired) return false
-
 		return true
 	}
 

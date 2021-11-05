@@ -16,9 +16,6 @@ export class PokerTableResolver implements Resolve<Observable<Poker>> {
     private pokerService: PokerService
   ) {}
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Poker> {
-    this.pokerService.getPokerRelatedToUser().subscribe(
-      next => console.log(next)
-    )
     return this.pokerService.getPokerRelatedToUser()
   }
 }
