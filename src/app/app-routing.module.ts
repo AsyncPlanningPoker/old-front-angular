@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './core/guards/auth.guard';
-import { LoginFormComponent } from './modules/login/components/login-form/login-form.component';
 import { LoginComponent } from './modules/login/components/login/login.component';
-import { PokerTableComponent } from './modules/poker/components/poker-table/poker-table.component';
 import { SignUpComponent } from './modules/sign-up/components/sign-up/sign-up.component';
 
 const routes: Routes = [
@@ -45,7 +42,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule]
 })
 export class AppRoutingModule {}

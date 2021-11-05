@@ -1,25 +1,22 @@
-import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { HttpClient } from "@angular/common/http"
+import { Inject, Injectable } from "@angular/core"
+import { Observable } from "rxjs"
 
-import { environment } from '../../../environments/environment';
-
+import { environment } from "../../../environments/environment"
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: "root"
 })
 export class BaseService<T> {
-  protected baseUrl: string = ""
-  protected httpOptions = {
+	protected baseUrl = ""
+	protected httpOptions = {}
 
-  }
-
-  constructor(
-    @Inject(String) endPoint: string,
-    protected httpClient: HttpClient
-  ) {
-    this.baseUrl = environment.baseUrl + endPoint
-  }
+	constructor(
+		@Inject(String) endPoint: string,
+		protected httpClient: HttpClient
+	) {
+		this.baseUrl = environment.baseUrl + endPoint
+	}
 
   get(): Observable<T> {
     return this.httpClient.get<any>(this.baseUrl, this.httpOptions)

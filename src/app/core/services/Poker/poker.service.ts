@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Poker } from '../../interfaces/poker/poker';
 
-import { BaseService } from '../base.service';
+import { BaseService } from "../base.service"
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: "root"
 })
 export class PokerService extends BaseService<Poker>  {
 

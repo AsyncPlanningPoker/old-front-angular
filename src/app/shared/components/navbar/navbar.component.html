@@ -23,45 +23,45 @@
 -->
 
 <mat-toolbar color="primary">
-  <div id="logo">
-    <img src="/assets/logoppa.svg" alt="logo" />
-    <p><span>Async </span> Planning Poker</p>
-  </div>
-  <span id="spacer"></span>
-  <div id="userControl">
-    <mat-icon>account_circle</mat-icon>
-    {{ username }}
-    <button
-      mat-icon-button
-      [matMenuTriggerFor]="menu"
-      aria-label="expand menu icon"
-    >
-      <mat-icon>expand_more</mat-icon>
-    </button>
+	<div id="logo">
+		<img src="/assets/logoppa.svg" alt="logo" />
+		<p><span>Async </span> Planning Poker</p>
+	</div>
+	<span id="spacer"></span>
+	<div id="userControl">
+		<mat-icon>account_circle</mat-icon>
+		{{ username }}
+		<button
+			mat-icon-button
+			[matMenuTriggerFor]="menu"
+			aria-label="expand menu icon"
+		>
+			<mat-icon>expand_more</mat-icon>
+		</button>
 
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <mat-icon style="color: #fffd7c" *ngIf="isDarkTheme"
-          >light_mode</mat-icon
-        >
-        <mat-icon color="primary" *ngIf="!isDarkTheme">dark_mode</mat-icon>
-        <span>
-          <mat-slide-toggle
-            color="primary"
-            [(ngModel)]="isDarkTheme"
-            labelPosition="before"
-            (change)="toggleTheme()"
-          >
-          </mat-slide-toggle>
-        </span>
-      </button>
+		<mat-menu #menu="matMenu">
+			<button mat-menu-item>
+				<mat-icon style="color: #fffd7c" *ngIf="isDarkTheme"
+					>light_mode</mat-icon
+				>
+				<mat-icon color="primary" *ngIf="!isDarkTheme">dark_mode</mat-icon>
+				<span>
+					<mat-slide-toggle
+						color="primary"
+						[(ngModel)]="isDarkTheme"
+						labelPosition="before"
+						(change)="toggleTheme()"
+					>
+					</mat-slide-toggle>
+				</span>
+			</button>
 
-      <mat-divider></mat-divider>
+			<mat-divider></mat-divider>
 
-      <button mat-menu-item (click)="logOut()">
-        <mat-icon>logout</mat-icon>
-        <span>Log Out</span>
-      </button>
-    </mat-menu>
-  </div>
+			<button mat-menu-item (click)="logOut()">
+				<mat-icon>logout</mat-icon>
+				<span>Log Out</span>
+			</button>
+		</mat-menu>
+	</div>
 </mat-toolbar>

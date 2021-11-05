@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { CoreModule } from '../../core.module';
 
-import { UserService } from './user.service';
+import { UserService } from "./user.service"
 
 describe('UserService', () => {
   let service: UserService;
@@ -13,7 +13,7 @@ describe('UserService', () => {
     service = TestBed.inject(UserService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+	it("should be created", () => {
+		expect(service).toBeTruthy()
+	})
+})

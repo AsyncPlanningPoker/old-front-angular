@@ -24,4 +24,4 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     }
   ]
 })
-export class CoreModule { }
+export class CoreModule {}
