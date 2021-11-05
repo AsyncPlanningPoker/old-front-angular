@@ -10,12 +10,11 @@ const routes: Routes = [
   },
   {
     path: "login",
-    // loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule)
-    component: LoginComponent
+    loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule)
   },
   {
     path: "sign-up",
-    component: SignUpComponent
+    loadChildren: () => import('./modules/sign-up/sign-up.module').then(m => m.SignUpModule)
   },
   { path: '**', redirectTo: '' },
 ];

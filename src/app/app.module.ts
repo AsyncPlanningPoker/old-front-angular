@@ -10,8 +10,7 @@ import { NotifierModule } from "angular-notifier"
 import { HeaderInterceptor } from "./core/interceptors/header.interceptor"
 import { ErrorInterceptor } from "./core/interceptors/error.interceptor"
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { LoginModule } from './modules/login/login.module';
-import { SignUpModule } from './modules/sign-up/sign-up.module';
+import { UserStoryModule } from './modules/user-story/user-story.module';
 
 @NgModule({
   declarations: [
@@ -25,8 +24,7 @@ import { SignUpModule } from './modules/sign-up/sign-up.module';
     NavbarModule,
     BrowserAnimationsModule,
     NotifierModule,
-    LoginModule,
-    SignUpModule
+    UserStoryModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
