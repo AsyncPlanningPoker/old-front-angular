@@ -9,7 +9,7 @@ import { validatorError } from "src/app/shared/functions/validatorError"
 @Component({
 	selector: "app-reset-password",
 	templateUrl: "./reset-password.component.html",
-	styleUrls: ["../../form.component.css"]
+	styleUrls: ["./reset-password.component.css"]
 })
 export class ResetPasswordComponent implements OnInit {
 	form!: FormGroup

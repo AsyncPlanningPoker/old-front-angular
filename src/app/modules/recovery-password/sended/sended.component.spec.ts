@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RecoveryComponent } from './recovery.component';
+import { SendedComponent } from './sended.component';
 
-describe('RecoveryComponent', () => {
-  let component: RecoveryComponent;
-  let fixture: ComponentFixture<RecoveryComponent>;
+describe('SendedComponent', () => {
+  let component: SendedComponent;
+  let fixture: ComponentFixture<SendedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RecoveryComponent ]
+      declarations: [ SendedComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RecoveryComponent);
+    fixture = TestBed.createComponent(SendedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
