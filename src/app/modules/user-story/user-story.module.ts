@@ -2,16 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UserStoryRoutingModule } from './user-story-routing.module';
-import { UserStoryComponent } from './user-story/user-story.component';
+import { UserStoryViewComponent } from './components/user-story-view/user-story-view.component';
 
 
 @NgModule({
   declarations: [
-    UserStoryComponent
+    UserStoryViewComponent
   ],
   imports: [
     CommonModule,
     UserStoryRoutingModule
-  ]
+  ],
+  exports: [ UserStoryViewComponent ]
 })
 export class UserStoryModule { }

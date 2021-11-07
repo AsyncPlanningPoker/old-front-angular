@@ -5,6 +5,7 @@ import { PokerRoutingModule } from './poker-routing.module';
 import { PokerCreateComponent } from './components/poker-create/poker-create.component';
 import { PokerTableComponent } from './components/poker-table/poker-table.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { UserStoryModule } from '../user-story/user-story.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     SharedModule,
-    PokerRoutingModule
+    PokerRoutingModule,
+    UserStoryModule
   ],
   exports: [
     PokerCreateComponent,
