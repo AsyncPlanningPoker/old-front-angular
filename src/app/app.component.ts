@@ -1,4 +1,5 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from './core/services/auth/auth.service';
 
 @Component({
@@ -14,8 +15,13 @@ export class AppComponent implements OnInit {
 
 
   constructor(
+    private router: Router,
     private authService: AuthService
   ) {
+    if(!this.isLoggedIn()) {
+      this.router.navigate(['/login'])
+    }
+
     this.storage = window.localStorage;
   }
 

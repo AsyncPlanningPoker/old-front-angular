@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NotifierModule, NotifierService } from 'angular-notifier';
 import { SignUpModule } from '../../sign-up.module';
@@ -12,7 +13,7 @@ describe('SignUpComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ SignUpComponent ],
-      imports: [ SignUpModule, RouterTestingModule, NotifierModule ],
+      imports: [ SignUpModule, RouterTestingModule, NotifierModule, BrowserAnimationsModule ],
     })
     .compileComponents();
   });

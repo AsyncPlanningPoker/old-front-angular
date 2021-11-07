@@ -1,5 +1,5 @@
 export interface Poker {
-    id?: number,
+    id?: string,
     name: string,
     createdBy?: string,
     status?: 'Open' | 'Closed'

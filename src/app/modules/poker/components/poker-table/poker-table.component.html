@@ -21,10 +21,11 @@
                 <mat-panel-description>
                 <div class="description">
                     <div class="author">
-                    <mat-icon>{{poker.createdBy}}</mat-icon>
-                    <p>Author</p>
+                    <mat-icon>person</mat-icon>
+                    <p>{{poker.createdBy}}</p>
                     </div>
-                    <p class="state finished">{{poker.status == pokerStatus.Open ? "Aberto" : "Fechado"}}</p>
+                    <p class="state open" *ngIf="poker.status == pokerStatus.Open">Aberto</p>
+                    <p class="state finished" *ngIf="poker.status == pokerStatus.Closed">Fechado</p>
                 </div>
                 </mat-panel-description>
             </mat-expansion-panel-header>

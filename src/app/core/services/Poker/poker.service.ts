@@ -19,7 +19,7 @@ export class PokerService extends BaseService<Poker>  {
     )
   }
 
-  getPokerRelatedToUser(): Observable<Poker> {
+  getPokerRelatedToUser(): Observable<Poker[]> {
     return this.httpClient.get<any>(`${this.baseUrl}/fromUser`, this.httpOptions)
   }
 }

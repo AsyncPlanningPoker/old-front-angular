@@ -13,7 +13,7 @@ describe('LoginComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ LoginComponent ],
-      imports: [ LoginModule, RouterTestingModule ]
+      imports: [ LoginModule, RouterTestingModule, BrowserAnimationsModule ]
     })
     .compileComponents();
   });

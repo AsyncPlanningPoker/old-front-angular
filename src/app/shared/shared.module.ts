@@ -15,6 +15,6 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     LogoScreenComponent
   ],
 	imports: [CommonModule, MaterialModule],
-	exports: [ReactiveFormsModule, MaterialModule, NavbarModule, LogoScreenComponent, HttpClientModule, BrowserAnimationsModule]
+	exports: [ReactiveFormsModule, MaterialModule, NavbarModule, LogoScreenComponent, HttpClientModule]
 })
 export class SharedModule {}

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PokerModule } from '../../poker.module';
 
 import { PokerCreateComponent } from './poker-create.component';
@@ -10,7 +11,7 @@ describe('PokerCreateComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ PokerCreateComponent ],
-      imports: [ PokerModule ]
+      imports: [ PokerModule, BrowserAnimationsModule ]
     })
     .compileComponents();
   });

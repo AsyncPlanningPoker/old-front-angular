@@ -39,8 +39,9 @@ export class LoginComponent implements OnInit {
       this.userService.login(this.form.value).subscribe((res) => {
         const { token } = res
         this.authService.setJwtToLocalStorage(token)
-        this.isLoading = false;
-        this.router.navigate(['home']);
+        this.isLoading = false
+        this.router.navigate([''])
+        console.log("a")
       });
     }
   }
