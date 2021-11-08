@@ -1,0 +1,27 @@
+<mat-progress-bar
+	color="accent"
+	value="100"
+	[mode]="isLoading ? 'indeterminate' : 'determinate'"
+>
+</mat-progress-bar>
+
+<form [formGroup]="form">
+	<h1 class="mat-headline">Recuperar senha</h1>
+
+	<mat-form-field class="width-form-field" appearance="outline">
+		<mat-label>Email</mat-label>
+		<input matInput placeholder="Email" formControlName="email" />
+		<mat-error>
+			{{ getErrorMessage("email") }}
+		</mat-error>
+	</mat-form-field>
+
+	<button
+		class="width-form-field"
+		mat-raised-button
+		color="primary"
+		(click)="submitForm()"
+	>
+		Entrar
+	</button>
+</form>
