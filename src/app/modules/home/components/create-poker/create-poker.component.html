@@ -6,8 +6,13 @@
 </header>
 
 <mat-dialog-content class="mat-typography">
-	<div *ngIf="isLoading" class="showSpinner">
-		<mat-spinner color="accent"></mat-spinner>
+	<div class="showSpinner">
+		<mat-progress-bar
+		color="accent"
+		value="100"
+		[mode]="isLoading ? 'indeterminate' : 'determinate'"
+		>
+		</mat-progress-bar>
 	</div>
 	<div class="wrapper-form">
 		<form [formGroup]="formCreatePoker">
@@ -27,6 +32,7 @@
 				mat-raised-button
 				color="primary"
 				(click)="createPoker()"
+				[disabled]= "isLoading"
 			>
 				Criar
 			</button>
