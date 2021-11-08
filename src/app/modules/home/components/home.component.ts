@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
 		const dialogRef = this.dialog.open(CreatePokerComponent)
 		dialogRef.afterClosed()
 			.subscribe(res =>{
-				if(res != undefined){
+				if(!!res){
 					this.notifierService.notify(
 						"success",
 						"Poker criado com sucesso"
