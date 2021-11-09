@@ -2,6 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core"
 import { Router } from "@angular/router"
 import { OverlayContainer } from "@angular/cdk/overlay"
 import { AuthService } from "src/app/core/services/auth/auth.service"
+import { Store } from "@ngrx/store"
+import { setTheme } from "src/app/core/actions/theme.actions"
+import { Observable } from "rxjs"
 
 @Component({
 	selector: "app-navbar",
@@ -9,56 +12,57 @@ import { AuthService } from "src/app/core/services/auth/auth.service"
 	styleUrls: ["./navbar.component.css"]
 })
 export class NavbarComponent implements OnInit {
-  @Input()
-  isDarkTheme: boolean = false;
+	theme$: Observable<string>
+	isDarkTheme!: boolean
+	username: string = ""
 
-  @Output() isDarkThemeChange = new EventEmitter<boolean>();
+	constructor(
+		private authService: AuthService,
+		private _overlayContainer: OverlayContainer,
+		private router: Router,
+		private store: Store<{ theme: string }>
+	) {
+		this.theme$ = store.select("theme")
+	}
 
-  username: string = '';
-  constructor(
-    private authService: AuthService,
-    private _overlayContainer: OverlayContainer,
-    private router: Router
-  ) {}
+	ngOnInit(): void {
+		this.theme$.subscribe((theme) => {
+			this.isDarkTheme = theme == "dark"
+		})
 
-  ngOnInit(): void {
-    this.username = this.authService.getTokenInfo().email;
-    this.loadingClass();
-  }
+		this.username = this.authService.getTokenInfo().email
+		this.loadingClass()
+	}
 
-  logOut() {
-    const token = window.localStorage.getItem('token');
-    if (token != null) {
-      window.localStorage.removeItem('token');
-    }
-    this.router.navigate(['login']);
-  }
+	logOut() {
+		const token = window.localStorage.getItem("token")
+		if (token != null) {
+			window.localStorage.removeItem("token")
+		}
+		this.router.navigate(["login"])
+	}
 
-  toggleTheme() {
-    this.isDarkThemeChange.emit(this.isDarkTheme);
-    window.localStorage.setItem(
-      '@planningPoker:theme',
-      this.isDarkTheme ? 'dark' : 'light'
-    );
+	toggleTheme() {
+		this.store.dispatch(
+			setTheme({ theme: this.isDarkTheme ? "dark" : "ligth" })
+		)
 
-    this.loadingClass();
-  }
+		this.loadingClass()
+	}
 
-  private loadingClass() {
-    const overlayContainerClasses =
-      this._overlayContainer.getContainerElement().classList;
+	private loadingClass() {
+		const overlayContainerClasses =
+			this._overlayContainer.getContainerElement().classList
 
-    const themeClassesToRemove = Array.from(overlayContainerClasses).filter(
-      (item: string) =>
-        item.includes(!this.isDarkTheme ? 'dark-theme' : 'light-theme')
-    );
+		const themeClassesToRemove = Array.from(overlayContainerClasses).filter(
+			(item: string) =>
+				item.includes(!this.isDarkTheme ? "dark-theme" : "light-theme")
+		)
 
-    if (themeClassesToRemove.length) {
-      overlayContainerClasses.remove(...themeClassesToRemove);
-    }
+		if (themeClassesToRemove.length) {
+			overlayContainerClasses.remove(...themeClassesToRemove)
+		}
 
-    overlayContainerClasses.add(
-      this.isDarkTheme ? 'dark-theme' : 'light-theme'
-    );
-  }
+		overlayContainerClasses.add(this.isDarkTheme ? "dark-theme" : "light-theme")
+	}
 }
