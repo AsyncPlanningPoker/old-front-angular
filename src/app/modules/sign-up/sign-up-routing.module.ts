@@ -6,12 +6,9 @@ const routes: Routes = [
   {
     path: "",
     component: SignUpComponent
-  },
-  {
-    path: "**",
-    redirectTo: ""
   }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

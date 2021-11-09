@@ -9,7 +9,6 @@ import { LoginRoutingModule } from "./login-routing.module"
 @NgModule({
 	declarations: [LoginComponent],
 	imports: [CommonModule, SharedModule, RouterModule, LoginRoutingModule],
-	exports: [],
-	providers: [UserService]
+	exports: []
 })
 export class LoginModule {}

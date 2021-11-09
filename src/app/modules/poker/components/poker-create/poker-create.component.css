@@ -14,7 +14,6 @@ form {
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    margin: 50px;
 }
 
 .input-field {
@@ -23,5 +22,14 @@ form {
 }
 
 .button-submit {
-    width: 50%;
+    width: 100%;
+}
+
+.wrapper-form{
+    margin-top: 50px;
+    width: 500px;
+}
+
+.showSpinner{
+    margin-top: 20px;
 }

@@ -1,32 +1,40 @@
 import { NgModule } from "@angular/core"
 import { RouterModule, Routes } from "@angular/router"
-import { LoginComponent } from "./modules/login/components/login/login.component"
-import { SignUpComponent } from "./modules/sign-up/components/sign-up/sign-up.component"
+import { AuthGuard } from "./core/guards/auth.guard"
+import { GameComponent } from "./modules/game/game.component"
 
 const routes: Routes = [
 	{
-		path: "",
+		path: "game",
+		component: GameComponent
+	},
+	{
+		path: "poker",
 		loadChildren: () =>
-			import("./modules/poker/poker.module").then((m) => m.PokerModule)
+			import("./modules/poker/poker.module").then((m) => m.PokerModule),
+		canActivate: [AuthGuard]
 	},
 	{
 		path: "login",
 		loadChildren: () =>
-			import("./modules/login/login.module").then((m) => m.LoginModule)
+			import("./modules/login/login.module").then((m) => m.LoginModule),
+		canActivate: [AuthGuard]
 	},
 	{
 		path: "sign-up",
 		loadChildren: () =>
-			import("./modules/sign-up/sign-up.module").then((m) => m.SignUpModule)
+			import("./modules/sign-up/sign-up.module").then((m) => m.SignUpModule),
+		canActivate: [AuthGuard]
 	},
 	{
 		path: "recovery-password",
 		loadChildren: () =>
 			import("./modules/recovery-password/recovery-password.module").then(
 				(m) => m.RecoveryPasswordModule
-			)
+			),
+		canActivate: [AuthGuard]
 	},
-	{ path: "**", redirectTo: "" }
+	{ path: "**", redirectTo: "login" }
 ]
 
 @NgModule({
