@@ -1,0 +1,29 @@
+<div id="container">
+    <form>
+        <div class="deck">
+            <div *ngFor="let card of cards">
+                <input type="radio" id={{card}} name="drone" (click)="teste(card)">
+                <label for={{card}} class="cardPoker">
+                    <div class="number">
+                        {{card}}
+                    </div>
+                </label>
+            </div>
+        </div>
+        <button
+          class="width-form-button"
+          mat-raised-button
+          color="accent"
+        >
+          Votar
+        </button>
+    </form>
+    <div class="comments">
+        <div class="minor">
+            <textarea ></textarea>
+        </div>
+        <div class="highest">
+            <textarea ></textarea>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core"
 import { JwtHelperService } from "@auth0/angular-jwt"
-import * as jwt_decode from "jwt-decode";
 import { Token } from "../../interfaces/token/token";
 
 

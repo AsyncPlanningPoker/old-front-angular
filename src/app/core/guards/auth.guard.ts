@@ -33,11 +33,11 @@ export class AuthGuard implements CanActivate {
   }
 
   private verifyAuth(path: string | undefined){
-    const isLogin = path === 'poker'
+    const isLogin = (path === 'login') || (path === 'signup')
 
     if(this.authService.auth()){
       if(isLogin){
-        this.router.navigate(['']);
+        this.router.navigate(['poker']);
         return false
       }
       return true

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { finalize } from 'rxjs/operators';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { validatorError } from 'src/app/shared/functions/validatorError';
@@ -36,13 +37,17 @@ export class LoginComponent implements OnInit {
   submitForm() {
     if (this.form.valid && this.form.dirty) {
       this.isLoading = true;
-      this.userService.login(this.form.value).subscribe((res) => {
-        const { token } = res
-        this.authService.setJwtToLocalStorage(token)
-        this.isLoading = false
-        this.router.navigate([''])
-        console.log("a")
-      });
+      this.userService.login(this.form.value)
+        .pipe(
+          finalize(() => {
+            this.isLoading = false
+          })
+        )
+        .subscribe((res) => {
+          const { token } = res
+          this.authService.setJwtToLocalStorage(token)
+          this.router.navigate(['poker'])
+        });
     }
   }
 

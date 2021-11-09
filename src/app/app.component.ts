@@ -18,10 +18,6 @@ export class AppComponent implements OnInit {
     private router: Router,
     private authService: AuthService
   ) {
-    if(!this.isLoggedIn()) {
-      this.router.navigate(['/login'])
-    }
-
     this.storage = window.localStorage;
   }
 
