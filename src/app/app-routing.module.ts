@@ -31,7 +31,8 @@ const routes: Routes = [
 		loadChildren: () =>
 			import("./modules/recovery-password/recovery-password.module").then(
 				(m) => m.RecoveryPasswordModule
-			)
+			),
+		canActivate: [AuthGuard]
 	},
 	{ path: "**", redirectTo: "login" }
 ]
