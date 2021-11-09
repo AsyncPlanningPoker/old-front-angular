@@ -4,6 +4,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding-top: 100px;
+    margin-bottom: 20px;
 }
 
 #button-create-poker {

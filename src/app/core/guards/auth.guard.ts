@@ -27,7 +27,7 @@ export class AuthGuard implements CanActivate {
 	}
 
 	private verifyAuth(path: string | undefined) {
-		const isPublicRoute = ["login", "signup", "recovery-password"].includes(
+		const isPublicRoute = ["login", "sign-up", "recovery-password"].includes(
 			path || ""
 		)
 
