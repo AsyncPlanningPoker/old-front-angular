@@ -29,13 +29,21 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      email: [, [Validators.required, Validators.email]],
+      email: [this.storage.getItem('planning-poker-checkemail'), [Validators.required, Validators.email]],
+      checkemail: [this.storage.getItem('planning-poker-checkemail')?true:false],
       password: [, [Validators.required, Validators.minLength(8)]],
     });
   }
 
   submitForm() {
     if (this.form.valid && this.form.dirty) {
+      if(this.form.value.checkemail) {
+        this.storage.setItem('planning-poker-checkemail',this.form.value.email)  
+        console.log(this.form.value)
+    } else { 
+        this.storage.removeItem('planning-poker-checkemail')
+
+    }
       this.isLoading = true;
       this.userService.login(this.form.value)
         .pipe(
@@ -49,7 +57,8 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['poker'])
         });
     }
-  }
+    
+}
 
   getErrorMessage(field: string){
     return validatorError(field, this.form);
