@@ -23,25 +23,13 @@ export class AuthGuard implements CanActivate {
 		| Promise<boolean | UrlTree>
 		| boolean
 		| UrlTree {
-		return this.verifyAuth(route.routeConfig?.path)
+		
+		return this.verifyAuth()
 	}
-
-	private verifyAuth(path: string | undefined) {
-		const isPublicRoute = ["login", "sign-up", "recovery-password"].includes(
-			path || ""
-		)
-
-		if (this.authService.auth()) {
-			if (isPublicRoute) {
-				this.router.navigate(["poker"])
-				return false
-			}
+	
+	private verifyAuth() {
+		if(this.authService.auth())
 			return true
-		}
-
-		if (isPublicRoute) {
-			return true
-		}
 
 		this.router.navigate(["login"])
 		return false

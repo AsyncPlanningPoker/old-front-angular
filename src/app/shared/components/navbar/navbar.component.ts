@@ -38,7 +38,7 @@ export class NavbarComponent implements OnInit {
     this.isDarkThemeChange.emit(this.isDarkTheme);
     window.localStorage.setItem(
       '@planningPoker:theme',
-      this.isDarkTheme ? 'dark' : 'ligth'
+      this.isDarkTheme ? 'dark' : 'light'
     );
 
     this.loadingClass();

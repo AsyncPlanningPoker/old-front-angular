@@ -19,29 +19,6 @@ export class PokerTableResolver implements Resolve<Observable<Poker[]>> {
 		route: ActivatedRouteSnapshot,
 		state: RouterStateSnapshot
 	): Observable<Poker[]> {
-		// return this.pokerService.getPokerRelatedToUser()
-		return new Observable((observer) => {
-			observer.next([
-				{
-					id: "1",
-					name: "Poker Sprint 1",
-					createdBy: "Eugenio",
-					status: PokerStatus.Closed
-				},
-				{
-					id: "2",
-					name: "Poker Sprint 1 Versao 2",
-					createdBy: "Eugenio",
-					status: PokerStatus.Open
-				},
-				{
-					id: "3",
-					name: "Poker Sprint 2",
-					createdBy: "Eugenio",
-					status: PokerStatus.Open
-				}
-			])
-			observer.complete()
-		})
+		return this.pokerService.getPokerRelatedToUser()
 	}
 }
