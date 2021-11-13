@@ -13,6 +13,8 @@ import { AuthService } from "../services/auth/auth.service"
 	providedIn: "root"
 })
 export class AuthGuard implements CanActivate {
+	notRequiresAuthentication: boolean = false
+
 	constructor(private authService: AuthService, private router: Router) {}
 
 	canActivate(
@@ -24,14 +26,22 @@ export class AuthGuard implements CanActivate {
 		| boolean
 		| UrlTree {
 		
-		return this.verifyAuth()
-	}
-	
-	private verifyAuth() {
-		if(this.authService.auth())
-			return true
+		this.notRequiresAuthentication = route.data.notRequiresAuthentication || false
 
-		this.router.navigate(["login"])
-		return false
+		if(this.notRequiresAuthentication) {
+			if(this.authService.auth()) {
+				this.router.navigate(["poker"])
+			}
+			
+			return true
+		}
+		else {
+			if(this.authService.auth()) {
+				return true
+			}
+
+			this.router.navigate(["login"])
+			return false
+		}
 	}
 }
