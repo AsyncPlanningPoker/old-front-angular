@@ -1,4 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
+import { NotifierModule } from 'angular-notifier';
+import { RecoveryPasswordModule } from '../recovery-password.module';
 
 import { SolicitationComponent } from './solicitation.component';
 
@@ -8,7 +12,8 @@ describe('SolicitationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SolicitationComponent ]
+      declarations: [ SolicitationComponent ],
+      imports: [ RecoveryPasswordModule, BrowserAnimationsModule, RouterTestingModule, NotifierModule ]
     })
     .compileComponents();
   });

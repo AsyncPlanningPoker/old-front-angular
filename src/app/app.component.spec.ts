@@ -1,25 +1,72 @@
-import { TestBed } from "@angular/core/testing"
+import { Location } from "@angular/common"
+import { ComponentFixture, fakeAsync, TestBed, tick } from "@angular/core/testing"
+import { Router } from "@angular/router"
 import { RouterTestingModule } from "@angular/router/testing"
+import { routes } from "./app-routing.module"
 import { AppComponent } from "./app.component"
 import { AppModule } from "./app.module"
+import { AuthGuard } from "./core/guards/auth.guard"
 
-describe("AppComponent", () => {
+describe(`${AppComponent.name}`, () => {
+	let component: AppComponent
+	let fixture: ComponentFixture<AppComponent>
+	let storage: any
+
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			imports: [RouterTestingModule, AppModule],
+			imports: [AppModule, RouterTestingModule.withRoutes(routes)],
 			declarations: [AppComponent]
 		}).compileComponents()
 	})
+	
+	beforeEach(() => {
+		fixture = TestBed.createComponent(AppComponent);
+		component = fixture.componentInstance;
+
+		storage = {}
+		spyOn(window.localStorage, 'getItem').and.callFake((key) => key in storage ? storage[key] : null)
+		spyOn(window.localStorage, 'setItem').and.callFake((key, value) => (storage[key] = value + ''))
+		spyOn(window.localStorage, 'clear').and.callFake(() => (storage = {}))
+	});
 
 	it("should create the app", () => {
-		const fixture = TestBed.createComponent(AppComponent)
-		const app = fixture.componentInstance
-		expect(app).toBeTruthy()
+		expect(component).toBeTruthy()
 	})
 
 	it(`should have as title 'planning-poker-front'`, () => {
-		const fixture = TestBed.createComponent(AppComponent)
-		const app = fixture.componentInstance
-		expect(app.title).toEqual("planning-poker-front")
+		expect(component.title).toEqual("planning-poker-front")
 	})
+
+	it(`should set 'isDarkTheme' to thue`, () => {
+		window.localStorage.setItem('@planningPoker:theme', 'dark')
+		fixture.detectChanges()
+
+		expect(component.isDarkTheme).toBeTrue()
+	})
+
+	it(`should set 'isDarkTheme' to false`, () => {
+		window.localStorage.setItem('@planningPoker:theme', 'light')
+		fixture.detectChanges()
+
+		expect(component.isDarkTheme).toBeFalse()
+	})
+
+	it(`should set 'isDarkTheme' to false`, () => {
+		window.localStorage.setItem('@planningPoker:theme', 'light')
+		fixture.detectChanges()
+
+		expect(component.isDarkTheme).toBeFalse()
+	})
+
+	// it(`should nagivate to poker`, fakeAsync(() => {
+	// 	let router = TestBed.inject(Router);
+	// 	let location = TestBed.inject(Location);
+
+	// 	router.initialNavigation()
+	// 	router.navigateByUrl('/poker');
+	// 	fixture.detectChanges();
+	// 	tick()
+
+	// 	expect(location.path()).toBe('/poker');
+	// }))
 })
