@@ -46,21 +46,3 @@ h4 {
     align-items: center;
     justify-content: space-around;
 }
-
-.state {
-    width: 120px;
-    height: 30px;
-    color: #fafafa; /*$grey-palette 50*/
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.open {
-    background-color: #B2FF59; /*$light-green-palette A200*/
-}
-
-.finished {
-    background-color: #7C4DFF; /*$deep-purple-palette A200*/;
-}
