@@ -1,6 +1,12 @@
 export interface Poker {
-    id?: string,
-    name: string,
-    createdBy?: string,
-    status?: 'Open' | 'Closed'
+	idPoker?: string
+	name: string
+	createdBy?: string
+	status?: "Open" | "Closed"
+	players?: string[]
+}
+
+export interface IAddUser {
+	idPoker?: string
+	email: string
 }

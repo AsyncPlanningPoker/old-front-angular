@@ -39,17 +39,45 @@
 				</mat-panel-description>
 			</mat-expansion-panel-header>
 
-			<app-user-story-view [idPoker]="poker.id"></app-user-story-view>
+			<form class="form-add-player">
+				<mat-form-field style="width: 60%" appearance="fill">
+					<mat-label>Email</mat-label>
+					<input
+						type="text"
+						placeholder="entre com o email"
+						aria-label="Email"
+						matInput
+						[formControl]="formEmail"
+						[matAutocomplete]="auto"
+					/>
+					<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+						<mat-option
+							*ngFor="let option of filteredOptions | async"
+							[value]="option"
+						>
+							{{ option }}
+						</mat-option>
+					</mat-autocomplete>
+				</mat-form-field>
 
-			<!-- <mat-form-field appearance="fill">
-                <mat-label>First name</mat-label>
-                <input matInput>
-            </mat-form-field>
+				<button
+					class="button-submit"
+					mat-raised-button
+					color="primary"
+					(click)="addUser(poker.idPoker)"
+				>
+					Adicionar
+				</button>
+			</form>
 
-            <mat-form-field appearance="fill">
-                <mat-label>Age</mat-label>
-                <input matInput type="number" min="1">
-            </mat-form-field> -->
+			<table style="width: 100%">
+				<tr>
+					<th>Email</th>
+				</tr>
+				<tr *ngFor="let player of poker.players">
+					<td>{{ player }}</td>
+				</tr>
+			</table>
 		</mat-expansion-panel>
 	</mat-accordion>
 

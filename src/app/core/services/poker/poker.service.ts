@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
 import { Observable } from "rxjs"
-import { Poker } from "../../interfaces/poker/poker"
+import { IAddUser, Poker } from "../../interfaces/poker/poker"
 
 import { BaseService } from "../base.service"
 
@@ -16,6 +16,14 @@ export class PokerService extends BaseService<Poker> {
 	getPokerRelatedToUser(): Observable<Poker[]> {
 		return this.httpClient.get<any>(
 			`${this.baseUrl}/fromUser`,
+			this.httpOptions
+		)
+	}
+
+	addUser(payload: IAddUser) {
+		return this.httpClient.post<any>(
+			`${this.baseUrl}/addUser`,
+			payload,
 			this.httpOptions
 		)
 	}
