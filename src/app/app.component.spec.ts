@@ -24,9 +24,11 @@ describe(`${AppComponent.name}`, () => {
 		component = fixture.componentInstance;
 
 		storage = {}
-		spyOn(window.localStorage, 'getItem').and.callFake((key) => key in storage ? storage[key] : null)
-		spyOn(window.localStorage, 'setItem').and.callFake((key, value) => (storage[key] = value + ''))
-		spyOn(window.localStorage, 'clear').and.callFake(() => (storage = {}))
+		spyOn(localStorage, 'getItem').and.callFake((key) => key in storage ? storage[key] : null)
+		spyOn(localStorage, 'setItem').and.callFake((key, value) => (storage[key] = value + ''))
+		spyOn(localStorage, 'clear').and.callFake(() => (storage = {}))
+		
+		localStorage.clear()
 	});
 
 	it("should create the app", () => {
@@ -35,27 +37,6 @@ describe(`${AppComponent.name}`, () => {
 
 	it(`should have as title 'planning-poker-front'`, () => {
 		expect(component.title).toEqual("planning-poker-front")
-	})
-
-	it(`should set 'isDarkTheme' to thue`, () => {
-		window.localStorage.setItem('@planningPoker:theme', 'dark')
-		fixture.detectChanges()
-
-		expect(component.isDarkTheme).toBeTrue()
-	})
-
-	it(`should set 'isDarkTheme' to false`, () => {
-		window.localStorage.setItem('@planningPoker:theme', 'light')
-		fixture.detectChanges()
-
-		expect(component.isDarkTheme).toBeFalse()
-	})
-
-	it(`should set 'isDarkTheme' to false`, () => {
-		window.localStorage.setItem('@planningPoker:theme', 'light')
-		fixture.detectChanges()
-
-		expect(component.isDarkTheme).toBeFalse()
 	})
 
 	// it(`should nagivate to poker`, fakeAsync(() => {

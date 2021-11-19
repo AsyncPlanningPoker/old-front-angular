@@ -11,9 +11,4 @@ export class GameComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  teste(teste: number){
-    console.log(teste)
-  }
-  
 }

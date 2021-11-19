@@ -1,8 +1,8 @@
 <div
-	[ngClass]="{ 'dark-theme': isLoggedIn() && (theme$ | async) == 'dark' }"
+	[ngClass]="{ 'dark-theme': isLoggedIn && (theme$ | async) == 'dark' }"
 	class="wrapper-container mat-app-background"
 >
-	<app-navbar *ngIf="isLoggedIn()"></app-navbar>
+	<app-navbar *ngIf="isLoggedIn"></app-navbar>
 	<router-outlet></router-outlet>
 	<notifier-container></notifier-container>
 </div>

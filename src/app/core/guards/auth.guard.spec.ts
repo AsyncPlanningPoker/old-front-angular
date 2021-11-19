@@ -25,10 +25,13 @@ describe(`${AuthGuard.name}`, () => {
 				{	provide: ActivatedRoute,
 					useValue: {
 						snapshot: {
-							paramMap: convertToParamMap({}),
-							routeConfig: {
-								path: ""
+							data: {
+								notRequiresAuthentication: false
 							}
+							// paramMap: convertToParamMap({}),
+							// routeConfig: {
+							// 	path: ""
+							// }
 						}
 					}
 				},
@@ -51,13 +54,18 @@ describe(`${AuthGuard.name}`, () => {
 		expect(guard).toBeTruthy()
 	})
 
-	it(`should ${AuthGuard.prototype.canActivate.name} return true when token time is valid`, () => {
+	it(`should ${AuthGuard.prototype.canActivate.name} return true when notRequiresAuthentication is true`, () => {
+		route.snapshot.data.notRequiresAuthentication = true
+		expect(guard.canActivate(route.snapshot, mockSnapshot)).toBeTrue()
+	})
+
+	it(`should ${AuthGuard.prototype.canActivate.name} return true when token is valid and notRequiresAuthentication is false`, () => {
 		const validToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZXVnZW5pbyIsImVtYWlsIjoiZXVnZW5pby5tYXJpYS52QGdtYWlsLmNvbSIsInVzZXJJZCI6IjhiNjkyZmMwLTExMjktNDY1ZS04NTY1LTMxYTliY2RhZTAxZiIsImlhdCI6MTYzNjc0MzkwNCwiZXhwIjo5OTk5OTk5OTk5fQ.QjN6AcFTkglczFhCINWyJT8RE2JrTo5tvsRXSdc3Zbk"
 		window.localStorage.setItem('token', validToken)
 
 		expect(guard.canActivate(route.snapshot, mockSnapshot)).toBeTrue()
 	})
-	it(`should ${AuthGuard.prototype.canActivate.name} return false when token time is not valid`, () => {
+	it(`should ${AuthGuard.prototype.canActivate.name} return false when token is not valid and notRequiresAuthentication is false`, () => {
 		const notValidToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZXVnZW5pbyIsImVtYWlsIjoiZXVnZW5pby5tYXJpYS52QGdtYWlsLmNvbSIsInVzZXJJZCI6IjhiNjkyZmMwLTExMjktNDY1ZS04NTY1LTMxYTliY2RhZTAxZiIsImlhdCI6MTYzNjc0MzkwNCwiZXhwIjoxNjM2NzQzOTA0fQ.CshfjBD1RHtMtHeQAryYeetwWUzuO2m5s4k74irPrns"
 		window.localStorage.setItem('token', notValidToken)
 

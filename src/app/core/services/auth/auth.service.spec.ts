@@ -42,7 +42,8 @@ describe(`${AuthService.name}`, () => {
 		const expiredToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZXVnZW5pbyIsImVtYWlsIjoiZXVnZW5pby5tYXJpYS52QGdtYWlsLmNvbSIsInVzZXJJZCI6IjhiNjkyZmMwLTExMjktNDY1ZS04NTY1LTMxYTliY2RhZTAxZiIsImlhdCI6MTYzNjc0MzkwNCwiZXhwIjoxNjM2NzQzOTA0fQ.CshfjBD1RHtMtHeQAryYeetwWUzuO2m5s4k74irPrns"
 		
 		localStorage.setItem("token", expiredToken)
+		service.removeJwtFromLocalStorage()
 
-		expect(service.auth()).not.toBeTrue()
+		expect(localStorage.getItem("token")).toBe(null)
 	})
 })
