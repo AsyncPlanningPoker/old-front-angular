@@ -36,28 +36,25 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm() {
-    if (this.form.valid && this.form.dirty) {
-      if(this.form.value.checkemail) {
-        this.storage.setItem('planning-poker-checkemail',this.form.value.email)  
-        console.log(this.form.value)
-    } else { 
-        this.storage.removeItem('planning-poker-checkemail')
-
+  if (this.form.valid && this.form.dirty) {
+    if(this.form.value.checkemail) {
+      this.storage.setItem('planning-poker-checkemail',this.form.value.email)  
+    } else {
+      this.storage.removeItem('planning-poker-checkemail')
     }
-      this.isLoading = true;
-      this.userService.login(this.form.value)
-        .pipe(
-          finalize(() => {
-            this.isLoading = false
-          })
-        )
-        .subscribe((res) => {
-          const { token } = res
-          this.authService.setJwtToLocalStorage(token)
-          this.router.navigate(['poker'])
-        });
-    }
-    
+    this.isLoading = true;
+    this.userService.login(this.form.value)
+      .pipe(
+        finalize(() => {
+          this.isLoading = false
+        })
+      )
+      .subscribe((res) => {
+        const { token } = res
+        this.authService.setJwtToLocalStorage(token)
+        this.router.navigate(['poker'])
+      });
+  }
 }
 
   getErrorMessage(field: string){
