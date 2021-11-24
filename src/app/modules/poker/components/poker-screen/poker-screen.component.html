@@ -1,0 +1,15 @@
+<div class="container">
+	<header>
+		<h4 class="ppa-title">{{ poker.name }}</h4>
+		<button
+			id="button-create-poker"
+			mat-raised-button
+			color="primary"
+			(click)="openDialogCreateStory()"
+		>
+			Criar Story
+		</button>
+	</header>
+
+	<app-story-table [storyList]="storyList | async"></app-story-table>
+</div>

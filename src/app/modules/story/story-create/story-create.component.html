@@ -1,0 +1,50 @@
+<header>
+	<h1 class="ppa-title" mat-dialog-title>New Story</h1>
+	<button mat-icon-button mat-dialog-close cdkFocusInitial>
+		<mat-icon>close</mat-icon>
+	</button>
+</header>
+
+<mat-dialog-content class="mat-typography">
+	<div class="showSpinner">
+		<mat-progress-bar
+			color="accent"
+			value="100"
+			[mode]="isLoading ? 'indeterminate' : 'determinate'"
+		>
+		</mat-progress-bar>
+	</div>
+	<div class="wrapper-form">
+		<form [formGroup]="form">
+			<mat-form-field class="input-field" appearance="outline">
+				<mat-label>Nome</mat-label>
+				<input matInput placeholder="Nome" formControlName="name" />
+				<mat-error>
+					{{ getErrorMessage("name") }}
+				</mat-error>
+			</mat-form-field>
+
+			<mat-form-field class="input-field" appearance="outline">
+				<mat-label>Descrição</mat-label>
+				<textarea
+					matInput
+					placeholder="Descrição"
+					formControlName="description"
+				></textarea>
+				<mat-error>
+					{{ getErrorMessage("description") }}
+				</mat-error>
+			</mat-form-field>
+
+			<button
+				class="button-submit"
+				mat-raised-button
+				color="primary"
+				(click)="createStory()"
+				[disabled]="isLoading"
+			>
+				Criar
+			</button>
+		</form>
+	</div>
+</mat-dialog-content>

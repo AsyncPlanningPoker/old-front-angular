@@ -1,0 +1,14 @@
+<mat-accordion class="table" multi *ngFor="let story of storyList">
+	<mat-expansion-panel>
+		<mat-expansion-panel-header collapsedHeight="100px" expandedHeight="100px">
+			<mat-panel-title>
+				<label class="title">
+					{{ story.name }}
+				</label>
+			</mat-panel-title>
+			<mat-panel-description>
+				<p>{{ story.description }}</p>
+			</mat-panel-description>
+		</mat-expansion-panel-header>
+	</mat-expansion-panel>
+</mat-accordion>

@@ -1,0 +1,13 @@
+.table .mat-expansion-panel-header-title,
+.table .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.table .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: larger;
+}

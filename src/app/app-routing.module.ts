@@ -37,6 +37,7 @@ export const routes: Routes = [
 		canActivate: [AuthGuard],
 		data: { notRequiresAuthentication: true }
 	},
+	// { path: 'story', loadChildren: () => import('./modules/story/story/story.module').then(m => m.StoryModule) },
 	{ path: "**", redirectTo: "login" }
 ]
 

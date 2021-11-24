@@ -1,8 +1,9 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
 import { Observable } from "rxjs"
-import { Poker } from "../../interfaces/poker/poker"
 
+import { Poker } from "../../interfaces/poker/poker"
+import { UserStory } from "../../interfaces/user-story/user-story"
 import { BaseService } from "../base.service"
 
 @Injectable({
@@ -16,6 +17,17 @@ export class PokerService extends BaseService<Poker> {
 	getPokerRelatedToUser(): Observable<Poker[]> {
 		return this.httpClient.get<any>(
 			`${this.baseUrl}/fromUser`,
+			this.httpOptions
+		)
+	}
+
+	getPokerById(id: string): Observable<Poker> {
+		return this.httpClient.get<any>(`${this.baseUrl}/${id}`, this.httpOptions)
+	}
+
+	getStoriesFromPoker(id: string): Observable<UserStory[]> {
+		return this.httpClient.get<any>(
+			`${this.baseUrl}/${id}/stories`,
 			this.httpOptions
 		)
 	}
