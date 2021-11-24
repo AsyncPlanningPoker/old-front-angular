@@ -1,6 +1,11 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
-import { SignUp, Login, IResetPassword } from "../../interfaces/user/user"
+import {
+	SignUp,
+	Login,
+	IResetPassword,
+	IAutoCompleteEmailPayload
+} from "../../interfaces/user/user"
 import { BaseService } from "../base.service"
 
 @Injectable({
@@ -33,5 +38,12 @@ export class UserService extends BaseService<SignUp> {
 			payload,
 			this.httpOptions
 		)
+	}
+
+	autoCompleteEmail(payload: IAutoCompleteEmailPayload) {
+		return this.httpClient.get<any>(`${this.baseUrl}/autoCompleteEmail`, {
+			...this.httpOptions,
+			params: { ...payload }
+		})
 	}
 }
