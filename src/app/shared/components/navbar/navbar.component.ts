@@ -34,6 +34,10 @@ export class NavbarComponent implements OnInit {
 		this.loadingClass()
 	}
 
+	rederectToPokerPage() {
+		this.router.navigate(["poker"])
+	}
+
 	logOut() {
 		const token = window.localStorage.getItem("token")
 		if (token != null) {

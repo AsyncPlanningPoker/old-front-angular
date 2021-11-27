@@ -1,6 +1,7 @@
 export interface UserStory {
-    id: string
-    name: string
-    description: string
-    idPoker: string
+	id: string
+	name: string
+	description: string
+	idPoker: string
+	createdAt: string
 }

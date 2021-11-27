@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core"
 import { Observable } from "rxjs"
 import { IAddUser, Poker } from "../../interfaces/poker/poker"
 
+import { UserStory } from "../../interfaces/user-story/user-story"
 import { BaseService } from "../base.service"
 
 @Injectable({
@@ -20,6 +21,16 @@ export class PokerService extends BaseService<Poker> {
 		)
 	}
 
+	getPokerById(id: string): Observable<Poker> {
+		return this.httpClient.get<any>(`${this.baseUrl}/${id}`, this.httpOptions)
+	}
+
+	getStoriesFromPoker(id: string): Observable<UserStory[]> {
+		return this.httpClient.get<any>(
+			`${this.baseUrl}/${id}/stories`,
+			this.httpOptions
+		)
+	}
 	addUser(payload: IAddUser) {
 		return this.httpClient.post<any>(
 			`${this.baseUrl}/addUser`,

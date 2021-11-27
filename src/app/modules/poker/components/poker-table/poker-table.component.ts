@@ -32,6 +32,7 @@ export class PokerTableComponent implements OnInit {
 		public dialog: MatDialog
 	) {
 		this.pokerList = this.activatedRoute.snapshot.data["pokerList"]
+		console.log(this.pokerList)
 	}
 
 	ngOnInit(): void {
