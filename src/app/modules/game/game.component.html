@@ -1,29 +1,83 @@
-<div id="container">
-    <form>
-        <div class="deck">
-            <div *ngFor="let card of cards">
-                <input type="radio" id={{card}} name="drone">
-                <label for={{card}} class="cardPoker">
-                    <div class="number">
-                        {{card}}
+<app-navbar></app-navbar>
+
+
+<mat-sidenav-container class="example-container" autosize>
+    <mat-sidenav #sidenav class="example-sidenav" mode="over">
+      <mat-selection-list #shoes [multiple]="false" class="list">
+        <mat-list-option *ngFor="let story of storyList" [value]="story">
+          <story-button 
+            title="teste"
+            details="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt rem odit quis quaerat. In dolorem praesentium velit ea esse consequuntur cum fugit sequi voluptas ut possimus voluptatibus deserunt nisi eveniet!" 
+            storyId=""
+          >
+          </story-button>
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content  class="example-sidenav-content">
+      <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="Round 1">
+          <div class="container">
+            <form>
+                <div class="deck">
+                    <div *ngFor="let card of cards">
+                        <input type="radio" id={{card}} name="drone">
+                        <label for={{card}} class="cardPoker">
+                            <div class="number">
+                                {{card}}
+                            </div>
+                        </label>
                     </div>
-                </label>
+                </div>
+                <button
+                  class="width-form-button"
+                  mat-raised-button
+                  color="accent"
+                >
+                  Votar
+                </button>
+            </form>
+            <div class="comments">
+                <textarea ></textarea>
             </div>
-        </div>
-        <button
-          class="width-form-button"
-          mat-raised-button
-          color="accent"
-        >
-          Votar
-        </button>
-    </form>
-    <div class="comments">
-        <div class="minor">
-            <textarea ></textarea>
-        </div>
-        <div class="highest">
-            <textarea ></textarea>
-        </div>
-    </div>
-</div>
+        </div>  
+        </mat-tab>
+        <mat-tab label="Round 2">    
+          <div class="container">
+              <form>
+                  <div class="deck">
+                      <div *ngFor="let card of cards">
+                          <input type="radio" id={{card}} name="drone">
+                          <label for={{card}} class="cardPoker">
+                              <div class="number">
+                                  {{card}}
+                              </div>
+                          </label>
+                      </div>
+                  </div>
+                  <button
+                    class="width-form-button"
+                    mat-raised-button
+                    color="accent"
+                  >
+                    Votar
+                  </button>
+              </form>
+              <div class="comments">
+                  <textarea ></textarea>
+              </div>
+          </div>  
+        </mat-tab>
+    </mat-tab-group>
+
+    <button 
+      class="open-story" 
+      mat-raised-button
+      color="accent"
+      (click)="sidenav.toggle()"
+    >
+      <mat-icon inline="true">menu_open</mat-icon>Ver Stories
+    </button>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

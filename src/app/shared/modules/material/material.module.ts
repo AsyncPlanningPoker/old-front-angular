@@ -25,7 +25,8 @@ import { MatNativeDateModule } from "@angular/material/core"
 import { MatMenuModule } from "@angular/material/menu"
 import { MatExpansionModule } from "@angular/material/expansion"
 import { MatSlideToggleModule } from "@angular/material/slide-toggle"
-
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatRippleModule } from '@angular/material/core';
 import { CommonModule } from "@angular/common"
 
 @NgModule({
@@ -57,7 +58,9 @@ import { CommonModule } from "@angular/common"
 		MatNativeDateModule,
 		MatMenuModule,
 		MatExpansionModule,
-		MatSlideToggleModule
+		MatSlideToggleModule,
+		MatTabsModule,
+		MatRippleModule
 	]
 })
 export class MaterialModule {}

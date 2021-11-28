@@ -12,15 +12,22 @@ import { AuthService } from "./core/services/auth/auth.service"
 export class AppComponent implements OnInit {
 	title = "planning-poker-front"
 	theme$: Observable<string>
-	isLoggedIn: boolean = false
+	//isLoggedIn: boolean = false
+	isLoggedIn$: Observable<boolean>
 
 	constructor(
 		private authService: AuthService,
 		private store: Store<{ theme: string }>
 	) {
 		this.theme$ = this.store.select("theme")
-		this.isLoggedIn = !!this.authService.isLoggedIn()
+		//this.isLoggedIn = !!this.authService.isLoggedIn()
+		this.isLoggedIn$ = this.authService.isLoggedIn()
 	}
 
-	ngOnInit() {}
+	ngOnInit() {
+		/*this.authService.isLoggedIn().subscribe((value) => {
+			this.isLoggedIn = value
+		})*/
+
+	}
 }
