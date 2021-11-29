@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
 		private store: Store<{ theme: string }>
 	) {
 		this.theme$ = this.store.select("theme")
-		//this.isLoggedIn = !!this.authService.isLoggedIn()
 		this.isLoggedIn$ = this.authService.isLoggedIn()
 	}
 
