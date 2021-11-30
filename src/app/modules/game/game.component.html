@@ -3,21 +3,14 @@
 
 <mat-sidenav-container class="example-container" autosize>
     <mat-sidenav #sidenav class="example-sidenav" mode="over">
-      <mat-selection-list #shoes [multiple]="false" class="list">
-        <mat-list-option *ngFor="let story of storyList" [value]="story">
-          <story-button 
-            title="teste"
-            details="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt rem odit quis quaerat. In dolorem praesentium velit ea esse consequuntur cum fugit sequi voluptas ut possimus voluptatibus deserunt nisi eveniet!" 
-            storyId=""
-          >
-          </story-button>
-        </mat-list-option>
-      </mat-selection-list>
+      <story-list></story-list>
     </mat-sidenav>
   
     <mat-sidenav-content  class="example-sidenav-content">
+      <router-outlet></router-outlet>
+    <!--  <story-options></story-options>
       <mat-tab-group mat-align-tabs="start">
-        <mat-tab label="Round 1">
+       <mat-tab label="Round 1">
           <div class="container">
             <form>
                 <div class="deck">
@@ -69,7 +62,7 @@
               </div>
           </div>  
         </mat-tab>
-    </mat-tab-group>
+    </mat-tab-group> -->
 
     <button 
       class="open-story" 

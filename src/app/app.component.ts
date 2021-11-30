@@ -12,7 +12,6 @@ import { AuthService } from "./core/services/auth/auth.service"
 export class AppComponent implements OnInit {
 	title = "planning-poker-front"
 	theme$: Observable<string>
-	//isLoggedIn: boolean = false
 	isLoggedIn$: Observable<boolean>
 
 	constructor(

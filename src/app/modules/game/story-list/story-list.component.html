@@ -1,0 +1,15 @@
+<mat-selection-list #shoes [multiple]="false" class="list">
+    <mat-list-option *ngFor="let story of storyList" [value]="story" class="storyButton">
+      <story-button 
+        title="teste"
+        details="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt rem odit quis quaerat. In dolorem praesentium velit ea esse consequuntur cum fugit sequi voluptas ut possimus voluptatibus deserunt nisi eveniet!" 
+        storyId=""
+      >
+      </story-button>
+    </mat-list-option>
+    <div id="addStory">
+        <button mat-icon-button>
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+  </mat-selection-list>

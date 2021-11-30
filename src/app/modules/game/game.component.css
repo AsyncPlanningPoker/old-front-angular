@@ -88,25 +88,13 @@ textarea{resize: none}
 
 
 
-
-
-
-.list{
-    padding: 0;
-}
-
-.list .mat-list-item {
-    height: auto;
-}
-
 .example-container {
     width: 100%;
     height: calc(100vh - 64px) /* go horse*/
 }
 
 .example-sidenav-content {
-    margin: 0 auto;
-    width: 90%;
+    width: 100%;
     height: 100%;
 }
 
