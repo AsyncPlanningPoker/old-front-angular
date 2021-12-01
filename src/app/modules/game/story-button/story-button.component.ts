@@ -1,26 +1,24 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, OnInit } from "@angular/core"
+import { Router } from "@angular/router"
 
 @Component({
-  selector: 'story-button',
-  templateUrl: './story-button.component.html',
-  styleUrls: ['./story-button.component.css']
+	selector: "story-button",
+	templateUrl: "./story-button.component.html",
+	styleUrls: ["./story-button.component.css"]
 })
 export class StoryButtonComponent implements OnInit {
+	@Input() title!: string
+	@Input() details!: string
+	@Input() storyId!: string
 
-  @Input() title!: string
-  @Input() details!: string
-  @Input() storyId!: string
+	constructor(private router: Router) {}
 
-  constructor(private router: Router) { }
+	ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
+	onClickStory(storyId: string) {
+		const navigateUrl = this.router.url.split("/").slice(1, 3)
+		navigateUrl.push(storyId)
 
-  onClickStory(){
-    console.log("Story")
-    this.router.navigate(['game', '1'])
-  }
-
-
+		this.router.navigate(navigateUrl)
+	}
 }

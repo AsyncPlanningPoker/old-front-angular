@@ -1,16 +1,16 @@
-<div class="container" (click)="onClickStory()">
-    <div class="contentStory">
-        <div class="title">
-            {{title}}
-        </div>
-        <div class="details">
-            {{details}}
-        </div>
-    </div>
-   <!--
+<div class="container" (click)="onClickStory(storyId)">
+	<div class="contentStory">
+		<div class="title">
+			{{ title }}
+		</div>
+		<div class="details">
+			{{ details }}
+		</div>
+	</div>
+	<!--
 
     <div class="actions">
-        <button 
+        <button
         (click)="onClickDelete()"
         mat-icon-button
         mat-raised-button
@@ -23,4 +23,3 @@
     -->
 </div>
 <mat-divider></mat-divider>
-

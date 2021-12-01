@@ -7,19 +7,21 @@ import {
 } from "@angular/router"
 import { Observable, of } from "rxjs"
 import { map } from "rxjs/operators"
-import { PokerService } from "src/app/core/services/poker/poker.service"
+import { IStory } from "src/app/core/interfaces/story/story"
+import { StoryService } from "src/app/core/services/story/story.service"
 
 @Injectable({
 	providedIn: "root"
 })
-export class PokerScreenResolver implements Resolve<Observable<any>> {
-	constructor(private pokerService: PokerService) {}
+export class StoryAreaResolver implements Resolve<IStory> {
+	constructor(private storyService: StoryService) {}
+
 	resolve(
 		route: ActivatedRouteSnapshot,
 		state: RouterStateSnapshot
-	): Observable<any> {
-		return this.pokerService
-			.getPokerById(route.params.idPoker)
+	): Observable<IStory> {
+		return this.storyService
+			.getStoryById(route.params.idStory)
 			.pipe(map((resp) => resp.data))
 	}
 }

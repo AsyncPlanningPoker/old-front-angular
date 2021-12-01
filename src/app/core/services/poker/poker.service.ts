@@ -6,6 +6,10 @@ import { IAddUser, Poker } from "../../interfaces/poker/poker"
 import { UserStory } from "../../interfaces/user-story/user-story"
 import { BaseService } from "../base.service"
 
+interface IResponseGetPokerById {
+	data: Poker
+}
+
 @Injectable({
 	providedIn: "root"
 })
@@ -21,7 +25,7 @@ export class PokerService extends BaseService<Poker> {
 		)
 	}
 
-	getPokerById(id: string): Observable<Poker> {
+	getPokerById(id: string): Observable<IResponseGetPokerById> {
 		return this.httpClient.get<any>(`${this.baseUrl}/${id}`, this.httpOptions)
 	}
 

@@ -1,0 +1,30 @@
+<div class="container">
+	<form [formGroup]="form">
+		<div class="deck">
+			<div *ngFor="let card of cards">
+				<input
+					type="radio"
+					id="{{ card }}"
+					value="{{ card }}"
+					formControlName="vote"
+				/>
+				<label for="{{ card }}" class="cardPoker">
+					<div class="number">
+						{{ card }}
+					</div>
+				</label>
+			</div>
+		</div>
+		<button
+			(click)="onSubmit(round.id)"
+			class="width-form-button"
+			mat-raised-button
+			color="accent"
+		>
+			Votar
+		</button>
+		<div class="comments">
+			<textarea placeholder="Comente aqui" formControlName="comment"></textarea>
+		</div>
+	</form>
+</div>
