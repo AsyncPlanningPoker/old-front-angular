@@ -3,6 +3,7 @@
 		*ngFor="let story of storyList"
 		[value]="story"
 		class="storyButton"
+		selected="{{ idStoryParams === story.id }}"
 	>
 		<story-button
 			title="{{ story.name }}"

@@ -18,7 +18,9 @@
 			>
 				<mat-panel-title>
 					<div class="title">
-						<a routerLink="{{ poker.idPoker }}">{{ poker.name }}</a>
+						<p (click)="navigateToGame(poker.idPoker)">
+							{{ poker.name }}
+						</p>
 					</div>
 				</mat-panel-title>
 				<mat-panel-description>
