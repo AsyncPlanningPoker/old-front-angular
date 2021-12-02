@@ -7,7 +7,6 @@ import { AppComponent } from "./app.component"
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { NavbarModule } from "./shared/components/navbar/navbar.module"
 import { NotifierModule } from "angular-notifier"
-import { UserStoryModule } from "./modules/user-story/user-story.module"
 import { GameModule } from "./modules/game/game.module"
 import { StoreModule } from "@ngrx/store"
 import { StoreDevtoolsModule } from "@ngrx/store-devtools"
@@ -26,7 +25,6 @@ import { metaReducers } from "./core/reducers";
 		CoreModule,
 		SharedModule,
 		NotifierModule,
-		UserStoryModule,
 		GameModule,
 		StoreModule.forRoot({ theme: themeReducer }, { metaReducers }),
 		StoreDevtoolsModule.instrument({

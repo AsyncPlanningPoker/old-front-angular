@@ -1,6 +1,7 @@
 <mat-sidenav-container class="example-container" autosize>
 	<mat-sidenav #sidenav class="example-sidenav" mode="over">
 		<story-list
+			[isOwner]="poker.createdBy === userId"
 			[storyList]="storyList | async"
 			idPoker="{{ poker.id }}"
 		></story-list>
@@ -8,6 +9,10 @@
 
 	<mat-sidenav-content class="example-sidenav-content">
 		<h2 class="ppa-title">{{ poker.name }}</h2>
+
+		<app-user-from-poker-table
+			[players]="poker.players"
+		></app-user-from-poker-table>
 
 		<router-outlet></router-outlet>
 

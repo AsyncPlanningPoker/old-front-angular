@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core"
 import { Routes, RouterModule } from "@angular/router"
-import { PokerScreenResolver } from "./poker-screen.resolver"
 import { GameComponent } from "./game.component"
+import { LoadPokerResolver } from "./get-poker.resolver"
 import { StoryAreaComponent } from "./story-area/story-area.component"
 import { StoryAreaResolver } from "./story-area/story-area.resolver"
 
@@ -9,7 +9,7 @@ const routes: Routes = [
 	{
 		path: ":idPoker",
 		component: GameComponent,
-		resolve: { poker: PokerScreenResolver },
+		resolve: { poker: LoadPokerResolver },
 		children: [
 			{
 				path: ":idStory",

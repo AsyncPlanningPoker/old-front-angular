@@ -11,33 +11,27 @@
 		</button>
 	</header>
 
-	<mat-progress-bar
-		*ngIf="isLoading"
-        color="accent"
-        mode= 'indeterminate' 
-	>
-    </mat-progress-bar>
+	<mat-progress-bar *ngIf="isLoading" color="accent" mode="indeterminate">
+	</mat-progress-bar>
 
 	<div class="load" *ngIf="!isLoading">
 		<mat-accordion class="table" multi *ngFor="let poker of pokerList">
-
-			<poker-item 
-
-				idPoker="{{poker.idPoker}}"
-				name="{{poker.name}}"
-				createdBy="{{poker.createdBy}}"
-				createdByEmail="{{poker.createdByEmail}}"
-				status="{{poker.status}}"
+			<poker-item
+				idPoker="{{ poker.idPoker }}"
+				name="{{ poker.name }}"
+				createdBy="{{ poker.createdBy }}"
+				createdByEmail="{{ poker.createdByEmail }}"
+				status="{{ poker.status }}"
 				(updateListPoker)="updateListPoker()"
 			>
 			</poker-item>
 			<div class="separator"></div>
 		</mat-accordion>
-	
+
 		<div *ngIf="pokerList.length == 0">
-			
 			<div class="noPoker">Nenhum Poker encontrado</div>
-				
-		<div>
+
+			<div></div>
+		</div>
 	</div>
 </div>

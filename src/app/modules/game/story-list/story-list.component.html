@@ -12,7 +12,7 @@
 		>
 		</story-button>
 	</mat-list-option>
-	<div id="addStory">
+	<div *ngIf="isOwner" id="addStory">
 		<button mat-icon-button (click)="openDialogCreateStory()">
 			<mat-icon>add</mat-icon>
 		</button>
