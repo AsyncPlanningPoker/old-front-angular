@@ -1,12 +1,13 @@
 import { NgModule } from "@angular/core"
 import { RouterModule, Routes } from "@angular/router"
 import { AuthGuard } from "./core/guards/auth.guard"
-import { GameComponent } from "./modules/game/game.component"
+
 
 export const routes: Routes = [
 	{
 		path: "game",
-		component: GameComponent
+		loadChildren: () =>
+			import("./modules/game/game.module").then((m) => m.GameModule),
 	},
 	{
 		path: "poker",

@@ -29,14 +29,14 @@ export class AuthGuard implements CanActivate {
 		this.notRequiresAuthentication = route.data.notRequiresAuthentication || false
 
 		if(this.notRequiresAuthentication) {
-			if(this.authService.auth()) {
+			if(this.authService.verifyIntegrityAuth()) {
 				this.router.navigate(["poker"])
 			}
 			
 			return true
 		}
 		else {
-			if(this.authService.auth()) {
+			if(this.authService.verifyIntegrityAuth()) {
 				return true
 			}
 

@@ -1,0 +1,20 @@
+<mat-selection-list #shoes [multiple]="false" class="list">
+	<mat-list-option
+		*ngFor="let story of storyList"
+		[value]="story"
+		class="storyButton"
+		selected="{{ idStoryParams === story.id }}"
+	>
+		<story-button
+			title="{{ story.name }}"
+			details="{{ story.description }}"
+			storyId="{{ story.id }}"
+		>
+		</story-button>
+	</mat-list-option>
+	<div id="addStory">
+		<button mat-icon-button (click)="openDialogCreateStory()">
+			<mat-icon>add</mat-icon>
+		</button>
+	</div>
+</mat-selection-list>

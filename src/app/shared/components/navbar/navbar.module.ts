@@ -7,7 +7,6 @@ import { AuthService } from "src/app/core/services/auth/auth.service"
 @NgModule({
 	declarations: [NavbarComponent],
 	imports: [CommonModule, MaterialModule],
-	exports: [NavbarComponent],
-	providers: [AuthService]
+	exports: [NavbarComponent]
 })
 export class NavbarModule {}

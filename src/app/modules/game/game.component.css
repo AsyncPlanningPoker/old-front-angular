@@ -1,88 +1,21 @@
-#container{
+.example-container {
     width: 100%;
-    padding-top: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    height: calc(100vh - 64px) /* go horse*/
 }
 
-form{
-    width: 100%;
-    padding: 5%;
-    display: flex;
-    background-image: linear-gradient(0deg, #e0e0e0, transparent);
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    gap: 30px;
+.example-sidenav{
+  min-width: 100px;
 }
 
-.width-form-button{
-    width: 25%;
-    height: 65px;
-    font-size: x-large;
-}
-.deck{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-input{
-    display: none;
-}
-
-.cardPoker{
-    width: 100px;
-    height: 155px;
-    background-color: #fafafa;
-    color: #fafafa;
-    margin-left: -5px;
-    border-radius: 5px;
-    box-sizing: border-box;
-    border: 1px solid #1A237E;
-}
-
-.number{
-    width: 100%;
+.example-sidenav-content {
     height: 100%;
-    background-color: #1A237E;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: 50px;
 }
 
-label {
-    padding: 10px;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    font-weight: bolder;
-    font-size: 3.5em;
+.open-story{
+    position: fixed;
+    right: 8%;
+    bottom: 8%;
+    font-size: 1.5vw;
+    padding: 1% 2%;
 }
-
-.cardPoker:hover{
-    transform: scale(1.15);
-}
-
-input:checked + .cardPoker{
-    transform:  translateY(-25px)
-                scale(1.25);
-    background-color: #E91E63;
-    color: #E91E63;
-}
-
-input:checked + .cardPoker .number{
-    background-color: #fafafa;
-}
-
-
-
-
-
-
-
-
-textarea{resize: none}

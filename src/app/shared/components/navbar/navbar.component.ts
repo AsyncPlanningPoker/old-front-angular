@@ -39,9 +39,8 @@ export class NavbarComponent implements OnInit {
 	}
 
 	logOut() {
-		const token = window.localStorage.getItem("token")
-		if (token != null) {
-			window.localStorage.removeItem("token")
+		if (this.authService.verifyIntegrityAuth()) {
+			this.authService.removeJwtFromLocalStorage()
 		}
 		this.router.navigate(["login"])
 	}

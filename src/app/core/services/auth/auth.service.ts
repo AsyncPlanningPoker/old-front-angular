@@ -1,17 +1,19 @@
 import { Injectable } from "@angular/core"
 import { JwtHelperService } from "@auth0/angular-jwt"
+import { BehaviorSubject, Observable } from "rxjs"
 import { Token } from "../../interfaces/token/token"
 
 @Injectable({
 	providedIn: "root"
 })
+
 export class AuthService {
-	private storage: Storage
-	private jwtHelper
+	private jwtHelper: JwtHelperService
+	private isLoggedIn$: BehaviorSubject<boolean>
 
 	constructor() {
-		this.storage = window.localStorage
 		this.jwtHelper = new JwtHelperService()
+		this.isLoggedIn$ = new BehaviorSubject<boolean>(this.verifyIntegrityAuth());
 	}
 
 	getTokenInfo(): Token {
@@ -21,23 +23,22 @@ export class AuthService {
 
 	setJwtToLocalStorage(token: string) {
 		localStorage.setItem("token", token)
+		this.isLoggedIn$.next(this.verifyIntegrityAuth())
 	}
 
 	removeJwtFromLocalStorage() {
 		localStorage.removeItem("token")
+		this.isLoggedIn$.next(this.verifyIntegrityAuth())
 	}
 
-	isLoggedIn(): boolean {
+
+	verifyIntegrityAuth(): boolean{
 		const token = localStorage.getItem("token") || ""
 		return !this.jwtHelper.isTokenExpired(token)
 	}
 
-	auth() {
-		const token = this.storage.getItem("token")
-		const isExpired = this.jwtHelper.isTokenExpired(token || "")
-
-		if (isExpired) return false
-		return true
+	isLoggedIn(): Observable<boolean>{
+		return this.isLoggedIn$.asObservable();
 	}
 
 	decodeJWT(token: string) {

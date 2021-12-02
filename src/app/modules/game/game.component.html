@@ -1,29 +1,23 @@
-<div id="container">
-    <form>
-        <div class="deck">
-            <div *ngFor="let card of cards">
-                <input type="radio" id={{card}} name="drone">
-                <label for={{card}} class="cardPoker">
-                    <div class="number">
-                        {{card}}
-                    </div>
-                </label>
-            </div>
-        </div>
-        <button
-          class="width-form-button"
-          mat-raised-button
-          color="accent"
-        >
-          Votar
-        </button>
-    </form>
-    <div class="comments">
-        <div class="minor">
-            <textarea ></textarea>
-        </div>
-        <div class="highest">
-            <textarea ></textarea>
-        </div>
-    </div>
-</div>
+<mat-sidenav-container class="example-container" autosize>
+	<mat-sidenav #sidenav class="example-sidenav" mode="over">
+		<story-list
+			[storyList]="storyList | async"
+			idPoker="{{ poker.id }}"
+		></story-list>
+	</mat-sidenav>
+
+	<mat-sidenav-content class="example-sidenav-content">
+		<h2 class="ppa-title">{{ poker.name }}</h2>
+
+		<router-outlet></router-outlet>
+
+		<button
+			class="open-story"
+			mat-raised-button
+			color="accent"
+			(click)="sidenav.toggle()"
+		>
+			<mat-icon inline="true">menu_open</mat-icon>Ver Stories
+		</button>
+	</mat-sidenav-content>
+</mat-sidenav-container>
