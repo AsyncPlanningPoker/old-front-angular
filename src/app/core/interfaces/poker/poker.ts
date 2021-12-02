@@ -11,3 +11,8 @@ export interface IAddUser {
 	idPoker?: string
 	email: string
 }
+
+export interface playerPoker {
+	name: string
+	email: string
+}

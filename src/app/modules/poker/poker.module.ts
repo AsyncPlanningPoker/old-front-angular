@@ -8,12 +8,14 @@ import { SharedModule } from "src/app/shared/shared.module"
 import { UserStoryModule } from "../user-story/user-story.module"
 import { PokerScreenComponent } from "./components/poker-screen/poker-screen.component"
 import { StoryModule } from "../story/story.module"
+import { PokerItemComponent } from "./components/poker-item/poker-item.component"
 
 @NgModule({
 	declarations: [
 		PokerCreateComponent,
 		PokerTableComponent,
-		PokerScreenComponent
+		PokerScreenComponent,
+		PokerItemComponent
 	],
 	imports: [
 		CommonModule,

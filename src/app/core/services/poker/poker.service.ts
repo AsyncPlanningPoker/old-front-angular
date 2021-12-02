@@ -25,6 +25,13 @@ export class PokerService extends BaseService<Poker> {
 		)
 	}
 
+	getPlayersFromPoker(id: string): Observable<[]> {
+		return this.httpClient.get<any>(
+			`${this.baseUrl}/${id}/playersByPoker`,
+			this.httpOptions
+		)
+	}
+
 	getPokerById(id: string): Observable<IResponseGetPokerById> {
 		return this.httpClient.get<any>(`${this.baseUrl}/${id}`, this.httpOptions)
 	}

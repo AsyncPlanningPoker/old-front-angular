@@ -11,7 +11,16 @@
 		</button>
 	</header>
 	<mat-accordion class="table" multi *ngFor="let poker of pokerList">
-		<mat-expansion-panel>
+
+		<poker-item 
+			idPoker="{{poker.idPoker}}"
+			name="{{poker.name}}"
+			createdBy="{{poker.createdBy}}"
+			status="{{poker.status}}"
+		>
+		</poker-item>
+		<div class="separator"></div>
+		<!-- <mat-expansion-panel>
 			<mat-expansion-panel-header
 				collapsedHeight="100px"
 				expandedHeight="100px"
@@ -80,7 +89,7 @@
 					<td>{{ player }}</td>
 				</tr>
 			</table>
-		</mat-expansion-panel>
+		</mat-expansion-panel> -->
 	</mat-accordion>
 
 	<mat-accordion class="table" multi *ngIf="pokerList.length == 0">

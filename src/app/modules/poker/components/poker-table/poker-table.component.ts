@@ -38,35 +38,12 @@ export class PokerTableComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.filteredOptions = this.formEmail.valueChanges.pipe(
-			startWith(""),
-			switchMap((value) =>
-				this.userService.autoCompleteEmail({ partial: value }).pipe(take(1))
-			)
-		)
+		
 	}
 
-	addUser(idPoker: string | undefined) {
-		if (this.formEmail.valid && this.formEmail.dirty) {
-			this.pokerService
-				.addUser({ idPoker, email: this.formEmail.value })
-				.subscribe((next) => {
-					this.notifierService.notify(
-						"success",
-						"Player adicionado criado com sucesso"
-					)
-					this.pokerService
-						.getPokerRelatedToUser()
-						.subscribe((pokerList) => (this.pokerList = pokerList))
-				})
-		}
-	}
 
 	createPoker() {
 		const dialogRef = this.dialog.open(PokerCreateComponent)
 	}
 
-	navigateToGame(idPoker: any) {
-		this.router.navigate(["game", idPoker])
-	}
 }

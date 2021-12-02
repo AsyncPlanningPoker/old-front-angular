@@ -1,0 +1,88 @@
+.title {
+    display: flex;
+    align-items: center;
+    font-size: large;
+    font-weight: 400;
+}
+
+p, span{
+    margin: 0;
+}
+
+.author {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.author p {
+    margin-left: 10px;
+}
+
+.description {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.form-add-player{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+}
+
+.input-player{
+    width: 40%;
+}
+
+.button-submit{
+    margin-top: 8px;
+    margin-left: 15px;
+    height: 40px
+}
+
+.players{
+    width: 100%;
+    margin-top: 10px;
+}
+
+.players span{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    font-size: large;
+    padding: 10px 0px;
+}
+
+mat-divider{
+    margin-bottom: 10px;
+}
+
+.players span p{
+    margin-left: 5px;
+}
+
+.players .details {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0px;
+    align-items: center;
+}
+
+.players mat-icon{
+    margin-right: 10px;
+}
+.players .username{
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+}
+
+.players .email{
+    display: flex;
+    flex-direction: row;
+}
