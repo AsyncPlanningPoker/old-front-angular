@@ -5,9 +5,7 @@
     >
         <mat-panel-title>
             <div class="title">
-                <p (click)="navigateToGame(idPoker)">
-                    {{ name }}
-                </p>
+                <p>{{ name }}</p>
             </div>
         </mat-panel-title>
         <mat-panel-description>
@@ -36,36 +34,56 @@
          </mat-progress-bar>
 
     <div class="content" *ngIf="!isLoading">
-        <form class="form-add-player">
-            <mat-form-field class="input-player" appearance="outline">
-                <mat-label>Email</mat-label>
-                <input
-                    type="text"
-                    placeholder="entre com o email"
-                    aria-label="Email"
-                    matInput
-                    [formControl]="formEmail"
-                    [matAutocomplete]="auto"
-                />
-                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                    <mat-option
-                        *ngFor="let option of filteredOptions | async"
-                        [value]="option"
-                    >
-                        {{ option }}
-                    </mat-option>
-                </mat-autocomplete>
-            </mat-form-field>
+        <div class="actions" *ngIf="verifyAuth">
+            <form class="form-add-player">
+                <mat-form-field class="input-player" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input
+                        type="text"
+                        placeholder="entre com o email"
+                        aria-label="Email"
+                        matInput
+                        [formControl]="formEmail"
+                        (input)="searchEmails($event)"
+                        [matAutocomplete]="auto"
+                    />
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option
+                            *ngFor="let option of filteredOptions"
+                            [value]="option"
+                        >
+                            {{ option }}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+    
+                <button
+                    class="button-submit"
+                    mat-raised-button
+                    color="primary"
+                    (click)="addUser(idPoker)"
+                >
+                    <mat-icon>person_add</mat-icon>
+                </button>
+            </form>
 
-            <button
-                class="button-submit"
-                mat-raised-button
-                color="primary"
-                (click)="addUser(idPoker)"
-            >
-                <mat-icon>person_add</mat-icon>
-            </button>
-        </form>
+            <div class="editPoker">
+                <button
+                    mat-icon-button
+                    mat-raised-button
+                    color="primary"
+                >
+                <mat-icon>edit</mat-icon>
+                </button>
+                <button
+                    mat-icon-button
+                    mat-raised-button
+                    color="primary"
+                >
+                <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        </div>
 
         <div class="players">
             <span><mat-icon >group</mat-icon> <p>Participantes</p></span>
@@ -75,6 +93,16 @@
                 <div class="email"><mat-icon>email</mat-icon>{{player.email}}</div>
             </div>
         </div>
-        
+
+        <div class="goToStory">
+            <button
+                class="buttonToStory"
+                mat-raised-button
+                color="accent"
+                (click)="navigateToGame(idPoker)"
+            >
+            Ir para Stories
+            </button>
+        </div>        
     </div>   
 </mat-expansion-panel>

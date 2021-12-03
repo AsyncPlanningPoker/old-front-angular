@@ -1,10 +1,9 @@
 export interface Poker {
-	id?: string
 	idPoker?: string
 	name: string
 	createdBy?: string
+	createdByEmail?: string
 	status?: "Open" | "Closed"
-	players?: string[]
 }
 
 export interface IAddUser {

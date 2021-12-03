@@ -16,80 +16,11 @@
 			idPoker="{{poker.idPoker}}"
 			name="{{poker.name}}"
 			createdBy="{{poker.createdBy}}"
+			createdByEmail="{{poker.createdByEmail}}"
 			status="{{poker.status}}"
 		>
 		</poker-item>
 		<div class="separator"></div>
-		<!-- <mat-expansion-panel>
-			<mat-expansion-panel-header
-				collapsedHeight="100px"
-				expandedHeight="100px"
-			>
-				<mat-panel-title>
-					<div class="title">
-						<p (click)="navigateToGame(poker.idPoker)">
-							{{ poker.name }}
-						</p>
-					</div>
-				</mat-panel-title>
-				<mat-panel-description>
-					<div class="description">
-						<div class="author">
-							<mat-icon>person</mat-icon>
-							<p>{{ poker.createdBy }}</p>
-						</div>
-						<app-tag
-							text="{{
-								poker.status == pokerStatus.Closed ? 'Fechado' : 'Aberto'
-							}}"
-							color="{{
-								poker.status == pokerStatus.Closed ? '#7C4DFF' : '#B2FF59'
-							}}"
-						></app-tag>
-					</div>
-				</mat-panel-description>
-			</mat-expansion-panel-header>
-
-			<form class="form-add-player">
-				<mat-form-field style="width: 60%" appearance="fill">
-					<mat-label>Email</mat-label>
-					<input
-						type="text"
-						placeholder="entre com o email"
-						aria-label="Email"
-						matInput
-						[formControl]="formEmail"
-						[matAutocomplete]="auto"
-					/>
-					<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-						<mat-option
-							*ngFor="let option of filteredOptions | async"
-							[value]="option"
-						>
-							{{ option }}
-						</mat-option>
-					</mat-autocomplete>
-				</mat-form-field>
-
-				<button
-					class="button-submit"
-					mat-raised-button
-					color="primary"
-					(click)="addUser(poker.idPoker)"
-				>
-					Adicionar
-				</button>
-			</form>
-
-			<table style="width: 100%">
-				<tr>
-					<th>Email</th>
-				</tr>
-				<tr *ngFor="let player of poker.players">
-					<td>{{ player }}</td>
-				</tr>
-			</table>
-		</mat-expansion-panel> -->
 	</mat-accordion>
 
 	<mat-accordion class="table" multi *ngIf="pokerList.length == 0">

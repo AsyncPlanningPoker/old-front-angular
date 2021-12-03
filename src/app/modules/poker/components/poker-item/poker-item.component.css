@@ -1,31 +1,42 @@
+p, span{
+    margin: 0;
+}
+
 .title {
     display: flex;
     align-items: center;
     font-size: large;
     font-weight: 400;
+    width: 100%;
 }
 
-p, span{
-    margin: 0;
+.description {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .author {
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-.author p {
     margin-left: 10px;
 }
 
-.description {
+.actions{
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-around;
+}
+
+.actions .editPoker{
+    display: flex;
+    flex-direction: row;
+    gap: 20px
 }
 
 .form-add-player{
@@ -79,10 +90,21 @@ mat-divider{
 .players .username{
     display: flex;
     flex-direction: row;
-    width: 20%;
+    width: 30%;
 }
 
 .players .email{
     display: flex;
     flex-direction: row;
+}
+
+.goToStory{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttonToStory{
+    height: 50px;
 }

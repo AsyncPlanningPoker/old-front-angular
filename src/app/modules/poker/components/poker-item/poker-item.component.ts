@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { startWith, switchMap, take,  } from 'rxjs/operators';
 import { PokerStatus } from 'src/app/core/enum/poker-status';
 import { playerPoker } from 'src/app/core/interfaces/poker/poker';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { PokerService } from 'src/app/core/services/poker/poker.service';
 import { UserService } from 'src/app/core/services/user/user.service';
 
@@ -19,17 +20,19 @@ export class PokerItemComponent implements OnInit {
   @Input() idPoker!: string
   @Input() name!: string
   @Input() createdBy!: string
+  @Input() createdByEmail!: string
   @Input() status!: string
 
   isLoading = false
   players!: playerPoker[]
   pokerStatus = PokerStatus
-
+  verifyAuth = false;
 	formEmail = new FormControl()
 	options: string[] = []
-	filteredOptions!: Observable<any>
+  filteredOptions: string[] = []
 
   constructor(
+    private authService: AuthService,
     private userService: UserService,
 		private pokerService: PokerService,
 		private router: Router,
@@ -37,12 +40,8 @@ export class PokerItemComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.filteredOptions = this.formEmail.valueChanges.pipe(
-			startWith(""),
-			switchMap((value) =>
-				this.userService.autoCompleteEmail({ partial: value }).pipe(take(1))
-			)
-		)
+
+    this.verifyAuth = this.authService.getTokenInfo().email == this.createdByEmail
   }
 
   addUser(idPoker: string | undefined) {
@@ -62,6 +61,27 @@ export class PokerItemComponent implements OnInit {
 		this.router.navigate(["game", idPoker])
 	}
 
+  searchEmails(event: Event){
+    const value = (event.target as HTMLInputElement).value
+    if(!!value){
+      const filtered = this.options.filter( (option) => {
+        return option.startsWith(value)
+      })
+      this.filteredOptions = filtered
+      if(filtered.length == 0){
+        this.userService
+        .autoCompleteEmail({ partial: value })
+        .subscribe( res => {
+          this.options = res
+          this.filteredOptions = res
+        })
+      }
+    } else {
+      this.filteredOptions = []
+    }
+
+  }
+
   loadPlayers(idPoker: string){
     this.isLoading = true;
     this.pokerService
@@ -71,4 +91,5 @@ export class PokerItemComponent implements OnInit {
         this.isLoading = false;
       })
   }
+
 }
