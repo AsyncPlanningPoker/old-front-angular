@@ -36,13 +36,22 @@ export class PokerService extends BaseService<Poker> {
 		return this.httpClient.get<any>(`${this.baseUrl}/${id}`, this.httpOptions)
 	}
 
+	deletePokerById(id: string): Observable<any> {
+		return this.httpClient.delete<any>(`${this.baseUrl}/${id}`, this.httpOptions)
+	}
+
+
+	closePokerById(id: string): Observable<any> {
+		return this.httpClient.put<any>(`${this.baseUrl}/${id}/closePoker`, this.httpOptions)
+	}
 	getStoriesFromPoker(id: string): Observable<UserStory[]> {
 		return this.httpClient.get<any>(
 			`${this.baseUrl}/${id}/stories`,
 			this.httpOptions
 		)
 	}
-	addUser(payload: IAddUser) {
+
+	addUser(payload: IAddUser): Observable<any> {
 		return this.httpClient.post<any>(
 			`${this.baseUrl}/addUser`,
 			payload,

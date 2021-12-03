@@ -27,11 +27,11 @@
     </mat-expansion-panel-header>
 
     <mat-progress-bar
-			color="accent"
-			value="100"
-			[mode]="isLoading ? 'indeterminate' : 'determinate'"
-		>
-         </mat-progress-bar>
+        color="accent"
+        value="100"
+        [mode]="isLoading ? 'indeterminate' : 'determinate'"
+	>
+    </mat-progress-bar>
 
     <div class="content" *ngIf="!isLoading">
         <div class="actions" *ngIf="verifyAuth">
@@ -72,13 +72,15 @@
                     mat-icon-button
                     mat-raised-button
                     color="primary"
+                    (click)="updatePoker(idPoker)"
                 >
-                <mat-icon>edit</mat-icon>
+                <mat-icon>lock</mat-icon>
                 </button>
                 <button
                     mat-icon-button
                     mat-raised-button
                     color="primary"
+                    (click)="deletePoker(idPoker)"
                 >
                 <mat-icon>delete</mat-icon>
                 </button>
@@ -89,8 +91,8 @@
             <span><mat-icon >group</mat-icon> <p>Participantes</p></span>
             <mat-divider></mat-divider>
             <div class="details" *ngFor="let player of players">
-                <div class="username"><mat-icon>person</mat-icon>{{player.name}}</div>
-                <div class="email"><mat-icon>email</mat-icon>{{player.email}}</div>
+                <div class="username"><mat-icon>person</mat-icon><p>{{player.name}}</p></div>
+                <div class="email"><mat-icon>email</mat-icon><p>{{player.email}}</p></div>
             </div>
         </div>
 

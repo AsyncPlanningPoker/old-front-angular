@@ -6,16 +6,18 @@ import { PokerCreateComponent } from "./components/poker-create/poker-create.com
 import { PokerTableComponent } from "./components/poker-table/poker-table.component"
 import { SharedModule } from "src/app/shared/shared.module"
 import { UserStoryModule } from "../user-story/user-story.module"
-import { PokerScreenComponent } from "./components/poker-screen/poker-screen.component"
 import { StoryModule } from "../story/story.module"
-import { PokerItemComponent } from "./components/poker-item/poker-item.component"
+import { PokerItemComponent } from "./components/poker-item/poker-item.component";
+import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-delete.component';
+import { ConfirmUpdateComponent } from './components/confirm-update/confirm-update.component'
 
 @NgModule({
 	declarations: [
 		PokerCreateComponent,
 		PokerTableComponent,
-		PokerScreenComponent,
-		PokerItemComponent
+		PokerItemComponent,
+		ConfirmDeleteComponent,
+		ConfirmUpdateComponent
 	],
 	imports: [
 		CommonModule,

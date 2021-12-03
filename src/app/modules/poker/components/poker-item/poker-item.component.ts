@@ -1,14 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
-import { Observable } from 'rxjs';
-import { startWith, switchMap, take,  } from 'rxjs/operators';
 import { PokerStatus } from 'src/app/core/enum/poker-status';
 import { playerPoker } from 'src/app/core/interfaces/poker/poker';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { PokerService } from 'src/app/core/services/poker/poker.service';
 import { UserService } from 'src/app/core/services/user/user.service';
+import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
+import { ConfirmUpdateComponent } from '../confirm-update/confirm-update.component';
 
 @Component({
   selector: 'poker-item',
@@ -17,6 +18,7 @@ import { UserService } from 'src/app/core/services/user/user.service';
 })
 export class PokerItemComponent implements OnInit {
 
+  @Output("updateListPoker") updateListPoker: EventEmitter<any> = new EventEmitter();
   @Input() idPoker!: string
   @Input() name!: string
   @Input() createdBy!: string
@@ -37,6 +39,7 @@ export class PokerItemComponent implements OnInit {
 		private pokerService: PokerService,
 		private router: Router,
 		private notifierService: NotifierService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -90,6 +93,28 @@ export class PokerItemComponent implements OnInit {
         this.players = players
         this.isLoading = false;
       })
+  }
+
+  deletePoker(idPoker: string){
+    const dialogRef = this.dialog.open(ConfirmDeleteComponent)
+    dialogRef.afterClosed().subscribe(result => {
+      if(!! result){
+        this.pokerService.deletePokerById(idPoker).subscribe(() => {
+          this.updateListPoker.emit();
+        })
+      }
+    })
+  }
+
+  updatePoker(idPoker: string){
+    const dialogRef = this.dialog.open(ConfirmUpdateComponent)
+		dialogRef.afterClosed().subscribe(result => {
+			if(!! result){
+				this.pokerService.closePokerById(idPoker).subscribe(() => {
+          this.updateListPoker.emit();
+        })
+			}
+		});
   }
 
 }

@@ -10,29 +10,34 @@
 			Criar Pokers
 		</button>
 	</header>
-	<mat-accordion class="table" multi *ngFor="let poker of pokerList">
 
-		<poker-item 
-			idPoker="{{poker.idPoker}}"
-			name="{{poker.name}}"
-			createdBy="{{poker.createdBy}}"
-			createdByEmail="{{poker.createdByEmail}}"
-			status="{{poker.status}}"
-		>
-		</poker-item>
-		<div class="separator"></div>
-	</mat-accordion>
+	<mat-progress-bar
+		*ngIf="isLoading"
+        color="accent"
+        mode= 'indeterminate' 
+	>
+    </mat-progress-bar>
 
-	<mat-accordion class="table" multi *ngIf="pokerList.length == 0">
-		<mat-expansion-panel>
-			<mat-expansion-panel-header
-				collapsedHeight="100px"
-				expandedHeight="100px"
+	<div class="load" *ngIf="!isLoading">
+		<mat-accordion class="table" multi *ngFor="let poker of pokerList">
+
+			<poker-item 
+
+				idPoker="{{poker.idPoker}}"
+				name="{{poker.name}}"
+				createdBy="{{poker.createdBy}}"
+				createdByEmail="{{poker.createdByEmail}}"
+				status="{{poker.status}}"
+				(updateListPoker)="updateListPoker()"
 			>
-				<mat-panel-title>
-					<div class="title">Nenhum Poker encontrado</div>
-				</mat-panel-title>
-			</mat-expansion-panel-header>
-		</mat-expansion-panel>
-	</mat-accordion>
+			</poker-item>
+			<div class="separator"></div>
+		</mat-accordion>
+	
+		<div *ngIf="pokerList.length == 0">
+			
+			<div class="noPoker">Nenhum Poker encontrado</div>
+				
+		<div>
+	</div>
 </div>

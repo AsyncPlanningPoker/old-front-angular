@@ -5,7 +5,7 @@ header {
     justify-content: space-between;
 }
 
-h1 {
+h1, p, span {
     margin: 0;
 }
 
@@ -16,13 +16,9 @@ form {
     justify-content: center;
 }
 
-.input-field {
+.input-field, .button-submit {
     width: 400px;
     margin-bottom: 30px;
-}
-
-.button-submit {
-    width: 100%;
 }
 
 .wrapper-form{
