@@ -7,6 +7,7 @@ import { StoryListComponent } from "./story-list/story-list.component"
 import { GameRoutingModule } from "./game-routing.module"
 import { StoryAreaComponent } from "./story-area/story-area.component"
 import { StoryVoteComponent } from "./story-vote/story-vote.component"
+import { UserFromPokerModule } from "../user-from-poker/user-from-poker.module"
 
 @NgModule({
 	declarations: [
@@ -16,6 +17,6 @@ import { StoryVoteComponent } from "./story-vote/story-vote.component"
 		StoryAreaComponent,
 		StoryVoteComponent
 	],
-	imports: [CommonModule, SharedModule, GameRoutingModule]
+	imports: [CommonModule, SharedModule, GameRoutingModule, UserFromPokerModule]
 })
 export class GameModule {}

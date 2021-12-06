@@ -1,0 +1,25 @@
+
+.players span p{
+  margin-left: 5px;
+}
+
+.players .details {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0px;
+  align-items: center;
+}
+
+.players mat-icon{
+  margin-right: 10px;
+}
+.players .username{
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+}
+
+.players .email{
+  display: flex;
+  flex-direction: row;
+}

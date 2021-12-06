@@ -13,33 +13,27 @@ export class PokerTableComponent implements OnInit {
 	pokerList: Poker[] = []
 	isLoading = true
 
-	constructor(
-		private pokerService: PokerService,
-		public dialog: MatDialog
-	) {
-	}
+	constructor(private pokerService: PokerService, public dialog: MatDialog) {}
 
 	ngOnInit(): void {
-		this.pokerService.getPokerRelatedToUser().subscribe( (pokers) => {
-			this.pokerList= pokers
+		this.pokerService.getPokerRelatedToUser().subscribe((pokers) => {
+			this.pokerList = pokers
 			this.isLoading = false
 		})
-		
 	}
 
 	createPoker() {
 		const dialogRef = this.dialog.open(PokerCreateComponent)
-		dialogRef.afterClosed().subscribe(result => {
-			if(!! result){
+		dialogRef.afterClosed().subscribe((result) => {
+			if (!!result) {
 				this.updateListPoker()
 			}
-		});
+		})
 	}
 
-	updateListPoker(){
+	updateListPoker() {
 		this.pokerService.getPokerRelatedToUser().subscribe((pokers) => {
 			this.pokerList = pokers
 		})
 	}
-
 }

@@ -70,6 +70,10 @@ label {
   transform: scale(1.15);
 }
 
+input:disabled + .cardPoker{
+  transform: none;
+}
+
 input:checked + .cardPoker{
   transform:  translateY(-25px)
               scale(1.25);

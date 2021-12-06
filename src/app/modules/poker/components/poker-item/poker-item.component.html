@@ -1,111 +1,109 @@
 <mat-expansion-panel (opened)="loadPlayers(idPoker)">
-    <mat-expansion-panel-header
-        collapsedHeight="100px"
-        expandedHeight="100px"
-    >
-        <mat-panel-title>
-            <div class="title">
-                <p>{{ name }}</p>
-            </div>
-        </mat-panel-title>
-        <mat-panel-description>
-            <div class="description">
-                <div class="author">
-                    <mat-icon>person</mat-icon>
-                    <p>{{ createdBy }}</p>
-                </div>
-                <app-tag
-                    text="{{
-                        status == pokerStatus.Closed ? 'Fechado' : 'Aberto'
-                    }}"
-                    color="{{
-                        status == pokerStatus.Closed ? '#7C4DFF' : '#B2FF59'
-                    }}"
-                ></app-tag>
-            </div>
-        </mat-panel-description>
-    </mat-expansion-panel-header>
+	<mat-expansion-panel-header collapsedHeight="100px" expandedHeight="100px">
+		<mat-panel-title>
+			<div class="title">
+				<p>{{ name }}</p>
+			</div>
+		</mat-panel-title>
+		<mat-panel-description>
+			<div class="description">
+				<div class="author">
+					<mat-icon>person</mat-icon>
+					<p>{{ createdBy }}</p>
+				</div>
+				<app-tag
+					text="{{ status == pokerStatus.Closed ? 'Fechado' : 'Aberto' }}"
+					color="{{ status == pokerStatus.Closed ? '#7C4DFF' : '#B2FF59' }}"
+				></app-tag>
+			</div>
+		</mat-panel-description>
+	</mat-expansion-panel-header>
 
-    <mat-progress-bar
-        color="accent"
-        value="100"
-        [mode]="isLoading ? 'indeterminate' : 'determinate'"
+	<mat-progress-bar
+		color="accent"
+		value="100"
+		[mode]="isLoading ? 'indeterminate' : 'determinate'"
 	>
-    </mat-progress-bar>
+	</mat-progress-bar>
 
-    <div class="content" *ngIf="!isLoading">
-        <div class="actions" *ngIf="verifyAuth">
-            <form class="form-add-player">
-                <mat-form-field class="input-player" appearance="outline">
-                    <mat-label>Email</mat-label>
-                    <input
-                        type="text"
-                        placeholder="entre com o email"
-                        aria-label="Email"
-                        matInput
-                        [formControl]="formEmail"
-                        (input)="searchEmails($event)"
-                        [matAutocomplete]="auto"
-                    />
-                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                        <mat-option
-                            *ngFor="let option of filteredOptions"
-                            [value]="option"
-                        >
-                            {{ option }}
-                        </mat-option>
-                    </mat-autocomplete>
-                </mat-form-field>
-    
-                <button
-                    class="button-submit"
-                    mat-raised-button
-                    color="primary"
-                    (click)="addUser(idPoker)"
-                >
-                    <mat-icon>person_add</mat-icon>
-                </button>
-            </form>
+	<div class="content" *ngIf="!isLoading">
+		<div class="actions" *ngIf="verifyAuth">
+			<form class="form-add-player">
+				<mat-form-field class="input-player" appearance="outline">
+					<mat-label>Email</mat-label>
+					<input
+						type="text"
+						placeholder="entre com o email"
+						aria-label="Email"
+						matInput
+						[formControl]="formEmail"
+						(input)="searchEmails($event)"
+						[matAutocomplete]="auto"
+					/>
+					<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+						<mat-option *ngFor="let option of filteredOptions" [value]="option">
+							{{ option }}
+						</mat-option>
+					</mat-autocomplete>
+				</mat-form-field>
+				<button
+					class="button-submit"
+					mat-raised-button
+					color="primary"
+					(click)="addUser(idPoker)"
+				>
+					<mat-icon>person_add</mat-icon>
+				</button>
+			</form>
 
-            <div class="editPoker">
-                <button
-                    *ngIf="status == pokerStatus.Open"
-                    mat-icon-button
-                    mat-raised-button
-                    color="primary"
-                    (click)="updatePoker(idPoker)"
-                >
-                <mat-icon>lock</mat-icon>
-                </button>
-                <button
-                    mat-icon-button
-                    mat-raised-button
-                    color="primary"
-                    (click)="deletePoker(idPoker)"
-                >
-                <mat-icon>delete</mat-icon>
-                </button>
-            </div>
-        </div>
+			<div class="editPoker">
+				<button
+					*ngIf="status == pokerStatus.Open"
+					mat-icon-button
+					mat-raised-button
+					color="primary"
+					(click)="updatePoker(idPoker)"
+				>
+					<mat-icon>lock</mat-icon>
+				</button>
+				<button
+					mat-icon-button
+					mat-raised-button
+					color="primary"
+					(click)="deletePoker(idPoker)"
+				>
+					<mat-icon>delete</mat-icon>
+				</button>
+			</div>
+		</div>
 
-        <div class="players">
-            <span><mat-icon >group</mat-icon> <p>Participantes</p></span>
-            <mat-divider></mat-divider>
-            <div class="details" *ngFor="let player of players">
-                <div class="username"><mat-icon>person</mat-icon><p>{{player.name}}</p></div>
-                <div class="email"><mat-icon>email</mat-icon><p>{{player.email}}</p></div>
-            </div>
-        </div>
+		<div class="players">
+			<span
+				><mat-icon>group</mat-icon>
+				<p>Participantes</p></span
+			>
+			<mat-divider></mat-divider>
+			<div class="details" *ngFor="let player of players">
+				<div class="username">
+					<mat-icon>person</mat-icon>
+					<p>{{ player.name }}</p>
+				</div>
+				<div class="email">
+					<mat-icon>email</mat-icon>
+					<p>{{ player.email }}</p>
+				</div>
+			</div>
+		</div>
 
-        <div class="goToStory">
-            <button
-                class="buttonToStory"
-                mat-raised-button
-                color="accent"
-                (click)="navigateToGame(idPoker)"
-            >
-            Ir para Stories
-            </button>
-        </div>        
-    </div>   
+		<div class="goToStory">
+			<button
+				class="buttonToStory"
+				mat-raised-button
+				color="accent"
+				(click)="navigateToGame(idPoker)"
+			>
+				Ir para Stories
+			</button>
+		</div>
+	</div>
 </mat-expansion-panel>

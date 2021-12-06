@@ -1,13 +1,34 @@
 <mat-sidenav-container class="example-container" autosize>
 	<mat-sidenav #sidenav class="example-sidenav" mode="over">
 		<story-list
+			[disabled]="poker.status === 'Closed'"
+			[isOwner]="poker.createdBy === userId"
 			[storyList]="storyList | async"
 			idPoker="{{ poker.id }}"
 		></story-list>
 	</mat-sidenav>
 
 	<mat-sidenav-content class="example-sidenav-content">
-		<h2 class="ppa-title">{{ poker.name }}</h2>
+		<div class="wrapper-header">
+			<h2 class="ppa-title">{{ poker.name }}</h2>
+
+			<button
+				*ngIf="poker.createdBy === userId"
+				mat-raised-button
+				color="primary"
+				(click)="closeAllRounds()"
+			>
+				Encerrar rounds
+			</button>
+		</div>
+
+		<mat-card class="card-players">
+			<mat-card-content>
+				<app-user-from-poker-table
+					[idPoker]="poker.id"
+				></app-user-from-poker-table>
+			</mat-card-content>
+		</mat-card>
 
 		<router-outlet></router-outlet>
 
