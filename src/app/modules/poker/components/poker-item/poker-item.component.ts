@@ -100,6 +100,7 @@ export class PokerItemComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(!! result){
         this.pokerService.deletePokerById(idPoker).subscribe(() => {
+          this.notifierService.notify("success", "Poker deletado com sucesso")
           this.updateListPoker.emit();
         })
       }
@@ -111,6 +112,7 @@ export class PokerItemComponent implements OnInit {
 		dialogRef.afterClosed().subscribe(result => {
 			if(!! result){
 				this.pokerService.closePokerById(idPoker).subscribe(() => {
+          this.notifierService.notify("success", "Poker fechado com sucesso")
           this.updateListPoker.emit();
         })
 			}

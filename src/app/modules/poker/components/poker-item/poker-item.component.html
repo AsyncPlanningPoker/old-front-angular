@@ -69,6 +69,7 @@
 
             <div class="editPoker">
                 <button
+                    *ngIf="status == pokerStatus.Open"
                     mat-icon-button
                     mat-raised-button
                     color="primary"
