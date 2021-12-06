@@ -1,3 +1,7 @@
+.return {
+  cursor: pointer
+}
+
 .example-container {
     width: 100%;
     height: calc(100vh - 64px) /* go horse*/

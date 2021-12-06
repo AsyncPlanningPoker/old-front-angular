@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core"
-import { ActivatedRoute } from "@angular/router"
+import { ActivatedRoute, Router } from "@angular/router"
 import { NotifierService } from "angular-notifier"
 import { Observable } from "rxjs"
 import { UserStory } from "src/app/core/interfaces/user-story/user-story"
@@ -22,7 +22,8 @@ export class GameComponent implements OnInit {
 		private pokerService: PokerService,
 		private storyService: StoryService,
 		private notifierService: NotifierService,
-		private authService: AuthService
+		private authService: AuthService,
+		private router: Router
 	) {
 		this.poker = this.activatedRoute.snapshot.data["poker"]
 	}
@@ -44,5 +45,9 @@ export class GameComponent implements OnInit {
 			.subscribe((next) => {
 				this.notifierService.notify("success", "Rounds encerrados com sucesso")
 			})
+	}
+
+	navigateToPoker() {
+		this.router.navigate(["poker"])
 	}
 }
