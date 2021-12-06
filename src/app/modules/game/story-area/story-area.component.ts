@@ -1,8 +1,8 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, Input, OnInit } from "@angular/core"
 import { FormBuilder, Validators } from "@angular/forms"
 import { ActivatedRoute } from "@angular/router"
 import { NotifierService } from "angular-notifier"
-import { finalize } from "rxjs/operators"
+import { finalize, map } from "rxjs/operators"
 import { IRounds, IStory } from "src/app/core/interfaces/story/story"
 import { AuthService } from "src/app/core/services/auth/auth.service"
 import { StoryService } from "src/app/core/services/story/story.service"
@@ -25,6 +25,7 @@ export class StoryAreaComponent extends FormComponent implements OnInit {
 	allRounds!: IRounds[]
 	cards = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
 	isLoading: boolean = false
+	disabled!: boolean
 
 	constructor(
 		protected authService: AuthService,

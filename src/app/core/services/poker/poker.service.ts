@@ -55,4 +55,19 @@ export class PokerService extends BaseService<Poker> {
 			this.httpOptions
 		)
 	}
+	closePoker(idPoker: string) {
+		return this.httpClient.put<any>(
+			`${this.baseUrl}/${idPoker}/closePoker`,
+			{ idPoker },
+			this.httpOptions
+		)
+	}
+
+	closeAllRoundsOpenedByIdPoker(idPoker: string) {
+		return this.httpClient.put<any>(
+			`${this.baseUrl}/${idPoker}/closeAllRounds`,
+			{ idPoker },
+			this.httpOptions
+		)
+	}
 }

@@ -1,8 +1,11 @@
-<table style="width: 100%">
-	<tr>
-		<th>Email</th>
-	</tr>
-	<tr *ngFor="let player of players">
-		<td>{{ player }}</td>
-	</tr>
-</table>
+<div class="players">
+	<span
+		><mat-icon>group</mat-icon>
+		<p>Participantes</p></span
+	>
+	<mat-divider></mat-divider>
+	<div class="details" *ngFor="let player of players">
+		<div class="username"><mat-icon>person</mat-icon>{{ player.name }}</div>
+		<div class="email"><mat-icon>email</mat-icon>{{ player.email }}</div>
+	</div>
+</div>

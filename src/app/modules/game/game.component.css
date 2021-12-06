@@ -13,9 +13,20 @@
 }
 
 .open-story{
+    z-index: 50;
     position: fixed;
     right: 8%;
     bottom: 8%;
     font-size: 1.5vw;
     padding: 1% 2%;
+}
+
+.wrapper-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-players {
+  margin-top: 20px;
+  margin-bottom: 30px;
 }

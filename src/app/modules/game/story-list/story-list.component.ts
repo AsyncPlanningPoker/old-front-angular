@@ -13,6 +13,7 @@ export class StoryListComponent implements OnInit {
 	@Input() storyList!: UserStory[] | null
 	@Input() idPoker!: string
 	@Input() isOwner!: boolean
+	@Input() disabled!: boolean
 
 	idStoryParams!: string
 

@@ -35,6 +35,9 @@ export class StoryVoteComponent extends FormComponent implements OnInit {
 			this.form.controls["vote"].setValue(
 				String(this.round.allPokerUsers[0].votes.vote)
 			)
+			this.form.controls["comment"].setValue(
+				String(this.round.allPokerUsers[0].votes.comment)
+			)
 		}
 	}
 
