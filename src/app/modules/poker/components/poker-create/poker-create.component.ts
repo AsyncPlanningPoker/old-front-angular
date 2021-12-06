@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core"
 import { FormBuilder, FormGroup, Validators } from "@angular/forms"
-import { MatDialog } from "@angular/material/dialog"
+import { MatDialog, MatDialogRef } from "@angular/material/dialog"
 import { finalize } from "rxjs/operators"
 import { Poker } from "src/app/core/interfaces/poker/poker"
 import { AuthService } from "src/app/core/services/auth/auth.service"
@@ -25,7 +25,7 @@ export class PokerCreateComponent extends FormComponent implements OnInit {
 		protected authService: AuthService,
 		protected formBuilder: FormBuilder,
 		private pokerService: PokerService,
-		private dialog: MatDialog,
+		public dialog: MatDialogRef<PokerCreateComponent>,
 		private readonly notifierService: NotifierService
 	) {
 		super(authService, formBuilder, {
@@ -47,7 +47,7 @@ export class PokerCreateComponent extends FormComponent implements OnInit {
 				)
 				.subscribe((next) => {
 					this.notifierService.notify("success", "Poker criado com sucesso")
-					this.dialog.closeAll()
+					this.dialog.close(next.id)
 				})
 		}
 	}

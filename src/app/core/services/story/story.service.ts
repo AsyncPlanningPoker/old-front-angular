@@ -1,12 +1,9 @@
 import { HttpClient } from "@angular/common/http"
 import { EventEmitter, Injectable } from "@angular/core"
 import { Observable } from "rxjs"
-import { IRounds, IStory } from "../../interfaces/story/story"
+import { IResponseGetStoryById, IRounds } from "../../interfaces/story/story"
 import { BaseService } from "../base.service"
 
-interface IResponseGetStoryById {
-	data: IStory
-}
 
 @Injectable({
 	providedIn: "root"

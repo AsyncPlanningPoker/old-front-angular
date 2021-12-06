@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
       .subscribe((res) => {
         const { token } = res
         this.authService.setJwtToLocalStorage(token)
+        console.log(this.authService.getTokenInfo())
         this.router.navigate(['poker'])
       });
   }

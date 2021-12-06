@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core"
 import { Routes, RouterModule } from "@angular/router"
-import { PokerScreenResolver } from "../poker/components/poker-screen/poker-screen.resolver"
+import { PokerScreenResolver } from "./poker-screen.resolver"
 import { GameComponent } from "./game.component"
 import { StoryAreaComponent } from "./story-area/story-area.component"
 import { StoryAreaResolver } from "./story-area/story-area.resolver"

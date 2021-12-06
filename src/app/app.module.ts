@@ -14,7 +14,7 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools"
 
 import { environment } from "../environments/environment" // Angular CLI environment
 import { themeReducer } from "./core/reducers/theme.reducer"
-import { metaReducers } from "./core/reducers"
+import { metaReducers } from "./core/reducers";
 
 @NgModule({
 	declarations: [AppComponent],

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PokerScreenComponent } from './poker-screen.component';
+import { ConfirmUpdateComponent } from './confirm-update.component';
 
-describe('PokerScreenComponent', () => {
-  let component: PokerScreenComponent;
-  let fixture: ComponentFixture<PokerScreenComponent>;
+describe('ConfirmUpdateComponent', () => {
+  let component: ConfirmUpdateComponent;
+  let fixture: ComponentFixture<ConfirmUpdateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PokerScreenComponent ]
+      declarations: [ ConfirmUpdateComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PokerScreenComponent);
+    fixture = TestBed.createComponent(ConfirmUpdateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

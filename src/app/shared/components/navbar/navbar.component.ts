@@ -29,8 +29,8 @@ export class NavbarComponent implements OnInit {
 		this.theme$.subscribe((theme) => {
 			this.isDarkTheme = theme == "dark"
 		})
-
-		this.username = this.authService.getTokenInfo().email
+		
+		this.username = this.authService.getTokenInfo()!.email 
 		this.loadingClass()
 	}
 

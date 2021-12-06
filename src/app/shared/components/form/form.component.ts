@@ -10,7 +10,7 @@ import { AuthService } from "src/app/core/services/auth/auth.service"
 })
 export class FormComponent implements OnInit {
 	form: FormGroup
-	userLogged: Token
+	userLogged: Token | null
 
 	constructor(
 		protected authService: AuthService,
@@ -20,7 +20,7 @@ export class FormComponent implements OnInit {
 		this.userLogged = this.authService.getTokenInfo()
 		this.form = this.formBuilder.group({
 			...group,
-			...{ idUser: this.userLogged.userId }
+			...{ idUser: this.userLogged!.userId }
 		})
 	}
 

@@ -7,14 +7,6 @@
 </header>
 
 <mat-dialog-content class="mat-typography">
-	<div class="showSpinner">
-		<mat-progress-bar
-		color="accent"
-		value="100"
-		[mode]="isLoading ? 'indeterminate' : 'determinate'"
-		>
-		</mat-progress-bar>
-	</div>
 	<div class="wrapper-form">
 		<form [formGroup]="form">
 			<mat-form-field class="input-field" appearance="outline">

@@ -8,7 +8,7 @@ import { environment } from "../../../environments/environment"
 	providedIn: "root"
 })
 export class BaseService<T> {
-	protected baseUrl = ""
+	public baseUrl = ""
 	protected httpOptions = {}
 
 	constructor(

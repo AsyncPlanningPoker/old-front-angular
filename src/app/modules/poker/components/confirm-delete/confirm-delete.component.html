@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Deletar Poker</h2>
+<mat-dialog-content>
+  <div class="content">
+    Ao deletar um poker não será possível recupera-lo e todas as histórias e rounds serão perdidos. Tem certeza que deseja fazer isso?
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button color="primary" mat-raised-button mat-dialog-close>Não</button>
+  <button mat-button color="accent" mat-raised-button [mat-dialog-close]="true" cdkFocusInitial>Sim</button>
+</mat-dialog-actions>
+

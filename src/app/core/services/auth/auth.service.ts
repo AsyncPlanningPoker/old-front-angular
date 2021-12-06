@@ -16,7 +16,7 @@ export class AuthService {
 		this.isLoggedIn$ = new BehaviorSubject<boolean>(this.verifyIntegrityAuth());
 	}
 
-	getTokenInfo(): Token {
+	getTokenInfo(): Token | null {
 		const token = localStorage.getItem("token")
 		return this.decodeJWT(token as string)
 	}
@@ -41,8 +41,8 @@ export class AuthService {
 		return this.isLoggedIn$.asObservable();
 	}
 
-	decodeJWT(token: string) {
+	decodeJWT(token: string): Token | null {
 		const decodeToken = this.jwtHelper.decodeToken(token || "")
-		return decodeToken ? decodeToken : ""
+		return decodeToken ? decodeToken : null
 	}
 }
