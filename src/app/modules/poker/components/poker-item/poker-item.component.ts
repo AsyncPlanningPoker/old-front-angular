@@ -94,6 +94,14 @@ export class PokerItemComponent implements OnInit {
 		}
 	}
 
+	loadPlayers(idPoker: string) {
+		this.isLoading = true
+		this.pokerService.getPlayersFromPoker(idPoker).subscribe((players) => {
+			this.players = players
+			this.isLoading = false
+		})
+	}
+
 	deletePoker(idPoker: string) {
 		const dialogRef = this.dialog.open(ConfirmDeleteComponent)
 		dialogRef.afterClosed().subscribe((result) => {

@@ -34,7 +34,7 @@ export class GameComponent implements OnInit {
 	ngOnInit(): void {
 		this.loadStories()
 		this.storyService.emitNewStory.subscribe(() => this.loadStories())
-		this.userId = this.authService.getTokenInfo().userId
+		this.userId = this.authService.getTokenInfo()!.userId
 	}
 
 	closeAllRounds() {
