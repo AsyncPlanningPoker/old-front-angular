@@ -17,3 +17,7 @@ export interface IStory {
 	updatedAt: string
 	allRounds: IRounds[]
 }
+
+export interface IResponseGetStoryById {
+	data: IStory
+}

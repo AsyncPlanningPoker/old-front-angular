@@ -1,10 +1,7 @@
-import { tokenize } from "@angular/compiler/src/ml_parser/lexer"
-
 export interface Token {
-   token: string
    email: string
-   exp: string
-   iat: string
+   exp?: number
+   iat: number
    name: string
    userId: string
 }

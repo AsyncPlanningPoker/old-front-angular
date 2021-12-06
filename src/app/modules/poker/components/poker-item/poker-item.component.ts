@@ -44,7 +44,7 @@ export class PokerItemComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.verifyAuth = this.authService.getTokenInfo().email == this.createdByEmail
+    this.verifyAuth = this.authService.getTokenInfo()!.email == this.createdByEmail
   }
 
   addUser(idPoker: string | undefined) {

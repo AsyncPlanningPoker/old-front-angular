@@ -15,3 +15,7 @@ export interface playerPoker {
 	name: string
 	email: string
 }
+
+export interface IResponseGetPokerById {
+	data: Poker
+}

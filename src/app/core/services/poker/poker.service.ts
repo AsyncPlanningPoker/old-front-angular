@@ -1,14 +1,11 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
 import { Observable } from "rxjs"
-import { IAddUser, Poker } from "../../interfaces/poker/poker"
+import { IAddUser, playerPoker, Poker,  IResponseGetPokerById  } from "../../interfaces/poker/poker"
 
 import { UserStory } from "../../interfaces/user-story/user-story"
 import { BaseService } from "../base.service"
 
-interface IResponseGetPokerById {
-	data: Poker
-}
 
 @Injectable({
 	providedIn: "root"
@@ -25,7 +22,7 @@ export class PokerService extends BaseService<Poker> {
 		)
 	}
 
-	getPlayersFromPoker(id: string): Observable<[]> {
+	getPlayersFromPoker(id: string): Observable<playerPoker[]> {
 		return this.httpClient.get<any>(
 			`${this.baseUrl}/${id}/playersByPoker`,
 			this.httpOptions
@@ -36,12 +33,12 @@ export class PokerService extends BaseService<Poker> {
 		return this.httpClient.get<any>(`${this.baseUrl}/${id}`, this.httpOptions)
 	}
 
-	deletePokerById(id: string): Observable<any> {
+	deletePokerById(id: string): Observable<{ id: string }> {
 		return this.httpClient.delete<any>(`${this.baseUrl}/${id}`, this.httpOptions)
 	}
 
 
-	closePokerById(id: string): Observable<any> {
+	closePokerById(id: string): Observable<{ updateId: string }> {
 		return this.httpClient.put<any>(`${this.baseUrl}/${id}/closePoker`, this.httpOptions)
 	}
 	getStoriesFromPoker(id: string): Observable<UserStory[]> {
@@ -51,7 +48,7 @@ export class PokerService extends BaseService<Poker> {
 		)
 	}
 
-	addUser(payload: IAddUser): Observable<any> {
+	addUser(payload: IAddUser): Observable<{id: string}> {
 		return this.httpClient.post<any>(
 			`${this.baseUrl}/addUser`,
 			payload,
