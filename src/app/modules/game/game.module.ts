@@ -7,7 +7,9 @@ import { StoryListComponent } from "./story-list/story-list.component"
 import { GameRoutingModule } from "./game-routing.module"
 import { StoryAreaComponent } from "./story-area/story-area.component"
 import { StoryVoteComponent } from "./story-vote/story-vote.component"
-import { UserFromPokerModule } from "../user-from-poker/user-from-poker.module"
+import { UserFromPokerTableComponent } from "./user-from-poker-table/user-from-poker-table.component"
+import { StoryCreateComponent } from "./story-create/story-create.component"
+
 
 @NgModule({
 	declarations: [
@@ -15,8 +17,10 @@ import { UserFromPokerModule } from "../user-from-poker/user-from-poker.module"
 		StoryButtonComponent,
 		StoryListComponent,
 		StoryAreaComponent,
-		StoryVoteComponent
+		StoryVoteComponent,
+		UserFromPokerTableComponent,
+		StoryCreateComponent
 	],
-	imports: [CommonModule, SharedModule, GameRoutingModule, UserFromPokerModule]
+	imports: [CommonModule, SharedModule, GameRoutingModule]
 })
 export class GameModule {}
