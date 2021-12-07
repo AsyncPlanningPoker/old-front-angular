@@ -1,3 +1,7 @@
 .wrapper-container{
     height: 100%;
 }
+
+.loader-title {
+    color: #fff
+}

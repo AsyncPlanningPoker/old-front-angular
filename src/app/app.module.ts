@@ -14,6 +14,8 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools"
 import { environment } from "../environments/environment" // Angular CLI environment
 import { themeReducer } from "./core/reducers/theme.reducer"
 import { metaReducers } from "./core/reducers";
+import { NgxSpinnerModule } from "ngx-spinner"
+import { LoaderInterceptorStatus } from "./core/interceptors/loader.interceptor"
 
 @NgModule({
 	declarations: [AppComponent],
@@ -30,8 +32,10 @@ import { metaReducers } from "./core/reducers";
 		StoreDevtoolsModule.instrument({
 			maxAge: 25,
 			logOnly: environment.production
-		})
+		}),
+		NgxSpinnerModule
 	],
+	providers: [LoaderInterceptorStatus,],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}
