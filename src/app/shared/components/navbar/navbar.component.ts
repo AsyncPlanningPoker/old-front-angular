@@ -30,7 +30,9 @@ export class NavbarComponent implements OnInit {
 			this.isDarkTheme = theme == "dark"
 		})
 		
-		this.username = this.authService.getTokenInfo()!.email 
+		console.log("this.authService.getTokenInfo()")
+		console.log(JSON.stringify(this.authService.getTokenInfo()))
+		this.username = this.authService.getTokenInfo()!.email
 		this.loadingClass()
 	}
 

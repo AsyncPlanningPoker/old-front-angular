@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserFromPokerTableComponent } from './user-from-poker-table.component';
@@ -8,7 +9,8 @@ describe('UserFromPokerTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserFromPokerTableComponent ]
+      declarations: [ UserFromPokerTableComponent ],
+      imports: [ HttpClientModule ]
     })
     .compileComponents();
   });
