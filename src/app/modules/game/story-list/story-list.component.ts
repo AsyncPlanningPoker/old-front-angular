@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from "@angular/core"
 import { MatDialog } from "@angular/material/dialog"
 import { ActivatedRoute } from "@angular/router"
 import { UserStory } from "src/app/core/interfaces/user-story/user-story"
-import { StoryCreateComponent } from "../../story/story-create/story-create.component"
+import { StoryCreateComponent } from "../story-create/story-create.component"
 
 @Component({
 	selector: "story-list",
