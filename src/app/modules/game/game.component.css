@@ -1,5 +1,7 @@
 .return {
-  cursor: pointer
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .example-container {

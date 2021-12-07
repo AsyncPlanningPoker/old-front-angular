@@ -9,7 +9,10 @@
 	</mat-sidenav>
 
 	<mat-sidenav-content class="example-sidenav-content">
-		<h4 class="return" (click)="navigateToPoker()"><- Voltar</h4>
+		<h4 class="return" (click)="navigateToPoker()">
+			<mat-icon>keyboard_arrow_left</mat-icon>
+			Voltar
+		</h4>
 		<div class="wrapper-header">
 			<h2 class="ppa-title">{{ poker.name }}</h2>
 
