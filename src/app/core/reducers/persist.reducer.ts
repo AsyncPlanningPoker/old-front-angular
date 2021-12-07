@@ -6,8 +6,6 @@ export const persistMetaReducer = (
 	return (state, action) => {
 		if (action.type === INIT || action.type === UPDATE) {
 			const storageValue = localStorage.getItem("@planningPoker:state")
-			console.log(storageValue)
-			console.log(localStorage.getItem("state"))
 
 			if (storageValue) {
 				try {

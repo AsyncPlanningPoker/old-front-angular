@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogRef } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
+import { GameModule } from '../game.module';
 
 import { StoryListComponent } from './story-list.component';
 
@@ -8,7 +11,12 @@ describe('StoryListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StoryListComponent ]
+      declarations: [ StoryListComponent ],
+      imports: [ GameModule ],
+      providers: [
+        {provide: MatDialogRef, useValue: {}},
+        {provide: ActivatedRoute, useValue: {}}
+      ]
     })
     .compileComponents();
   });

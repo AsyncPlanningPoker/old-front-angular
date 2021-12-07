@@ -31,8 +31,6 @@ export class StoryVoteComponent extends FormComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		console.log("this.round")
-		console.log(this.round)
 		if (this.round.allPokerUsers.length > 0) {
 			this.form.controls["vote"].setValue(
 				String(this.round.allPokerUsers[0].votes.vote)

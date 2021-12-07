@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogRef } from '@angular/material/dialog';
 import { PokerModule } from '../../poker.module';
 
 import { ConfirmUpdateComponent } from './confirm-update.component';
@@ -10,7 +11,8 @@ describe('ConfirmUpdateComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ConfirmUpdateComponent ],
-      imports: [ PokerModule ]
+      imports: [ PokerModule ],
+      providers: [ {provide: MatDialogRef, useValue: {}} ]
     })
     .compileComponents();
   });

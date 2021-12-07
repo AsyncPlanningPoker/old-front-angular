@@ -32,7 +32,6 @@ describe(NavbarComponent.name, () => {
                 return key in store ? store[key] : null;
             },
             setItem: (key: string, value: string) => {
-                console.log(value)
                 store[key] = `${value}`;
             },
             removeItem: (key: string) => {

@@ -41,7 +41,6 @@ export class StoryCreateComponent extends FormComponent implements OnInit {
 	createStory() {
 		if (this.form.valid && this.form.dirty) {
 			this.isLoading = true
-			console.log("values", { ...this.form.value, idPoker: this.data.idPoker })
 
 			this.storyService
 				.post({ ...this.form.value, idPoker: this.data.idPoker })

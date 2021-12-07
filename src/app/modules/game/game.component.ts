@@ -39,7 +39,6 @@ export class GameComponent implements OnInit {
 	}
 
 	closeAllRounds() {
-		console.log("closeAllRounds")
 		this.pokerService
 			.closeAllRoundsOpenedByIdPoker(this.poker.id)
 			.subscribe((next) => {
