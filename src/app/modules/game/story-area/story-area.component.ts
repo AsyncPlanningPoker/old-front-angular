@@ -23,17 +23,13 @@ interface IPayloadVote {
 export class StoryAreaComponent extends FormComponent implements OnInit {
 	story!: IStory
 	allRounds!: IRounds[]
-	cards = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
 	isLoading: boolean = false
-	disabled!: boolean
 
 	constructor(
 		protected authService: AuthService,
 		protected formBuilder: FormBuilder,
 		private activatedRoute: ActivatedRoute,
 		private storyService: StoryService,
-		private voteService: VoteService,
-		private readonly notifierService: NotifierService
 	) {
 		super(authService, formBuilder, {
 			vote: [, Validators.required]
@@ -47,24 +43,5 @@ export class StoryAreaComponent extends FormComponent implements OnInit {
 				this.allRounds = resp
 			})
 		})
-	}
-
-	createVote(payload: IPayloadVote) {
-		const voteData = {
-			...payload,
-			idStory: this.story.id,
-			idPoker: this.story.idPoker
-		}
-		this.isLoading = true
-		this.voteService
-			.post(voteData)
-			.pipe(
-				finalize(() => {
-					this.isLoading = false
-				})
-			)
-			.subscribe((next) => {
-				this.notifierService.notify("success", "Votação feita com sucesso")
-			})
 	}
 }

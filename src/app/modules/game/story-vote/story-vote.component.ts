@@ -1,14 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core"
+import { Component, Input, OnInit } from "@angular/core"
 import { FormBuilder, Validators } from "@angular/forms"
+import { NotifierService } from "angular-notifier"
+import { GetRoundResult } from "src/app/core/interfaces/round/round"
 import { IRounds } from "src/app/core/interfaces/story/story"
 import { AuthService } from "src/app/core/services/auth/auth.service"
+import { RoundService } from "src/app/core/services/round/round.service"
+import { VoteService } from "src/app/core/services/vote/vote.service"
 import { FormComponent } from "src/app/shared/components/form/form.component"
-
-interface IPayloadVote {
-	vote: string
-	idUser: string
-	idRound: string
-}
 
 @Component({
 	selector: "app-vote",
@@ -17,36 +15,39 @@ interface IPayloadVote {
 })
 export class StoryVoteComponent extends FormComponent implements OnInit {
 	@Input() round!: IRounds
-	@Output() onSubmitEvent = new EventEmitter<IPayloadVote>()
 	cards = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+	roundRes!: GetRoundResult
 
 	constructor(
 		protected authService: AuthService,
-		protected formBuilder: FormBuilder
+		protected roundService: RoundService,
+		protected voteService: VoteService,
+		protected formBuilder: FormBuilder,
+		private readonly notifierService: NotifierService
 	) {
 		super(authService, formBuilder, {
-			vote: [, Validators.required],
-			comment: []
+			voteNumber: [, Validators.required],
+			voteComment: []
 		})
 	}
 
 	ngOnInit(): void {
-		if (this.round.allPokerUsers.length > 0) {
-			this.form.controls["vote"].setValue(
-				String(this.round.allPokerUsers[0].votes.vote)
-			)
-			this.form.controls["comment"].setValue(
-				String(this.round.allPokerUsers[0].votes.comment)
-			)
+		this.roundService.getRoundById(this.round.id).subscribe( (res) => {
+			this.roundRes = res
+		})
+	}
+
+	onSubmit(idVote: string | undefined) {
+		if (this.form.valid && this.form.dirty) {
+			this.voteService.voteInRound((idVote ? idVote : ""), this.form.value).subscribe(() =>{
+				this.notifierService.notify("success", "Round votado com sucesso")
+			})
 		}
 	}
 
-	onSubmit(idRound: string) {
-		if (this.form.valid && this.form.dirty) {
-			this.onSubmitEvent.emit({
-				...this.form.value,
-				idRound
-			})
-		}
+	createNewRound(idRound : string){
+		this.roundService.createNextRound(idRound).subscribe(() => {
+			this.notifierService.notify("success", "Novo round criado com sucesso")
+		})
 	}
 }

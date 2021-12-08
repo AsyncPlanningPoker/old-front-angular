@@ -1,36 +1,94 @@
-<div class="container">
-	<form [formGroup]="form">
-		<div class="deck">
-			<div *ngFor="let card of cards">
-				<input
-					[attr.disabled]="round.status !== 'Closed' ? null : false"
-					type="radio"
-					id="{{ card }}"
-					value="{{ card }}"
-					formControlName="vote"
-				/>
-				<label for="{{ card }}" class="cardPoker">
-					<div class="number">
-						{{ card }}
-					</div>
-				</label>
-			</div>
+
+<div class="container" *ngIf="roundRes?.status == 'Closed'">
+	<div class="result" *ngIf="roundRes?.result">
+		<div class="titleOfRound">
+			Resultado único: 
 		</div>
+		
+		<label class="cardPoker">
+			<div class="number">
+				{{roundRes?.result?.voteNumber}}
+			</div>
+		</label>
+		
+	</div>
+	<div class="maxMin" *ngIf="roundRes?.max && roundRes?.min">
+		<div class="titleOfRound">
+			Resultado inconsitente: 
+		</div>
+
+		<div class="max">
+			<label class="cardPoker">
+				<div class="number">
+					{{roundRes?.max?.voteNumber}}
+				</div>
+			</label>
+			{{roundRes?.max?.voteComment}}
+		</div>
+
+		<div class="min">
+			<label class="cardPoker">
+				<div class="number">
+					{{roundRes?.min?.voteNumber}}
+				</div>
+			</label>
+			{{roundRes?.min?.voteComment}}
+		</div>
+
 		<button
-			[disabled]="round.status === 'Closed'"
-			(click)="onSubmit(round.id)"
+			
+			(click)="createNewRound(round.id)"
 			class="width-form-button"
 			mat-raised-button
 			color="accent"
 		>
-			Votar
+		Novo Round
 		</button>
-		<div class="comments">
-			<textarea
-				[attr.disabled]="round.status !== 'Closed' ? null : false"
-				placeholder="Comente aqui"
-				formControlName="comment"
-			></textarea>
-		</div>
-	</form>
+	</div>
 </div>
+
+
+<div class="container" *ngIf="roundRes?.status == 'Open'">
+	<div class="voteOfUser" *ngIf="roundRes?.voteOfUser">
+		Seu Voto:
+		{{roundRes?.voteOfUser?.voteNumber}}
+		{{roundRes?.voteOfUser?.voteComment}}
+	</div>
+
+	<div class="voteArea" *ngIf="roundRes?.voteId">
+
+		<form [formGroup]="form">
+			<div class="deck">
+				<div *ngFor="let card of cards">
+					<input
+						type="radio"
+						id="{{ card }}"
+						value="{{ card }}"
+						formControlName="voteNumber"
+					/>
+					<label for="{{ card }}" class="cardPoker">
+						<div class="number">
+							{{ card }}
+						</div>
+					</label>
+				</div>
+			</div>
+
+			<div class="comments">
+				<textarea
+					placeholder="Comente aqui"
+					formControlName="voteComment"
+				></textarea>
+			</div>
+
+			<button
+				(click)="onSubmit(roundRes?.voteId)"
+				class="width-form-button"
+				mat-raised-button
+				color="accent"
+			>
+				Votar
+			</button>
+		</form>
+	</div>
+</div> 

@@ -1,21 +1,14 @@
-.return {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.example-container {
+.game-container {
     width: 100%;
-    height: calc(100vh - 64px) /* go horse*/
+    height: calc(100vh - 64px);
 }
 
-.example-sidenav{
-  min-width: 100px;
+.game-sidenav{
+  min-width: 350px;
 }
 
-.example-sidenav-content {
+.game-sidenav-content {
     height: 100%;
-    margin: 50px;
 }
 
 .open-story{
@@ -30,9 +23,12 @@
 .wrapper-header{
   display: flex;
   justify-content: space-between;
+  margin: 50px;
+  margin-bottom: 0px;
 }
 
 .card-players {
+  margin: 50px;
   margin-top: 20px;
   margin-bottom: 30px;
 }

@@ -1,5 +1,5 @@
-<mat-sidenav-container class="example-container" autosize>
-	<mat-sidenav #sidenav class="example-sidenav" mode="over">
+<mat-sidenav-container class="game-container" autosize>
+	<mat-sidenav #sidenav class="game-sidenav" mode="over">
 		<story-list
 			[disabled]="poker.status === 'Closed'"
 			[isOwner]="poker.createdBy === userId"
@@ -8,11 +8,7 @@
 		></story-list>
 	</mat-sidenav>
 
-	<mat-sidenav-content class="example-sidenav-content">
-		<h4 class="return" (click)="navigateToPoker()">
-			<mat-icon>keyboard_arrow_left</mat-icon>
-			Voltar
-		</h4>
+	<mat-sidenav-content class="game-sidenav-content">
 		<div class="wrapper-header">
 			<h2 class="ppa-title">{{ poker.name }}</h2>
 

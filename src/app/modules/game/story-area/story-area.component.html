@@ -13,10 +13,11 @@
 		</mat-card-footer>
 	</mat-card>
 
-	<!-- <story-options></story-options> -->
-	<mat-tab-group mat-align-tabs="start" *ngFor="let round of allRounds">
-		<mat-tab label="Round {{ round.roundNumber }}">
-			<app-vote [round]="round" (onSubmitEvent)="createVote($event)"></app-vote>
-		</mat-tab>
+	<mat-tab-group mat-align-tabs="start">
+		<div class="getRound" *ngFor="let round of allRounds">
+			<mat-tab label="Round {{ round.roundNumber }}">
+				<app-vote [round]="round" ></app-vote>
+			</mat-tab>
+		</div>
 	</mat-tab-group>
 </div>

@@ -1,11 +1,10 @@
 export interface IRounds {
 	id: string
-	roundNumber: 1
+	roundNumber: number
 	status: "Open" | "Closed"
 	createdAt: string
 	updatedAt: string
 	idStory: string
-	allPokerUsers: any[]
 }
 
 export interface IStory {

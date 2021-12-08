@@ -20,9 +20,3 @@
     text-overflow: ellipsis;
     margin-bottom: 50px;
 }
-
-.actions{
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-}

@@ -25,6 +25,7 @@ form{
   height: 65px;
   font-size: x-large;
 }
+
 .deck{
   width: 100%;
   display: flex;
@@ -57,7 +58,7 @@ input{
   justify-content: center;
 }
 
-label {
+label{
   padding: 10px;
   height: 100%;
   width: 100%;
@@ -86,3 +87,12 @@ input:checked + .cardPoker .number{
 }
 
 textarea{resize: none}
+
+
+.result,.maxMin{
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
