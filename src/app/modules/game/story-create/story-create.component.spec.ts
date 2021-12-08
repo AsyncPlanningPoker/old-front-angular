@@ -1,45 +1,34 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
 import { NotifierModule } from 'angular-notifier';
-import { of } from 'rxjs';
 import { GameModule } from '../game.module';
 
-import { StoryAreaComponent } from './story-area.component';
+import { StoryCreateComponent } from './story-create.component';
 
-describe('StoryAreaComponent', () => {
-  let component: StoryAreaComponent;
-  let fixture: ComponentFixture<StoryAreaComponent>;
+describe(StoryCreateComponent.name, () => {
+  let component: StoryCreateComponent;
+  let fixture: ComponentFixture<StoryCreateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StoryAreaComponent ],
-      imports: [ GameModule, NotifierModule ],
+      declarations: [ StoryCreateComponent ],
+      imports: [ GameModule, NotifierModule, BrowserAnimationsModule ],
       providers: [
-        { provide: ActivatedRoute, useValue: {
-          data: of({
-            story: {
-              id: "string",
-              name: "string",
-              description: "string",
-              idPoker: "string",
-              createdAt: "string",
-              updatedAt: "string",
-              allRounds: []
-            }
-          })
-        } }
+        { provide: MAT_DIALOG_DATA, useValue: {} },
       ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StoryAreaComponent);
+    fixture = TestBed.createComponent(StoryCreateComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
 
 		interface StoreMock {
-      [key: string]: string 
+        [key: string]: string 
     }
 
     let store : StoreMock = {};
@@ -74,9 +63,8 @@ describe('StoryAreaComponent', () => {
 	afterAll(() => {
 		localStorage.clear()
 	})
-  
+
   it('should create', () => {
-    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });

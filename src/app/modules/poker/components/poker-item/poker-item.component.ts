@@ -8,6 +8,7 @@ import { playerPoker } from "src/app/core/interfaces/poker/poker"
 import { AuthService } from "src/app/core/services/auth/auth.service"
 import { PokerService } from "src/app/core/services/poker/poker.service"
 import { UserService } from "src/app/core/services/user/user.service"
+import { FormComponent } from "src/app/shared/components/form/form.component"
 import { ConfirmDeleteComponent } from "../confirm-delete/confirm-delete.component"
 import { ConfirmUpdateComponent } from "../confirm-update/confirm-update.component"
 

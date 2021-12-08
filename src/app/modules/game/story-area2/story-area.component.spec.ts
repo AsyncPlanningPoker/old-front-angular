@@ -1,8 +1,9 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NotifierModule } from 'angular-notifier';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { GameModule } from '../game.module';
 
 import { StoryAreaComponent } from './story-area.component';
@@ -14,7 +15,7 @@ describe('StoryAreaComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ StoryAreaComponent ],
-      imports: [ GameModule, NotifierModule ],
+      imports: [ GameModule, ReactiveFormsModule, HttpClientModule, NotifierModule ],
       providers: [
         { provide: ActivatedRoute, useValue: {
           data: of({
@@ -37,6 +38,7 @@ describe('StoryAreaComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(StoryAreaComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
 
 		interface StoreMock {
       [key: string]: string 
@@ -74,9 +76,8 @@ describe('StoryAreaComponent', () => {
 	afterAll(() => {
 		localStorage.clear()
 	})
-  
+
   it('should create', () => {
-    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });
