@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NotifierModule, NotifierService } from 'angular-notifier';
 
@@ -47,5 +47,14 @@ describe('GameComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it(`${GameComponent.prototype.navigateToPoker.name} should navigate to /poker`, () => {
+    const router = TestBed.inject(Router)
+    
+    spyOn(router, "navigate")
+    component.navigateToPoker()
+
+    expect(router.navigate).toHaveBeenCalledWith(["poker"]);
   });
 });

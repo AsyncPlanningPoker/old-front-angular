@@ -43,6 +43,7 @@ export class GameComponent implements OnInit {
 			.closeAllRoundsOpenedByIdPoker(this.poker.id)
 			.subscribe((next) => {
 				this.notifierService.notify("success", "Rounds encerrados com sucesso")
+				window.location.reload()
 			})
 	}
 
