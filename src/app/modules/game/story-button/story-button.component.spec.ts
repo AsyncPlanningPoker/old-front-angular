@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { GameModule } from '../game.module';
 
@@ -11,7 +12,7 @@ describe('StoryButtonComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ StoryButtonComponent ],
-      imports: [ GameModule, RouterTestingModule ]
+      imports: [ GameModule, RouterTestingModule.withRoutes([]) ]
     })
     .compileComponents();
   });
@@ -25,4 +26,15 @@ describe('StoryButtonComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it(`${StoryButtonComponent.prototype.onClickStory.name} should navigate to ['test2', 'test3', 'storyTestId']`, () => {
+    const router = TestBed.inject(Router)
+    
+    spyOn(router, "navigate")
+    spyOnProperty(router, 'url', 'get').and.returnValue('"test1/test2/test3/test4/test5"');
+
+    component.onClickStory("storyTestId")
+
+    expect(router.navigate).toHaveBeenCalledWith(['test2', 'test3', 'storyTestId'])
+  })
 });

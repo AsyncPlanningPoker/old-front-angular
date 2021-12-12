@@ -21,9 +21,7 @@ export class GameComponent implements OnInit {
 		private activatedRoute: ActivatedRoute,
 		private pokerService: PokerService,
 		private storyService: StoryService,
-		private notifierService: NotifierService,
 		private authService: AuthService,
-		private router: Router
 	) {
 		this.poker = this.activatedRoute.snapshot.data["poker"]
 	}
@@ -38,15 +36,4 @@ export class GameComponent implements OnInit {
 		this.userId = this.authService.getTokenInfo()!.userId
 	}
 
-	closeAllRounds() {
-		this.pokerService
-			.closeAllRoundsOpenedByIdPoker(this.poker.id)
-			.subscribe((next) => {
-				this.notifierService.notify("success", "Rounds encerrados com sucesso")
-			})
-	}
-
-	navigateToPoker() {
-		this.router.navigate(["poker"])
-	}
 }

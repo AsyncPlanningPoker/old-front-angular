@@ -39,8 +39,12 @@ export class NavbarComponent implements OnInit {
 	}
 
 	logOut() {
+		console.log("iniciou")
 		if (this.authService.verifyIntegrityAuth()) {
+			console.log("está verificado")
 			this.authService.removeJwtFromLocalStorage()
+		}else{
+			console.log("não está verificado")
 		}
 		this.router.navigate(["login"])
 	}

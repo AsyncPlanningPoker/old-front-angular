@@ -11,15 +11,6 @@
 	<mat-sidenav-content class="game-sidenav-content">
 		<div class="wrapper-header">
 			<h2 class="ppa-title">{{ poker.name }}</h2>
-
-			<button
-				*ngIf="poker.createdBy === userId"
-				mat-raised-button
-				color="primary"
-				(click)="closeAllRounds()"
-			>
-				Encerrar rounds
-			</button>
 		</div>
 
 		<mat-card class="card-players">

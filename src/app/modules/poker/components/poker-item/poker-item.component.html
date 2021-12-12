@@ -19,13 +19,6 @@
 		</mat-panel-description>
 	</mat-expansion-panel-header>
 
-	<mat-progress-bar
-		color="accent"
-		value="100"
-		[mode]="isLoading ? 'indeterminate' : 'determinate'"
-	>
-	</mat-progress-bar>
-
 	<div class="content" *ngIf="!isLoading">
 		<div class="actions" *ngIf="verifyAuth">
 			<form class="form-add-player">

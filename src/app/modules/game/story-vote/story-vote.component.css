@@ -1,5 +1,6 @@
 .content{
   width: 100%;
+  height: 800px;
 }
 
 .container{
@@ -86,13 +87,68 @@ input:checked + .cardPoker .number{
   background-color: #fafafa;
 }
 
-textarea{resize: none}
+textarea{
+  padding: 15px;
+  resize: none;
+  width: 600px;
+  height: 200px;
+  border: 1px solid #1A237E;
+  border-radius: 10px;
+  outline: none;
+}
+
+textarea:focus{
+  border: 1px solid #E91E63;
+}
 
 
 .result,.maxMin{
+  width: 100%;
   min-height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.min,.max{
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.max{
+  
+  justify-content: flex-start;
+}
+
+.min{
+  
+  justify-content: flex-end;
+}
+
+.titleOfRound{
+  font-size: x-large;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.voteUserArea{
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 30px;
+}
+
+.newRoundButton{
+  width: 350px;
+  font-size: x-large;
+  height: 60px;
 }

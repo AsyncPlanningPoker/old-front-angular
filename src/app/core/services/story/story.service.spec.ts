@@ -29,8 +29,7 @@ describe('StoryService', () => {
         status: "Open",
         createdAt: "1",
         updatedAt: "1",
-        idStory: "1",
-        allPokerUsers: ["teste"]
+        idStory: "1"
       }
     ]
     const mockDataStory: IStory = {
@@ -65,7 +64,6 @@ describe('StoryService', () => {
         createdAt: "1",
         updatedAt: "1",
         idStory: "1",
-        allPokerUsers: ["teste"]
       }
     ]
 

@@ -1,94 +1,102 @@
-
-<div class="container" *ngIf="roundRes?.status == 'Closed'">
-	<div class="result" *ngIf="roundRes?.result">
-		<div class="titleOfRound">
-			Resultado único: 
-		</div>
-		
-		<label class="cardPoker">
-			<div class="number">
-				{{roundRes?.result?.voteNumber}}
+<div class="content" *ngIf="!isLoading">
+	<div class="container" *ngIf="roundRes.status == 'Closed'">
+		<div class="result" *ngIf="roundRes.result == 'Unique'">
+			<div class="titleOfRound">
+				Resultado único: 
 			</div>
-		</label>
-		
-	</div>
-	<div class="maxMin" *ngIf="roundRes?.max && roundRes?.min">
-		<div class="titleOfRound">
-			Resultado inconsitente: 
-		</div>
-
-		<div class="max">
-			<label class="cardPoker">
-				<div class="number">
-					{{roundRes?.max?.voteNumber}}
-				</div>
-			</label>
-			{{roundRes?.max?.voteComment}}
-		</div>
-
-		<div class="min">
-			<label class="cardPoker">
-				<div class="number">
-					{{roundRes?.min?.voteNumber}}
-				</div>
-			</label>
-			{{roundRes?.min?.voteComment}}
-		</div>
-
-		<button
 			
-			(click)="createNewRound(round.id)"
-			class="width-form-button"
-			mat-raised-button
-			color="accent"
-		>
-		Novo Round
-		</button>
-	</div>
-</div>
-
-
-<div class="container" *ngIf="roundRes?.status == 'Open'">
-	<div class="voteOfUser" *ngIf="roundRes?.voteOfUser">
-		Seu Voto:
-		{{roundRes?.voteOfUser?.voteNumber}}
-		{{roundRes?.voteOfUser?.voteComment}}
-	</div>
-
-	<div class="voteArea" *ngIf="roundRes?.voteId">
-
-		<form [formGroup]="form">
-			<div class="deck">
-				<div *ngFor="let card of cards">
-					<input
-						type="radio"
-						id="{{ card }}"
-						value="{{ card }}"
-						formControlName="voteNumber"
-					/>
-					<label for="{{ card }}" class="cardPoker">
-						<div class="number">
-							{{ card }}
-						</div>
-					</label>
+			<label class="cardPoker">
+				<div class="number">
+					{{roundRes.max?.voteNumber}}
 				</div>
+			</label>
+			
+		</div>
+		<div class="maxMin" *ngIf="roundRes.result == 'NotUnique'">
+			<div class="titleOfRound">
+				Resultado inconsistente: 
 			</div>
-
-			<div class="comments">
-				<textarea
-					placeholder="Comente aqui"
-					formControlName="voteComment"
-				></textarea>
+	
+			<div class="max">
+				<label class="cardPoker">
+					<div class="number">
+						{{roundRes.max?.voteNumber}}
+					</div>
+				</label>
+				<textarea readonly>{{roundRes.max?.voteComment}}</textarea>
 			</div>
-
+	
+			<div class="min">
+				<textarea readonly>{{roundRes.min?.voteComment}}</textarea>
+				<label class="cardPoker">
+					<div class="number">
+						{{roundRes.min?.voteNumber}}
+					</div>
+				</label>
+			</div>
 			<button
-				(click)="onSubmit(roundRes?.voteId)"
-				class="width-form-button"
+				*ngIf="(!roundRes.nextRoundCreate) && roundRes.isPokerOwner"
+				class="newRoundButton"
+				(click)="createNewRound(round.id)"
 				mat-raised-button
 				color="accent"
 			>
-				Votar
+			Novo Round
 			</button>
-		</form>
+		</div>
 	</div>
-</div> 
+	
+	
+	<div class="container" *ngIf="roundRes?.status == 'Open'">
+		<div class="voteOfUser" *ngIf="roundRes.voteUser?.voteNumber">
+			<div class="titleOfRound">
+				Seu Voto: 
+			</div>
+			<div class="voteUserArea">
+				<label class="cardPoker">
+					<div class="number">
+						{{roundRes.voteUser?.voteNumber}}
+					</div>
+				</label>
+				<textarea readonly>{{roundRes.voteUser?.voteComment}}</textarea>
+			</div>
+		</div>
+	
+		<div class="voteArea" *ngIf="!roundRes.voteUser?.voteNumber">
+	
+			<form [formGroup]="form">
+				<div class="deck">
+					<div *ngFor="let card of cards">
+						<input
+							type="radio"
+							id="{{ card }}"
+							value="{{ card }}"
+							formControlName="voteNumber"
+						/>
+						<label for="{{ card }}" class="cardPoker">
+							<div class="number">
+								{{ card }}
+							</div>
+						</label>
+					</div>
+				</div>
+	
+				<div class="comments">
+					<textarea
+						placeholder="Comente aqui"
+						formControlName="voteComment"
+					></textarea>
+				</div>
+	
+				<button
+					(click)="onSubmit(roundRes.voteId)"
+					class="width-form-button"
+					mat-raised-button
+					color="accent"
+				>
+					Votar
+				</button>
+			</form>
+		</div>
+	</div> 
+</div>

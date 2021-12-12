@@ -11,6 +11,7 @@ import { UserService } from "src/app/core/services/user/user.service"
 import { ConfirmDeleteComponent } from "../confirm-delete/confirm-delete.component"
 import { ConfirmUpdateComponent } from "../confirm-update/confirm-update.component"
 
+
 @Component({
 	selector: "poker-item",
 	templateUrl: "./poker-item.component.html",

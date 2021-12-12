@@ -1,14 +1,15 @@
 export interface GetRoundResult{
-    status: 'Open' | 'Closed'
-    result?: Vote
-    max?: Vote 
-    min?: Vote
-    voteId ?: string
-    voteOfUser?: Vote
-    nextRoundCreate?: boolean
+    isPokerOwner: boolean,
+    status: "Open" | "Closed",
+    voteUser: Vote,
+    voteId: string
+    result: "Unique" | "NotUnique" | "NotDefined"
+    max: Vote | null
+    min: Vote | null           
+    nextRoundCreate: boolean
 }
 
-export interface ResponseRound {
+export interface IResponseGetRoundById {
 	id: string
 	roundNumber: number
 	status: "Open" | "Closed"
@@ -18,6 +19,6 @@ export interface ResponseRound {
 }
 
 export interface Vote {
-    voteNumber: number,
+    voteNumber: number | null,
     voteComment: string
 }

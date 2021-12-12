@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { GetRoundResult, ResponseRound } from '../../interfaces/round/round';
+import { GetRoundResult, IResponseGetRoundById } from '../../interfaces/round/round';
 import { BaseService } from '../base.service';
 
 @Injectable({
@@ -17,7 +17,7 @@ export class RoundService extends BaseService<any>{
 		return this.httpClient.get<any>(`${this.baseUrl}/${id}`, this.httpOptions)
 	}
 
-  createNextRound(id: string): Observable<ResponseRound> {
+  createNextRound(id: string): Observable<IResponseGetRoundById> {
 		return this.httpClient.post<any>(`${this.baseUrl}/${id}/next`, this.httpOptions)
 	}
 }

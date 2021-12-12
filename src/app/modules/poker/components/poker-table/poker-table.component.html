@@ -11,9 +11,6 @@
 		</button>
 	</header>
 
-	<mat-progress-bar *ngIf="isLoading" color="accent" mode="indeterminate">
-	</mat-progress-bar>
-
 	<div class="load" *ngIf="!isLoading">
 		<mat-accordion class="table" multi *ngFor="let poker of pokerList">
 			<poker-item

@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing"
 import { FormBuilder, FormsModule, ReactiveFormsModule } from "@angular/forms"
+import { NotifierModule } from "angular-notifier"
 import { GameModule } from "../game.module"
 
 import { StoryVoteComponent } from "./story-vote.component"
@@ -11,7 +12,7 @@ describe("StoryVoteComponent", () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			declarations: [StoryVoteComponent],
-			imports: [ GameModule ]
+			imports: [ GameModule, NotifierModule ]
 		}).compileComponents()
 	})
 
@@ -26,7 +27,6 @@ describe("StoryVoteComponent", () => {
 			createdAt: "string",
 			updatedAt: "string",
 			idStory: "string",
-			allPokerUsers: [{votes: {vote: 1, comment: "test"}}]
 		}
 		fixture.detectChanges()
 	})

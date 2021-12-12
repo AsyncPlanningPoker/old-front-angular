@@ -1,9 +1,8 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { NotifierModule, NotifierService } from 'angular-notifier';
 
 import { GameComponent } from './game.component';
 import { GameModule } from './game.module';
@@ -15,7 +14,7 @@ describe('GameComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ GameComponent ],
-      imports: [ GameModule, RouterTestingModule, NotifierModule, BrowserAnimationsModule ],
+      imports: [ GameModule, RouterTestingModule, BrowserAnimationsModule ],
       providers: [
 				{	provide: ActivatedRoute,
 					useValue: {
@@ -48,4 +47,5 @@ describe('GameComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

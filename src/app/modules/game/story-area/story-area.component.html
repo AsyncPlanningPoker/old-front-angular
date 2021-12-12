@@ -5,18 +5,12 @@
 		<mat-card-content>
 			<p>{{ story.description }}</p>
 		</mat-card-content>
-		<mat-card-footer>
-			<mat-progress-bar
-				*ngIf="isLoading"
-				mode="indeterminate"
-			></mat-progress-bar>
-		</mat-card-footer>
 	</mat-card>
 
-	<mat-tab-group mat-align-tabs="start">
+	<mat-tab-group mat-align-tabs="start" [selectedIndex]="allRounds?.length">
 		<div class="getRound" *ngFor="let round of allRounds">
 			<mat-tab label="Round {{ round.roundNumber }}">
-				<app-vote [round]="round" ></app-vote>
+				<app-vote [round]="round" (updateAllRounds)="updateAllRounds()"></app-vote>
 			</mat-tab>
 		</div>
 	</mat-tab-group>

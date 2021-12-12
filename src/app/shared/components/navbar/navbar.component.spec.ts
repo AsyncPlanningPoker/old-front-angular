@@ -14,7 +14,9 @@ describe(NavbarComponent.name, () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			declarations: [ NavbarComponent ],
-			imports: [ NavbarModule, RouterTestingModule, StoreModule.forRoot({}) ]
+			imports: [ NavbarModule, RouterTestingModule.withRoutes(
+				[{path: 'login', redirectTo: ''}]
+			), StoreModule.forRoot({}) ]
 		}).compileComponents()
 	})
 
@@ -74,9 +76,9 @@ describe(NavbarComponent.name, () => {
 	it(`${NavbarComponent.prototype.logOut.name} should navigate to 'login'`, () => {
 		const router = TestBed.inject(Router)
 		spyOn(router, "navigate")
-
+		//localStorage.setItem("token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdGUiLCJlbWFpbCI6InRlc3RlQHRlc3RlLmNvbSIsInVzZXJJZCI6ImNjNGZhM2JlLTg0NzAtNGUzOS05ZDZhLTMxZTdlZjE1MTIwMiIsImlhdCI6MTYzODY3Mzg4Mn0.RVZtwUZblf_O50JQk79UsUo874BDQCxKuGUGOvqRdlQ")
 		component.logOut()
-
+	
 		expect(router.navigate).toHaveBeenCalledWith(["login"])
 	})
 })
